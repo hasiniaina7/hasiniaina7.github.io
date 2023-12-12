@@ -26,6 +26,9 @@ devDependencies:
   svelte:
     specifier: ^4.2.3
     version: 4.2.8
+  svelte-awesome-icons:
+    specifier: ^0.6.6
+    version: 0.6.6(svelte@4.2.8)
   tailwindcss:
     specifier: ^3.3.2
     version: 3.3.6
@@ -1145,6 +1148,14 @@ packages:
   /supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+    dev: true
+
+  /svelte-awesome-icons@0.6.6(svelte@4.2.8):
+    resolution: {integrity: sha512-pTmLfcxUPpMjenGoPA2YuRFu+RS71symV45s96bNMYLmxjx8L44HhHPW7Wrw7xVay7FVMPSsw7UgIjio8njhEA==}
+    peerDependencies:
+      svelte: ^3.54.0 || ^4.0.0
+    dependencies:
+      svelte: 4.2.8
     dev: true
 
   /svelte-hmr@0.15.3(svelte@4.2.8):
