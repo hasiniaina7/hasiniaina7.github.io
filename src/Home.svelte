@@ -2,11 +2,12 @@
     import { Span, Button, GradientButton, P, Heading } from "flowbite-svelte";
     import { GithubBrand, LinkedinBrand } from "svelte-awesome-icons";
     import Rating from "./Rating.svelte";
+    import Contacter from "./lib/Contacter.svelte";
 </script>
 
 <main>
     <section class="column:2 montserrat home">
-        <div class=" text-center">
+        <div class="h-screen home-text text-center">
             <p class="text-7xl dark:text-white tangerine">
                 Hello, My Name is <Span underline>Hasina</Span>
             </p>
@@ -25,6 +26,13 @@
                     </Heading></P
                 >
             </div>
+            <div class="dark:text-white py-5">
+                Je réponds aux problématiques digitales en mettant l’humain au
+                coeur de mes réflexions ! Également diplômée en Gestion &
+                Marketing, j'utilise ces compétences pour valoriser les
+                objectifs business de mes clients
+            </div>
+            <Contacter />
         </div>
         <div class="pdp-img mt-4">
             <img class="" alt="Hasina" src="src\assets\pdp.png" />

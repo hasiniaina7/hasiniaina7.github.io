@@ -37,11 +37,11 @@
         Learning</GradientButton
     >
 </div>
-<section class="rating-learning-div">
+<section class="h-screen rating-learning-div">
     {#if ratingIsVisible}
         <!-- content here -->
-        <div class="rating-div border-4 text-black dark:text-white">
-            <div class="border-4 rating-items mt-4">
+        <div class="rating-div text-black dark:text-white">
+            <div class=" rating-items mt-4">
                 <div class="rating-wrapper">
                     <span><Html5Brand size={logoSize} /></span>
                     <Rating
@@ -92,8 +92,8 @@
     {/if}
     <!-- Learning content here -->
     {#if learningIsVisible}
-        <div class="learning-div border-4 flex flex-col items-center">
-            <div class=" mt-4 border-4 w-full max-w-md rating-items">
+        <div class="learning-div flex flex-col items-center">
+            <div class=" mt-4 w-full max-w-md rating-items">
                 <AdvancedRating
                     ratingDivClass="advanced-rating mx-4 w-3/5 h-5 bg-gray-200 rounded dark:bg-gray-700"
                     ratings={[
