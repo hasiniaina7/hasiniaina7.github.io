@@ -1,4 +1,4 @@
-<footer class="bg-gray-800 text-white py-5 text-center">
+<footer class="bg-gray-800 text-white py-5 mt-8 text-center">
     <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="mb-4 md:mb-0">
@@ -43,7 +43,7 @@
             </div>
         </div>
     </div>
-    <div class="mt-4">
-        <p>&copy; 2023 Your Hasiniaina. All rights reserved.</p>
+    <div class="mt-8">
+        <p>Hasiniaina &copy; 2023 . All rights reserved.</p>
     </div>
 </footer>

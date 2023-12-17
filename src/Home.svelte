@@ -1,7 +1,6 @@
 <script>
     import { Span, Button, GradientButton, P, Heading } from "flowbite-svelte";
     import { GithubBrand, LinkedinBrand } from "svelte-awesome-icons";
-    import Rating from "./Rating.svelte";
     import Contacter from "./lib/Contacter.svelte";
     import { onMount } from "svelte";
     import { fade } from "svelte/transition";
@@ -13,7 +12,9 @@
 
 <main>
     <section class="column:2 montserrat home">
-        <div class="h-screen home-text text-center">
+        <div
+            class="h-screen home-text text-center flex flex-col justify-center items-center"
+        >
             {#if homeTransition}
                 <!-- content here -->
                 <p
@@ -38,45 +39,37 @@
                     </Heading></P
                 >
             </div>
-            <div class="dark:text-white py-5">
-                Je réponds aux problématiques digitales en mettant l’humain au
-                coeur de mes réflexions ! Également diplômée en Gestion &
-                Marketing, j'utilise ces compétences pour valoriser les
-                objectifs business de mes clients
+            <div class="max-w-lg dark:text-white py-5">
+                Bienvenue sur mon site web ! En tant que développeur web
+                passionné par l'univers du tourisme en ligne, je fusionne ma
+                passion pour la technologie avec une expertise en communication
+                digitale. Explorez mon portfolio pour découvrir comment
+                j'associe créativité et compétences techniques pour façonner des
+                expériences en ligne uniques dans le domaine du tourisme.
             </div>
             <Contacter />
         </div>
-        <div class="pdp-img mt-4">
-            <img class="" alt="Hasina" src="src\assets\pdp.png" />
-        </div>
     </section>
-    <section class="montserrat">
-        <div class="skills flex text-center">
-            <Heading class="tangerine">Skills</Heading>
-            <P>Auto-evaluation</P>
-        </div>
-        <Rating />
-    </section>
+    <div class="pdp-img">
+        <img class="rounded-full" alt="Hasina" src="/src/assets/pdp.jpg" />
+    </div>
 </main>
 
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Tangerine:wght@700&display=swap");
-    main {
+    /* main {
         width: 100%;
         height: 100%;
-    }
+    } */
     .tangerine {
         font-family: "Tangerine", cursive;
     }
     .montserrat {
         font-family: "montserrat", sans-serif;
     }
-    /* .pdp {
-        border-radius: 200px;
-        width: 80%;
-    } */
-    .skills {
-        flex-direction: column;
-        align-items: center;
+    .pdp-img {
+        max-width: 512px;
+        margin: 0 auto;
+        display: block;
     }
 </style>
