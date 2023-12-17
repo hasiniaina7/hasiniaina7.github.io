@@ -2,7 +2,7 @@
     import Contacter from "./lib/Contacter.svelte";
 </script>
 
-<div class="h-screen flex flex-col items-center pt-12 text-center montserrat">
+<div class=" h-screen flex flex-col items-center pt-12 text-center montserrat">
     <h1 class="font-semibold text-5xl leading-tight tangerine">
         Devenir <span class="text-blue-500">Journaliste Informatique</span><br
         />

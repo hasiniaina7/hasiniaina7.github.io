@@ -3,14 +3,26 @@
     import { GithubBrand, LinkedinBrand } from "svelte-awesome-icons";
     import Rating from "./Rating.svelte";
     import Contacter from "./lib/Contacter.svelte";
+    import { onMount } from "svelte";
+    import { fade } from "svelte/transition";
+    let homeTransition = false;
+    onMount(() => {
+        homeTransition = true;
+    });
 </script>
 
 <main>
     <section class="column:2 montserrat home">
         <div class="h-screen home-text text-center">
-            <p class="text-7xl dark:text-white tangerine">
-                Hello, My Name is <Span underline>Hasina</Span>
-            </p>
+            {#if homeTransition}
+                <!-- content here -->
+                <p
+                    transition:fade={{ delay: 500, duration: 1000 }}
+                    class="text-7xl dark:text-white tangerine"
+                >
+                    Hello, My Name is <Span underline>Hasina</Span>
+                </p>
+            {/if}
             <GradientButton color="cyan"
                 ><GithubBrand />
                 <span class="pl-2">Join me on GitHub</span></GradientButton

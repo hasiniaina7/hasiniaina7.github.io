@@ -29,6 +29,12 @@ devDependencies:
   svelte-awesome-icons:
     specifier: ^0.6.6
     version: 0.6.6(svelte@4.2.8)
+  svelte-intersection-observer:
+    specifier: ^0.10.1
+    version: 0.10.1
+  svelte-typewriter:
+    specifier: ^3.2.2
+    version: 3.2.2(svelte@4.2.8)
   tailwindcss:
     specifier: ^3.3.2
     version: 3.3.6
@@ -1163,6 +1169,18 @@ packages:
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
     peerDependencies:
       svelte: ^3.19.0 || ^4.0.0
+    dependencies:
+      svelte: 4.2.8
+    dev: true
+
+  /svelte-intersection-observer@0.10.1:
+    resolution: {integrity: sha512-hvWZwd0S8t0osA0ChJ4uJDsLvZlULyE3roDEc8mWyeiLT9y25NKT/CKfncsDyS7EGq3B9zb4ZxsH2uNaaXWP4A==}
+    dev: true
+
+  /svelte-typewriter@3.2.2(svelte@4.2.8):
+    resolution: {integrity: sha512-JpJCLuL3fjw5R6jR5YQPQERXtxh65fFXBodW1ipde56wspiknteFiNMn+P0T5hhiU561a6DHXhN5ipsFKIB9hg==}
+    peerDependencies:
+      svelte: '>=3.47.x'
     dependencies:
       svelte: 4.2.8
     dev: true

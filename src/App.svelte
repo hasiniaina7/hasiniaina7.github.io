@@ -5,6 +5,7 @@
     import Photographie from "./Photographie.svelte";
     import Communication from "./Communication.svelte";
     import Domaines from "./Domaines.svelte";
+    import Footer from "./Footer.svelte";
 </script>
 
 <Nav />
@@ -13,6 +14,7 @@
 <Photographie />
 <Communication />
 <Domaines />
+<Footer />
 
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Tangerine:wght@700&display=swap");
