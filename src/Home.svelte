@@ -21,7 +21,7 @@
                     transition:fade={{ delay: 500, duration: 1000 }}
                     class="text-7xl dark:text-white tangerine"
                 >
-                    Hello, My Name is <Span underline>Hasina</Span>
+                    Hello, My Name is <Span underline>Not Important</Span>
                 </p>
             {/if}
             <GradientButton color="cyan"
