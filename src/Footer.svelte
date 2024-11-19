@@ -44,6 +44,6 @@
         </div>
     </div>
     <div class="mt-8">
-        <p>Hasiniaina &copy; 2023 . All rights reserved.</p>
+        <p>Hasiniaina &copy; 2021 . All rights reserved.</p>
     </div>
 </footer>
