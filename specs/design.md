@@ -2,37 +2,50 @@
 
 ## Design Direction
 
-Reference direction: refined editorial B2B with operational diagrams.
+Reference direction: light agentic workflow blueprint for reliable B2B operations.
 
-The site must feel like a senior technical portfolio for business systems, not a generic developer landing page. The memorable element is the combination of editorial headlines and system diagrams that explain real operational flows.
+The site must feel like a senior technical portfolio for business systems, not a generic developer landing page. The memorable element is a clear operational architecture blueprint: application flows, queues, payment traceability, AI handoff, human validation and observability.
 
 ## Visual Principles
 
 - Clear before decorative.
-- Diagram every important claim.
+- Diagram every important claim as an operational system, not as decoration.
 - Use cards for bounded proof blocks, not for every section.
 - Keep density high enough for B2B credibility.
 - Use whitespace and thin borders to avoid heavy dashboard aesthetics.
 - Accent colors must encode flow types, not random decoration.
+- The Africa-Europe-Madagascar map remains required, but it is secondary to the system blueprint identity.
 
 ## Color Tokens
 
 ```css
 :root {
-  --color-page: #fbfdff;
+  --color-page: #f8fafc;
   --color-surface: #ffffff;
-  --color-surface-soft: #f6f9ff;
-  --color-text: #061c4f;
-  --color-text-muted: #39527d;
-  --color-line: #c8d6ee;
-  --color-line-strong: #8faee0;
-  --color-blue: #0b63ff;
-  --color-blue-dark: #072a73;
-  --color-green: #04966f;
-  --color-orange: #ff5a1f;
-  --color-violet: #6d4edb;
-  --color-danger: #c2410c;
-  --color-focus: #0b63ff;
+  --color-surface-soft: #f1f5f9;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-line: rgba(226, 232, 240, 0.8);
+  --color-line-strong: #cbd5e1;
+  --color-blue: #2563eb;
+  --color-blue-dark: #1e3a8a;
+  --color-green: #059669;
+  --color-orange: #ea580c;
+  --color-violet: #7c3aed;
+  --color-danger: #dc2626;
+  --color-focus: #2563eb;
+
+  /* Semi-transparent accents for modern UI elements */
+  --color-blue-soft: rgba(37, 99, 235, 0.05);
+  --color-blue-border: rgba(37, 99, 235, 0.2);
+  --color-green-soft: rgba(5, 150, 105, 0.05);
+  --color-green-border: rgba(5, 150, 105, 0.2);
+  --color-orange-soft: rgba(234, 88, 12, 0.05);
+  --color-orange-border: rgba(234, 88, 12, 0.2);
+  --color-violet-soft: rgba(124, 58, 237, 0.05);
+  --color-violet-border: rgba(124, 58, 237, 0.2);
+  --color-navy-soft: rgba(15, 23, 42, 0.05);
+  --color-navy-border: rgba(15, 23, 42, 0.2);
 }
 ```
 
@@ -108,7 +121,7 @@ Rules:
 
 ### Header
 
-- Left: `HCL` monogram + full name.
+- Left: typographic branding (full name and role, no monogram box).
 - Center/right: Accueil, Parcours, Projets, Compétences, Contact.
 - CTA: `Échanger` with arrow icon.
 - Active item: blue underline.
@@ -148,8 +161,9 @@ Rules:
 ### Accueil
 
 - Left editorial hero.
-- Right Africa-Europe-Madagascar operational map.
-- Four horizontal proof pillars below the map/hero.
+- Right operational system blueprint with field teams, apps, API, database, payment gateway, queue worker, AI assistant, human validation and monitoring.
+- Proof modules below the hero show offline sync, multi-tenant operations, payment traceability, controlled AI and monitoring.
+- Africa-Europe-Madagascar operational map appears as a secondary required diagram.
 - Project cards below.
 - Operating principles strip near the end.
 
@@ -198,3 +212,4 @@ Rules:
 - Too many flow lines can become visual noise on mobile.
 - Fake contact form would damage trust.
 - Using generic dashboard UI would weaken the premium editorial feel.
+- Dark cyberpunk, neon overload, code-wall backgrounds and generic AI claims would weaken the B2B operational positioning.

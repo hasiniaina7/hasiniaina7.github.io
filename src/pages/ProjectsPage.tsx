@@ -6,7 +6,7 @@ import { pageCopy } from '@/data/portfolioData';
 export function ProjectsPage() {
   return (
     <div className="page">
-      <section className="page-hero">
+      <section className="page-hero page-hero--blueprint">
         <SectionHeading as="h1" eyebrow={pageCopy.projets.eyebrow} title="Projets" summary={pageCopy.projets.intro} />
       </section>
 

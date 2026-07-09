@@ -16,7 +16,7 @@ export function FlowDiagram({ nodes, label }: FlowDiagramProps) {
           {node.description ? <span>{node.description}</span> : null}
           {index < nodes.length - 1 ? (
             <span className="flow-diagram__arrow" aria-hidden="true">
-              →
+              ↓
             </span>
           ) : null}
         </div>

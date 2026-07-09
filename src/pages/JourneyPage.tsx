@@ -5,7 +5,7 @@ import { SectionHeading } from '@/components/SectionHeading';
 export function JourneyPage() {
   return (
     <div className="page">
-      <section className="page-hero page-hero--split">
+      <section className="page-hero page-hero--split page-hero--blueprint">
         <SectionHeading as="h1" eyebrow={pageCopy.parcours.eyebrow} title="Parcours" summary={pageCopy.parcours.intro} />
         <JourneyProgression />
       </section>

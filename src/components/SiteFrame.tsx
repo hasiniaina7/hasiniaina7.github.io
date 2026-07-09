@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { profile, navigation } from '@/data/portfolioData';
 import { Seo } from './Seo';
+import { ScrollManager } from './ScrollManager';
 
 const baseUrl = 'https://hasiniaina7.github.io';
 
@@ -22,9 +23,6 @@ export function SiteFrame() {
       <header className="site-header">
         <div className="site-header__inner">
           <NavLink className="brand" to="/" aria-label={`${profile.fullName}, accueil`}>
-            <span className="brand__mark" aria-hidden="true">
-              {profile.initials}
-            </span>
             <span className="brand__text">
               <strong>{profile.fullName}</strong>
               <span>{profile.role}</span>
@@ -55,9 +53,6 @@ export function SiteFrame() {
       <footer className="site-footer">
         <div className="site-footer__inner">
           <div className="site-footer__brand">
-            <span className="brand__mark" aria-hidden="true">
-              {profile.initials}
-            </span>
             <div>
               <p className="site-footer__kicker">Systèmes fiables, interfaces lisibles, données traçables.</p>
               <p>
@@ -65,6 +60,9 @@ export function SiteFrame() {
               </p>
             </div>
           </div>
+          <NavLink className="site-footer__cta" to="/contact">
+            Cadrer un système <span aria-hidden="true">→</span>
+          </NavLink>
           <div className="site-footer__columns" aria-label="Liens de pied de page">
             <div className="site-footer__group">
               <p>Navigation</p>
@@ -80,7 +78,7 @@ export function SiteFrame() {
               <p>Canaux</p>
               <div className="site-footer__links">
                 {footerLinks.map((link) => (
-                  <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                  <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer">
                     {link.label}
                   </a>
                 ))}
@@ -90,6 +88,7 @@ export function SiteFrame() {
           </div>
         </div>
       </footer>
+      <ScrollManager />
       <Seo baseUrl={baseUrl} />
     </div>
   );

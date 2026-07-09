@@ -5,7 +5,7 @@ import { SectionHeading } from '@/components/SectionHeading';
 export function ContactPage() {
   return (
     <div className="page">
-      <section className="page-hero page-hero--contact">
+      <section className="page-hero page-hero--contact page-hero--blueprint">
         <SectionHeading as="h1" eyebrow={pageCopy.contact.eyebrow} title="Contact" summary={pageCopy.contact.intro} />
         <div className="contact-summary">
           <p>{profile.location}</p>
@@ -25,7 +25,7 @@ export function ContactPage() {
                   className="contact-link"
                   href={link.href}
                   target={link.kind === 'email' ? undefined : '_blank'}
-                  rel={link.kind === 'email' ? undefined : 'noreferrer'}
+                  rel={link.kind === 'email' ? undefined : 'noopener noreferrer'}
                 >
                   <span>{link.label}</span>
                   <span>{link.href}</span>

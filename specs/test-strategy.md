@@ -41,6 +41,7 @@ Pass criteria:
 - Diagrams visible and not blank.
 - CTA visible.
 - Footer visible.
+- Blueprint flow lines and status modules remain readable without relying on animation.
 
 ### 3. Responsive Regression
 
@@ -58,6 +59,7 @@ Pass criteria:
 - Cards keep stable dimensions.
 - Buttons do not resize unpredictably.
 - Long French words do not escape containers.
+- Header and footer are captured on every route at desktop, tablet and mobile sizes.
 
 ### 4. Accessibility Smoke
 
@@ -142,6 +144,12 @@ After the first approved implementation:
 - Store baseline screenshots under `artifacts/screenshots/baseline/`.
 - Store later screenshots under `artifacts/screenshots/current/`.
 - Compare manually first; add automated visual diff only if design churn becomes frequent.
+
+Required current screenshots for a design candidate:
+
+- Full-page screenshots for `/`, `/parcours`, `/projets`, `/competences`, `/contact`.
+- Focused screenshots for header, home hero blueprint, contact composer and footer.
+- Viewports: 1440 x 1200, 1280 x 900, 768 x 1024 and 390 x 844.
 
 ## Stop Rules
 

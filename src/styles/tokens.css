@@ -1,18 +1,30 @@
 :root {
-  --color-page: #fbfdff;
+  --color-page: #f8fafc;
   --color-surface: #ffffff;
-  --color-surface-soft: #f6f9ff;
-  --color-text: #061c4f;
-  --color-text-muted: #39527d;
-  --color-line: #c8d6ee;
-  --color-line-strong: #8faee0;
-  --color-blue: #0b63ff;
-  --color-blue-dark: #072a73;
-  --color-green: #04966f;
-  --color-orange: #ff5a1f;
-  --color-violet: #6d4edb;
-  --color-danger: #c2410c;
-  --color-focus: #0b63ff;
+  --color-surface-soft: #f1f5f9;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-line: rgba(226, 232, 240, 0.8);
+  --color-line-strong: #cbd5e1;
+  --color-blue: #2563eb;
+  --color-blue-dark: #1e3a8a;
+  --color-green: #059669;
+  --color-orange: #ea580c;
+  --color-violet: #7c3aed;
+  --color-danger: #dc2626;
+  --color-focus: #2563eb;
+
+  /* Semi-transparent accents for modern UI elements */
+  --color-blue-soft: rgba(37, 99, 235, 0.05);
+  --color-blue-border: rgba(37, 99, 235, 0.2);
+  --color-green-soft: rgba(5, 150, 105, 0.05);
+  --color-green-border: rgba(5, 150, 105, 0.2);
+  --color-orange-soft: rgba(234, 88, 12, 0.05);
+  --color-orange-border: rgba(234, 88, 12, 0.2);
+  --color-violet-soft: rgba(124, 58, 237, 0.05);
+  --color-violet-border: rgba(124, 58, 237, 0.2);
+  --color-navy-soft: rgba(15, 23, 42, 0.05);
+  --color-navy-border: rgba(15, 23, 42, 0.2);
 
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
@@ -38,7 +50,18 @@
   --space-8: 4rem;
   --radius-sm: 6px;
   --radius-md: 8px;
-  --shadow-subtle: 0 18px 50px rgba(6, 28, 79, 0.06);
+  --shadow-subtle: 0 10px 30px -10px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.02);
+  --shadow-card-hover: 0 20px 40px -15px rgba(15, 23, 42, 0.12), 0 4px 10px rgba(15, 23, 42, 0.04);
+  
+  /* Color-specific glow shadows (HSL based for high diffusion and soft saturation) */
+  --shadow-blue-glow: 0 15px 35px -10px rgba(37, 99, 235, 0.18), 0 4px 12px rgba(37, 99, 235, 0.06);
+  --shadow-green-glow: 0 15px 35px -10px rgba(5, 150, 105, 0.18), 0 4px 12px rgba(5, 150, 105, 0.06);
+  --shadow-orange-glow: 0 15px 35px -10px rgba(234, 88, 12, 0.18), 0 4px 12px rgba(234, 88, 12, 0.06);
+  --shadow-violet-glow: 0 15px 35px -10px rgba(124, 58, 237, 0.18), 0 4px 12px rgba(124, 58, 237, 0.06);
+  --shadow-navy-glow: 0 15px 35px -10px rgba(15, 23, 42, 0.18), 0 4px 12px rgba(15, 23, 42, 0.06);
+
+  /* Clean transitions with organic easing */
+  --transition-spring: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease;
+
   --max-content-width: 1220px;
 }
-

@@ -86,6 +86,35 @@ export type CollaborationMode = {
   bestFor: string[];
 };
 
+export type BlueprintStatus = 'operational' | 'processing' | 'queued' | 'review' | 'verified' | 'observing';
+
+export type BlueprintNode = {
+  id: string;
+  label: string;
+  detail: string;
+  accent: Accent;
+  status: BlueprintStatus;
+  lane: 'input' | 'application' | 'control' | 'output';
+};
+
+export type BlueprintFlow = {
+  id: string;
+  from: string;
+  to: string;
+  label: string;
+  accent: Accent;
+};
+
+export type BlueprintModule = {
+  id: string;
+  title: string;
+  summary: string;
+  accent: Accent;
+  steps: string[];
+  status: BlueprintStatus;
+  evidenceLevel: EvidenceLevel;
+};
+
 export type SeoMeta = {
   title: string;
   description: string;
@@ -114,6 +143,15 @@ export const accentLabels: Record<Accent, string> = {
   navy: 'Infrastructure',
 };
 
+export const statusLabels: Record<BlueprintStatus, string> = {
+  operational: 'Opérationnel',
+  processing: 'Traitement',
+  queued: 'En file',
+  review: 'Revue humaine',
+  verified: 'Vérifié',
+  observing: 'Observé',
+};
+
 export const profile = {
   fullName: 'Hasiniaina Christian LOVANIRINA',
   initials: 'HCL',
@@ -122,7 +160,7 @@ export const profile = {
   availability: 'Remote Afrique-Europe',
   email: 'hasiniainachristian7@gmail.com',
   hero: {
-    headline: 'Des systèmes fiables pour des opérations réelles.',
+    headline: 'Je conçois des systèmes fiables pour des opérations réelles.',
     subheadline:
       'SaaS B2B, applications terrain, paiements, IA appliquée et infrastructure: des outils conçus pour tenir quand les équipes, les données et les clients dépendent du système.',
     proofPillars: [
@@ -166,6 +204,82 @@ export const profile = {
     { label: 'Fretunia', href: 'https://fretunia.com', kind: 'product', isPublic: true },
   ] satisfies ContactLink[],
 };
+
+export const blueprintNodes: BlueprintNode[] = [
+  { id: 'field-teams', label: 'Équipes terrain', detail: 'Collecte, incidents, visites', accent: 'green', status: 'operational', lane: 'input' },
+  { id: 'web-app', label: 'Web App', detail: 'Pilotage métier', accent: 'blue', status: 'processing', lane: 'application' },
+  { id: 'mobile-app', label: 'Mobile App', detail: 'Usage offline / sync', accent: 'green', status: 'operational', lane: 'application' },
+  { id: 'api', label: 'API métier', detail: 'Règles, droits, intégrations', accent: 'blue', status: 'processing', lane: 'control' },
+  { id: 'postgresql', label: 'PostgreSQL', detail: 'Données, audit, isolation', accent: 'navy', status: 'verified', lane: 'output' },
+  { id: 'payment', label: 'Payment Gateway', detail: 'Autorisé, confirmé, rapproché', accent: 'orange', status: 'verified', lane: 'input' },
+  { id: 'queue', label: 'Queue Worker', detail: 'Priorités, reprise, lots', accent: 'violet', status: 'queued', lane: 'control' },
+  { id: 'ai', label: 'AI Assistant', detail: 'RAG, prompts, seuils', accent: 'orange', status: 'processing', lane: 'control' },
+  { id: 'human', label: 'Human Validation', detail: 'Décision si risque', accent: 'violet', status: 'review', lane: 'output' },
+  { id: 'approved', label: 'Approved', detail: 'Action auditée', accent: 'green', status: 'verified', lane: 'output' },
+  { id: 'monitoring', label: 'Monitoring', detail: 'Logs, métriques, traces, alertes', accent: 'blue', status: 'observing', lane: 'application' },
+];
+
+export const blueprintFlows: BlueprintFlow[] = [
+  { id: 'field-web', from: 'Équipes terrain', to: 'Web App', label: 'Données terrain', accent: 'green' },
+  { id: 'field-mobile', from: 'Équipes terrain', to: 'Mobile App', label: 'Capture offline', accent: 'green' },
+  { id: 'web-api', from: 'Web App', to: 'API métier', label: 'Flux applicatif', accent: 'blue' },
+  { id: 'mobile-api', from: 'Mobile App', to: 'API métier', label: 'Synchronisation', accent: 'blue' },
+  { id: 'payment-api', from: 'Payment Gateway', to: 'API métier', label: 'Paiement', accent: 'orange' },
+  { id: 'api-db', from: 'API métier', to: 'PostgreSQL', label: 'Écriture auditée', accent: 'navy' },
+  { id: 'api-queue', from: 'API métier', to: 'Queue Worker', label: 'Tâches', accent: 'violet' },
+  { id: 'queue-ai', from: 'Queue Worker', to: 'AI Assistant', label: 'Assistance', accent: 'orange' },
+  { id: 'ai-human', from: 'AI Assistant', to: 'Human Validation', label: 'Handoff', accent: 'violet' },
+  { id: 'human-approved', from: 'Human Validation', to: 'Approved', label: 'Validation', accent: 'green' },
+  { id: 'monitoring-loop', from: 'Monitoring', to: 'API métier', label: 'Observabilité', accent: 'blue' },
+];
+
+export const blueprintModules: BlueprintModule[] = [
+  {
+    id: 'offline-sync',
+    title: 'Offline Mobile Field App Synchronization',
+    summary: 'Capturer localement, détecter la reconnexion et synchroniser sans perdre la trace.',
+    accent: 'green',
+    steps: ['Capture offline', 'File locale', 'Reconnect detected', 'Sync serveur'],
+    status: 'operational',
+    evidenceLevel: 'derived-from-cv',
+  },
+  {
+    id: 'multi-tenant-admin',
+    title: 'SaaS Multi-Tenant Admin',
+    summary: 'Isoler les tenants, router les droits et garder une administration contrôlée.',
+    accent: 'blue',
+    steps: ['Request', 'Tenant routing', 'Role access', 'Admin control'],
+    status: 'verified',
+    evidenceLevel: 'derived-from-cv',
+  },
+  {
+    id: 'payment-traceability',
+    title: 'Payment Traceability',
+    summary: 'Rendre chaque paiement lisible depuis la capture jusqu’à l’audit.',
+    accent: 'orange',
+    steps: ['Payment captured', 'Gateway confirmed', 'Ledger matched', 'Audit recorded'],
+    status: 'verified',
+    evidenceLevel: 'cv-confirmed',
+  },
+  {
+    id: 'ai-human-control',
+    title: 'AI Assistant with Human Control',
+    summary: 'Accélérer les réponses tout en gardant une revue humaine pour les cas sensibles.',
+    accent: 'violet',
+    steps: ['AI suggestion', 'Human review', 'Approve / edit', 'Apply with audit'],
+    status: 'review',
+    evidenceLevel: 'cv-confirmed',
+  },
+  {
+    id: 'monitoring',
+    title: 'Infrastructure Monitoring',
+    summary: 'Lire les signaux utiles pour diagnostiquer plus vite et maintenir le service.',
+    accent: 'navy',
+    steps: ['Logs', 'Metrics', 'Traces', 'Alerts'],
+    status: 'observing',
+    evidenceLevel: 'cv-confirmed',
+  },
+];
 
 export const navigation = [
   { path: '/', label: 'Accueil' },

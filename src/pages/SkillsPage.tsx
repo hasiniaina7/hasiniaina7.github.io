@@ -5,7 +5,7 @@ import { SkillsMatrix } from '@/components/SkillsMatrix';
 export function SkillsPage() {
   return (
     <div className="page">
-      <section className="page-hero">
+      <section className="page-hero page-hero--blueprint">
         <SectionHeading as="h1" eyebrow={pageCopy.competences.eyebrow} title="Compétences" summary={pageCopy.competences.intro} />
       </section>
 
