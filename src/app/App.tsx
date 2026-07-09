@@ -4,6 +4,7 @@ import { HomePage } from '@/pages/HomePage';
 import { JourneyPage } from '@/pages/JourneyPage';
 import { ProjectsPage } from '@/pages/ProjectsPage';
 import { SkillsPage } from '@/pages/SkillsPage';
+import { MethodPage } from '@/pages/MethodPage';
 import { ContactPage } from '@/pages/ContactPage';
 
 export function App() {
@@ -14,10 +15,10 @@ export function App() {
         <Route path="/parcours" element={<JourneyPage />} />
         <Route path="/projets" element={<ProjectsPage />} />
         <Route path="/competences" element={<SkillsPage />} />
+        <Route path="/methode" element={<MethodPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
   );
 }
-

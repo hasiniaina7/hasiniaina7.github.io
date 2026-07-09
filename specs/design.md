@@ -1,15 +1,16 @@
-# Design System - Portfolio B2B
+# Design System - Portfolio Recruteur
 
 ## Design Direction
 
-Reference direction: light agentic workflow blueprint for reliable B2B operations.
+Reference direction: recruiter-readable senior engineering portfolio.
 
-The site must feel like a senior technical portfolio for business systems, not a generic developer landing page. The memorable element is a clear operational architecture blueprint: application flows, queues, payment traceability, AI handoff, human validation and observability.
+The site must help recruiters quickly identify the target role, seniority, stack coverage, project evidence and working method. Architecture diagrams remain useful, but they are secondary to a clear recruiting narrative.
 
 ## Visual Principles
 
 - Clear before decorative.
-- Diagram every important claim as an operational system, not as decoration.
+- Make every important claim scannable for recruiters.
+- Use diagrams as proof, not as the primary first impression.
 - Use cards for bounded proof blocks, not for every section.
 - Keep density high enough for B2B credibility.
 - Use whitespace and thin borders to avoid heavy dashboard aesthetics.
@@ -160,12 +161,12 @@ Rules:
 
 ### Accueil
 
-- Left editorial hero.
-- Right operational system blueprint with field teams, apps, API, database, payment gateway, queue worker, AI assistant, human validation and monitoring.
-- Proof modules below the hero show offline sync, multi-tenant operations, payment traceability, controlled AI and monitoring.
+- Hero states Senior Full-Stack Engineer with backend, frontend, mobile and applied AI.
+- First screen shows role, seniority, core stack, location and contact actions.
+- Proof modules below the hero show what the candidate brings to a team.
 - Africa-Europe-Madagascar operational map appears as a secondary required diagram.
 - Project cards below.
-- Operating principles strip near the end.
+- Specs-driven / AI-agent working method appears before or near project proof.
 
 ### Parcours
 
@@ -177,18 +178,26 @@ Rules:
 ### Projets
 
 - Stacked wide project cards.
-- Each card has three columns:
-  - Context/problem.
-  - Flow diagram.
-  - Stack/result.
+- Each card must read as a short recruiter case study:
+  - context;
+  - role;
+  - stack;
+  - built scope;
+  - technical complexity;
+  - public proof;
+  - private proof available in interview.
 
 ### Compétences
 
-- Three-column capability matrix:
-  - real use cases.
-  - skill groups.
-  - business impacts.
-- Flow arrows connect use cases to skill groups and impacts.
+- Recruiter-readable skill evidence cards.
+- Each card shows stack, projects, proof, usage level and interview talking point.
+- Categories: backend, frontend, mobile, data/security, applied AI and delivery.
+
+### Méthode
+
+- Dedicated route or prominent section.
+- Explains specs-driven development with AI agents.
+- Shows workflow steps and quality gates without presenting AI as a replacement for engineering responsibility.
 
 ### Contact
 

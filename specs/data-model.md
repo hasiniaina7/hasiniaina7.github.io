@@ -48,6 +48,11 @@ export type Project = {
   domain: string;
   context: string;
   problem: string;
+  role: string;
+  built: string[];
+  technicalComplexity: string[];
+  publicProofLinks: ContactLink[];
+  privateProofNote: string;
   solutionFlow: FlowNode[];
   stack: string[];
   operationalResult: string;
@@ -91,6 +96,31 @@ export type SkillGroup = {
   useCases: string[];
   impacts: string[];
   evidenceLevel: EvidenceLevel;
+};
+
+export type RecruiterValue = {
+  title: string;
+  summary: string;
+  proofProjectIds: string[];
+  keywords: string[];
+};
+
+export type SkillEvidence = {
+  category: string;
+  technologies: string[];
+  projects: string[];
+  proof: string;
+  interviewTalkingPoint: string;
+  level: "production" | "advanced" | "solid";
+  accent: "blue" | "green" | "orange" | "violet" | "navy";
+};
+
+export type WorkingMethod = {
+  title: string;
+  summary: string;
+  steps: string[];
+  agentUsageNote: string;
+  qualityGates: string[];
 };
 
 export type OperatingPrinciple = {
@@ -153,6 +183,35 @@ Required ids:
 - `infrastructure`
 - `product-operations`
 
+### `recruiterValues`
+
+Required values:
+
+- reliable MVP delivery;
+- product team reinforcement;
+- business tool modernization;
+- data/payment security;
+- AI-assisted delivery under senior control.
+
+### `skillEvidence`
+
+Required categories:
+
+- Backend;
+- Frontend;
+- Mobile;
+- Data / sécurité;
+- IA appliquée;
+- Delivery.
+
+### `workingMethod`
+
+Required message:
+
+- specs-driven development with AI agents;
+- agents accelerate execution;
+- design, validation and responsibility remain human.
+
 ## Claim Guardrails
 
 Every `Project.operationalResult` must have one of:
@@ -167,6 +226,8 @@ Forbidden data patterns:
 - `revenue`, `ROI`, `conversion`, `enterprise-grade`, or `mission-critical` claims without proof.
 - AIM financial volumes framed as personal achievement.
 - Old project narratives used as leading proof.
+- Private GitHub repositories framed as a weakness.
+- AI agents presented as replacing engineering judgment.
 
 ## Suggested Initial Data Seeds
 

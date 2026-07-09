@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { evidenceLabels, operatingPrinciples, pageCopy, profile, projects } from '@/data/portfolioData';
+import { evidenceLabels, operatingPrinciples, pageCopy, profile, projects, recruiterValues, workingMethod } from '@/data/portfolioData';
 import { BlueprintDiagram } from '@/components/BlueprintDiagram';
 import { BlueprintModules } from '@/components/BlueprintModules';
 import { OperationalMap } from '@/components/OperationalMap';
@@ -21,24 +21,66 @@ export function HomePage() {
             <span>{profile.availability}</span>
           </div>
           <div className="hero-actions">
-            <Link className="button button--primary" to="/contact">
-              Échanger <span aria-hidden="true">→</span>
+            <Link className="button button--primary" to="/projets">
+              Voir mes projets <span aria-hidden="true">→</span>
             </Link>
-            <Link className="button button--secondary" to="/projets">
-              Voir l’architecture
+            <Link className="button button--secondary" to="/competences">
+              Voir mes compétences
+            </Link>
+            <Link className="button button--secondary" to="/contact">
+              Me contacter
             </Link>
           </div>
-          <p className="hero-assurance">Systèmes pensés pour rester lisibles quand les flux métier, les données et les décisions deviennent sensibles.</p>
+          <p className="hero-assurance">Profil orienté livraison réelle : specs, code, tests, sécurité, production et responsabilité finale.</p>
         </div>
         <BlueprintDiagram />
       </section>
 
       <section className="content-section">
+        <SectionHeading align="split" eyebrow="Valeur opérationnelle" title={pageCopy.home.valuesTitle} summary={pageCopy.home.valuesSummary} />
+        <div className="recruiter-value-grid">
+          {recruiterValues.map((value) => (
+            <article key={value.title} className="surface-card recruiter-value-card">
+              <h3>{value.title}</h3>
+              <p>{value.summary}</p>
+              <div className="tag-row">
+                {value.keywords.map((keyword) => (
+                  <span key={keyword} className="tag">
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="content-section method-band">
         <SectionHeading
           align="split"
-          eyebrow="Blueprint"
-          title="Cinq modules pour garder le contrôle opérationnel."
-          summary="Chaque brique relie une contrainte métier à un flux technique traçable: synchroniser, isoler, payer, automatiser et surveiller."
+          eyebrow="Méthode"
+          title={workingMethod.title}
+          summary={workingMethod.summary}
+        />
+        <div className="method-preview">
+          {workingMethod.steps.map((step, index) => (
+            <article key={step} className="method-step">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{step}</h3>
+            </article>
+          ))}
+        </div>
+        <Link className="text-link" to="/methode">
+          Voir ma méthode de travail <span aria-hidden="true">→</span>
+        </Link>
+      </section>
+
+      <section className="content-section">
+        <SectionHeading
+          align="split"
+          eyebrow="Preuves techniques"
+          title="Des briques déjà rencontrées sur projets réels."
+          summary="Ces modules résument les sujets qui reviennent dans mes projets : synchronisation, isolation, paiements, IA contrôlée et monitoring."
         />
         <BlueprintModules />
       </section>
@@ -53,7 +95,7 @@ export function HomePage() {
           align="split"
           eyebrow="Réalisations"
           title="Projets sélectionnés"
-          summary="Chaque projet part d’un problème métier concret et relie la réponse technique à un résultat opérationnel prudent."
+          summary="Chaque projet détaille un rôle, une stack technologique, une complexité et les réalisations concrètes associées."
         />
         <div className="project-preview-grid">
           {featuredProjects.map((project) => (

@@ -1,18 +1,19 @@
-# Spec - Portfolio B2B Hasiniaina Christian
+# Spec - Portfolio Recruteur Hasiniaina Christian
 
 ## Product Positioning
 
-The portfolio presents Hasiniaina Christian LOVANIRINA as a senior full-stack engineer who designs reliable business systems for real operations.
+The portfolio presents Hasiniaina Christian LOVANIRINA as a senior full-stack engineer for recruiters and hiring managers.
 
 Primary audience:
 
-- B2B clients.
-- Product and operations leaders.
-- Technical decision makers needing web, mobile, AI, network, payment, or logistics systems.
+- Technical recruiters.
+- Hiring managers.
+- Product/IT leaders recruiting senior full-stack engineers.
+- CTOs/founders evaluating hands-on delivery capability.
 
 Primary promise:
 
-> Je conçois des plateformes SaaS B2B, des applications terrain, des outils de paiement et des systèmes d'IA appliquée adaptés à des environnements complexes.
+> Ingénieur Full-Stack Senior capable de livrer des applications métier complètes : backend, frontend, mobile, données, IA appliquée, sécurité, tests et production, avec une méthode specs-driven augmentée par agents IA.
 
 ## Anti-Positioning
 
@@ -44,51 +45,51 @@ These elements can appear only as minor historical context if needed. They canno
 
 ## User Stories
 
-### US01 - B2B Client Orientation
+### US01 - Recruiter Orientation
 
-As a B2B client, I want to understand in less than 10 seconds what Hasiniaina builds, so I can decide whether this portfolio is relevant to my operational problem.
+As a recruiter, I want to understand in less than 10 seconds the target role, seniority level and core stack.
 
 Acceptance criteria:
 
-- Hero headline communicates reliable systems for real operations.
-- Subheading mentions SaaS B2B, field apps, payments and applied AI.
+- Hero headline communicates Senior Full-Stack Engineer.
+- Subheading mentions backend, frontend, mobile, data, applied AI, security, tests and production.
 - Location and remote availability are visible.
-- Primary CTA is contact-oriented.
+- Primary CTAs lead to projects, skills and contact.
 
 ### US02 - Proof Through Projects
 
-As a decision maker, I want to see concrete projects with context, problem, flow, stack and result, so I can judge delivery capability.
+As a hiring manager, I want to see short case studies with role, stack, built scope, technical complexity and public proof.
 
 Acceptance criteria:
 
 - Four project pillars are visible: TZ Smart, AI Commerce Orchestrator, Fretunia/Trackmada, AIM Madagascar.
-- Each project includes context, problem treated, simplified architecture/flow, real stack, and operational result.
+- Each project includes context, role, stack, built scope, technical complexity, public proof and private interview proof note.
 - No project contains unsupported metrics.
 
-### US03 - Journey Credibility
+### US03 - Skills Clarity
 
-As a reader, I want to see how the profile evolved from field operations to business platforms, so the senior positioning feels earned.
-
-Acceptance criteria:
-
-- Timeline covers 2021-2026.
-- Experiences include INSTAT, FID, Action Contre la Faim, AIM Madagascar, Fretunia/Trackmada, TECHZONE IT SOLUTION.
-- The page explains progression: terrain -> data -> operations -> SaaS/AI -> infrastructure.
-
-### US04 - Skills as Business Flows
-
-As a client, I want to understand what the technical stack enables operationally, not just see technology badges.
+As a recruiter, I want to scan the technology coverage and map each capability to real projects.
 
 Acceptance criteria:
 
-- Skills are grouped by backend, frontend, mobile, IA, infrastructure, product/operations.
-- Left side shows real use cases.
-- Center shows capability groups and technologies.
-- Right side shows business impacts.
+- Skills show backend, frontend, mobile, data/security, applied AI and delivery.
+- Backend includes Python/Django/Django Ninja and Node/Next.js/Express/Prisma/Sequelize.
+- Frontend includes React, TypeScript, Next.js, Vite, dashboards, forms, PWA and SEO.
+- Each skill block includes stack, project proof, level of usage and recruiter-readable result.
+
+### US04 - Working Method
+
+As a recruiter, I want to understand how the candidate uses AI agents without outsourcing engineering responsibility.
+
+Acceptance criteria:
+
+- A visible method section/page explains specs-driven development with AI agents.
+- It states that agents accelerate execution while design, validation and responsibility remain human.
+- It includes workflow steps and quality gates: specs, contracts, tasks, implementation, tests, review, delivery.
 
 ### US05 - Honest Contact
 
-As a prospect, I want to contact the engineer without being misled by a fake form.
+As a recruiter, I want direct contact and public links without being misled by a fake form.
 
 Acceptance criteria:
 
@@ -192,6 +193,9 @@ Forbidden wording:
 - No runtime CMS.
 - No duplicate content source.
 - No old portfolio content unless deliberately migrated and verified.
+- Do not change existing project dates.
+- Do not frame private repositories as a weakness.
+- Public proof should be sites, apps, demos, direct links, anonymized specs and interview discussion.
 
 ## Open Risks
 

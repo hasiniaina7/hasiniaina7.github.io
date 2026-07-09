@@ -1,62 +1,37 @@
-import { useState } from 'react';
-import { evidenceLabels, skillGroups } from '@/data/portfolioData';
+import { skillEvidence } from '@/data/portfolioData';
 
 export function SkillsMatrix() {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-
   return (
-    <div className="skills-matrix" aria-label="Matrice des compétences par flux métier">
-      <div className="skills-matrix__heading">Cas d’usage</div>
-      <div className="skills-matrix__heading">Capacités techniques</div>
-      <div className="skills-matrix__heading">Impact opérationnel</div>
-      {skillGroups.map((group) => {
-        const isHovered = hoveredId === group.id;
-        const isAnyHovered = hoveredId !== null;
-        const rowClass = [
-          'skills-row',
-          `skills-row--${group.accent}`,
-          isHovered ? 'is-hovered' : '',
-          isAnyHovered && !isHovered ? 'is-dimmed' : '',
-        ].filter(Boolean).join(' ');
-
-        return (
-          <article
-            key={group.id}
-            className={rowClass}
-            onMouseEnter={() => setHoveredId(group.id)}
-            onMouseLeave={() => setHoveredId(null)}
-          >
-            <div className="skills-row__cell">
-              <span className="skills-row__icon">{group.icon}</span>
-              <ul className="plain-list">
-                {group.useCases.map((useCase) => (
-                  <li key={useCase}>{useCase}</li>
-                ))}
-              </ul>
+    <div className="skill-evidence-grid" aria-label="Compétences prouvées par projets">
+      {skillEvidence.map((skill) => (
+        <article key={skill.category} className={`skill-evidence-card skill-evidence-card--${skill.accent}`}>
+          <div className="skill-evidence-card__head">
+            <div>
+              <p className="card-label">{skill.level === 'production' ? 'Utilisé en production' : skill.level === 'advanced' ? 'Usage avancé' : 'Socle solide'}</p>
+              <h3>{skill.category}</h3>
             </div>
-            <div className="skills-row__cell skills-row__cell--center">
-              <div>
-                <p className="card-label">{evidenceLabels[group.evidenceLevel]}</p>
-                <h3>{group.title}</h3>
-              </div>
-              <div className="tag-row">
-                {group.technologies.map((technology) => (
-                  <span key={technology} className="tag">
-                    {technology}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="skills-row__cell">
-              <ul className="plain-list">
-                {group.impacts.map((impact) => (
-                  <li key={impact}>{impact}</li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        );
-      })}
+          </div>
+          <div className="tag-row">
+            {skill.technologies.map((technology) => (
+              <span key={technology} className="tag">
+                {technology}
+              </span>
+            ))}
+          </div>
+          <div className="skill-evidence-card__section">
+            <h4>Projets de preuve</h4>
+            <p>{skill.projects.join(' · ')}</p>
+          </div>
+          <div className="skill-evidence-card__section">
+            <h4>Réalisations clés</h4>
+            <p>{skill.proof}</p>
+          </div>
+          <div className="skill-evidence-card__section skill-evidence-card__section--talking">
+            <h4>Sujets d'échange</h4>
+            <p>{skill.interviewTalkingPoint}</p>
+          </div>
+        </article>
+      ))}
     </div>
   );
 }

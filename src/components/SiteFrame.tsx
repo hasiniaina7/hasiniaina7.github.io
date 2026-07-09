@@ -54,14 +54,14 @@ export function SiteFrame() {
         <div className="site-footer__inner">
           <div className="site-footer__brand">
             <div>
-              <p className="site-footer__kicker">Systèmes fiables, interfaces lisibles, données traçables.</p>
+              <p className="site-footer__kicker">Senior full-stack, delivery produit, specs et production.</p>
               <p>
                 {profile.location} · {profile.availability}
               </p>
             </div>
           </div>
           <NavLink className="site-footer__cta" to="/contact">
-            Cadrer un système <span aria-hidden="true">→</span>
+            Me contacter <span aria-hidden="true">→</span>
           </NavLink>
           <div className="site-footer__columns" aria-label="Liens de pied de page">
             <div className="site-footer__group">
