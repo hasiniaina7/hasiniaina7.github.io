@@ -11,7 +11,7 @@
 </script>
 
 <Nav />
-<DarkMode />
+<DarkMode class="fixed right-4 top-20 z-50" />
 <Home />
 <Rating />
 

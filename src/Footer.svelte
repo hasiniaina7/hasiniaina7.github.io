@@ -39,7 +39,7 @@
                         >About Us</a
                     >
                 </p>
-                <p><a href="#" class="text-white">Services</a></p>
+                <p><a href="/" class="text-white">Services</a></p>
             </div>
         </div>
     </div>

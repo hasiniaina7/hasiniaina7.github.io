@@ -7,14 +7,14 @@
         P,
     } from "flowbite-svelte";
     import {
-        Html5Brand,
-        Css3Brand,
-        JsBrand,
-        PythonBrand,
+        Html5Brands,
+        Css3Brands,
+        JsBrands,
+        PythonBrands,
     } from "svelte-awesome-icons";
     import svleteIcon from "./assets/svelte.svg";
-    let ratingIsVisible = true;
-    let learningIsVisible = false;
+    let ratingIsVisible = $state(true);
+    let learningIsVisible = $state(false);
     let htmlRating = 4.2;
     let cssRating = 3.8;
     let jsRating = 3.5;
@@ -35,14 +35,14 @@
     <div class="skills-button gap-8">
         <GradientButton
             color="cyan"
-            on:click={() => {
+            onclick={() => {
                 ratingIsVisible = true;
                 learningIsVisible = false;
             }}>Rating</GradientButton
         >
         <GradientButton
             color="cyan"
-            on:click={() => {
+            onclick={() => {
                 ratingIsVisible = false;
                 learningIsVisible = true;
             }}
@@ -57,7 +57,7 @@
             <div class="rating-div text-black dark:text-white">
                 <div class=" rating-items mt-4">
                     <div class="rating-wrapper">
-                        <span><Html5Brand size={logoSize} /></span>
+                        <span><Html5Brands size={logoSize} /></span>
                         <Rating
                             id="HTML"
                             total={5}
@@ -66,7 +66,7 @@
                         />
                     </div>
                     <div class="rating-wrapper">
-                        <span><Css3Brand size={logoSize} /></span>
+                        <span><Css3Brands size={logoSize} /></span>
                         <Rating
                             id="CSS3"
                             total={5}
@@ -75,7 +75,7 @@
                         />
                     </div>
                     <div class="rating-wrapper">
-                        <span><JsBrand size={logoSize} /></span>
+                        <span><JsBrands size={logoSize} /></span>
                         <Rating
                             id="Javascript"
                             total={5}
@@ -93,7 +93,7 @@
                         />
                     </div>
                     <div class="rating-wrapper">
-                        <span><PythonBrand size={logoSize} /></span>
+                        <span><PythonBrands size={logoSize} /></span>
                         <Rating
                             id="Python"
                             total={5}

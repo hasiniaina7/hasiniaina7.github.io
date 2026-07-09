@@ -1,10 +1,10 @@
 <script>
-    import { Span, Button, GradientButton, P, Heading } from "flowbite-svelte";
-    import { GithubBrand, LinkedinBrand } from "svelte-awesome-icons";
+    import { Span, GradientButton, P, Heading } from "flowbite-svelte";
+    import { GithubBrands, LinkedinBrands } from "svelte-awesome-icons";
     import Contacter from "./lib/Contacter.svelte";
     import { onMount } from "svelte";
     import { fade } from "svelte/transition";
-    let homeTransition = false;
+    let homeTransition = $state(false);
     onMount(() => {
         homeTransition = true;
     });
@@ -25,11 +25,11 @@
                 </p>
             {/if}
             <GradientButton color="cyan"
-                ><GithubBrand />
+                ><GithubBrands />
                 <span class="pl-2">Join me on GitHub</span></GradientButton
             >
             <GradientButton
-                ><LinkedinBrand />
+                ><LinkedinBrands />
                 <span class="pl-2"> Connect with LinkedIn</span>
             </GradientButton>
             <div class="flex justify-center pt-4">

@@ -22,7 +22,7 @@
 
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Tangerine:wght@700&display=swap");
-    m .montserrat {
+    .montserrat {
         font-family: "montserrat", sans-serif;
     }
 </style>
