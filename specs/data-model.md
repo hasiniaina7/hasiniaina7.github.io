@@ -60,3 +60,34 @@ Le hero v2 ajoute `hasiniaina-portrait-cutout` (`portrait`) et `hero-glass-porta
 - URLs, stacks, relations et identifiants média centralisés.
 - Agents de développement modélisés séparément des capacités `product-ai`.
 - `image 1` et `image 2` absents du manifeste publié.
+
+## Blueprint système
+
+```ts
+type BlueprintViewId = 'overview' | 'payments' | 'offline-mobile' | 'controlled-ai' | 'monitoring';
+type BlueprintZone = 'entry' | 'core' | 'integration' | 'data';
+
+type BlueprintNode = {
+  id: BlueprintNodeId;
+  zone: BlueprintZone;
+  icon: BlueprintIcon;
+  evidenceLevel: EvidenceLevel;
+  proofWorkIds: WorkId[];
+};
+
+type BlueprintFlow = {
+  id: BlueprintFlowId;
+  from: BlueprintNodeId;
+  to: BlueprintNodeId;
+};
+
+type BlueprintView = {
+  id: BlueprintViewId;
+  summary: string;
+  nodeIds: BlueprintNodeId[];
+  flowIds: BlueprintFlowId[];
+  proofWorkIds: WorkId[];
+};
+```
+
+Les libellés ne servent jamais de clés relationnelles. Les nœuds, flux, résumés, preuves, zones et cartes de valeur restent centralisés dans `portfolioData.ts`.

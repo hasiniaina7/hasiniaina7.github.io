@@ -20,6 +20,8 @@ Tester les six routes à 1440, 1280, 1024, 768, 430, 390 et 360 px avec captures
 - menu mobile : ouverture, Échap, navigation puis fermeture ;
 - contact : URL `mailto:` correctement composée ;
 - mouvement réduit : animations non essentielles supprimées.
+- blueprint : cinq filtres souris/clavier, états `aria-pressed`, résumé live et ordre mobile cohérents ; chaque vue active exactement ses nœuds et connexions déclarés.
+- blueprint responsive : réseau complet à 1440/1280, zones sur deux niveaux à 1024/768, parcours vertical à 430/390/360, sans overflow ni ligne visible à travers une carte.
 
 ## Médias et preuves
 
@@ -31,6 +33,8 @@ Tester les six routes à 1440, 1280, 1024, 768, 430, 390 et 360 px avec captures
 - Vérifier le contraste des CTA, filtres actifs, cartes accentuées et boutons secondaires après intégration de la palette fournie.
 - Vérifier les halos chroma-key du portrait et du portail sur fond blanc, bleu clair et violet foncé.
 - Vérifier que le hero reste compact sur desktop et sans chevauchement ni texte tronqué de 360 à 1440 px.
+- Rechercher explicitement dans le blueprint MongoDB, Redis, S3, IoT, haute disponibilité et microservices ; aucun de ces termes ne doit être publié.
+- Vérifier que le blueprint ne charge aucun raster et que `prefers-reduced-motion` neutralise ses transitions.
 
 ## Artefacts
 

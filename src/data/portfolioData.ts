@@ -133,20 +133,64 @@ export type CollaborationMode = {
 
 export type BlueprintStatus = 'operational' | 'processing' | 'queued' | 'review' | 'verified' | 'observing';
 
+export type BlueprintViewId = 'overview' | 'payments' | 'offline-mobile' | 'controlled-ai' | 'monitoring';
+
+export type BlueprintZone = 'entry' | 'core' | 'integration' | 'data';
+
+export type BlueprintIcon =
+  | 'teams' | 'web' | 'mobile' | 'partners'
+  | 'api' | 'identity' | 'payments' | 'business-data'
+  | 'mvola' | 'notifications' | 'radiusdesk' | 'automation' | 'human'
+  | 'postgresql' | 'local-storage' | 'worker' | 'audit' | 'monitoring';
+
+export type BlueprintNodeId =
+  | 'field-teams' | 'web-app' | 'mobile-app' | 'partner-systems'
+  | 'business-api' | 'identities' | 'payment-reconciliation' | 'business-data'
+  | 'mvola' | 'notifications' | 'radiusdesk' | 'ai-automation' | 'human-validation'
+  | 'postgresql' | 'local-storage' | 'queue-worker' | 'audit' | 'monitoring';
+
+export type BlueprintFlowId =
+  | 'field-mobile' | 'web-api' | 'mobile-api' | 'partner-api'
+  | 'api-identities' | 'api-payments' | 'api-data' | 'api-notifications' | 'api-radiusdesk'
+  | 'payments-mvola' | 'payments-postgresql' | 'payments-audit'
+  | 'mobile-local' | 'local-api' | 'api-postgresql'
+  | 'api-queue' | 'queue-ai' | 'ai-human' | 'human-audit'
+  | 'api-monitoring' | 'queue-monitoring' | 'postgresql-monitoring' | 'monitoring-notifications';
+
 export type BlueprintNode = {
-  id: string;
+  id: BlueprintNodeId;
   label: string;
   detail: string;
   accent: Accent;
   status: BlueprintStatus;
-  lane: 'input' | 'application' | 'control' | 'output';
+  zone: BlueprintZone;
+  icon: BlueprintIcon;
+  evidenceLevel: EvidenceLevel;
+  proofWorkIds: WorkId[];
 };
 
 export type BlueprintFlow = {
-  id: string;
-  from: string;
-  to: string;
+  id: BlueprintFlowId;
+  from: BlueprintNodeId;
+  to: BlueprintNodeId;
   label: string;
+  accent: Accent;
+};
+
+export type BlueprintView = {
+  id: BlueprintViewId;
+  label: string;
+  summary: string;
+  nodeIds: BlueprintNodeId[];
+  mobileNodeIds: BlueprintNodeId[];
+  flowIds: BlueprintFlowId[];
+  proofWorkIds: WorkId[];
+};
+
+export type ArchitectureValue = {
+  id: string;
+  title: string;
+  summary: string;
   accent: Accent;
 };
 
@@ -256,31 +300,81 @@ export const profile = {
 };
 
 export const blueprintNodes: BlueprintNode[] = [
-  { id: 'field-teams', label: 'Équipes terrain', detail: 'Collecte, incidents, visites', accent: 'green', status: 'operational', lane: 'input' },
-  { id: 'web-app', label: 'Web App', detail: 'Pilotage métier', accent: 'blue', status: 'processing', lane: 'application' },
-  { id: 'mobile-app', label: 'Mobile App', detail: 'Usage offline / sync', accent: 'green', status: 'operational', lane: 'application' },
-  { id: 'api', label: 'API métier', detail: 'Règles, droits, intégrations', accent: 'blue', status: 'processing', lane: 'control' },
-  { id: 'postgresql', label: 'PostgreSQL', detail: 'Données, audit, isolation', accent: 'navy', status: 'verified', lane: 'output' },
-  { id: 'payment', label: 'Payment Gateway', detail: 'Autorisé, confirmé, rapproché', accent: 'orange', status: 'verified', lane: 'input' },
-  { id: 'queue', label: 'Queue Worker', detail: 'Priorités, reprise, lots', accent: 'violet', status: 'queued', lane: 'control' },
-  { id: 'ai', label: 'AI Assistant', detail: 'RAG, prompts, seuils', accent: 'orange', status: 'processing', lane: 'control' },
-  { id: 'human', label: 'Human Validation', detail: 'Décision si risque', accent: 'violet', status: 'review', lane: 'output' },
-  { id: 'approved', label: 'Approved', detail: 'Action auditée', accent: 'green', status: 'verified', lane: 'output' },
-  { id: 'monitoring', label: 'Monitoring', detail: 'Logs, métriques, traces, alertes', accent: 'blue', status: 'observing', lane: 'application' },
+  { id: 'field-teams', label: 'Équipes terrain', detail: 'Collecte, incidents, visites', accent: 'green', status: 'operational', zone: 'entry', icon: 'teams', evidenceLevel: 'cv-confirmed', proofWorkIds: ['aim-beneficiaries', 'tz-smart-mobile'] },
+  { id: 'web-app', label: 'Web App', detail: 'Pilotage des opérations', accent: 'blue', status: 'operational', zone: 'entry', icon: 'web', evidenceLevel: 'cv-confirmed', proofWorkIds: ['tz-smart', 'fretunia', 'aim-beneficiaries'] },
+  { id: 'mobile-app', label: 'Mobile App', detail: 'Usage terrain et synchronisation', accent: 'green', status: 'operational', zone: 'entry', icon: 'mobile', evidenceLevel: 'cv-confirmed', proofWorkIds: ['aim-mobile', 'tz-smart-mobile', 'rmb-cargo-mobile'] },
+  { id: 'partner-systems', label: 'Systèmes partenaires', detail: 'Webhooks et services connectés', accent: 'violet', status: 'processing', zone: 'entry', icon: 'partners', evidenceLevel: 'cv-confirmed', proofWorkIds: ['acm-iagasy', 'fretunia'] },
+  { id: 'business-api', label: 'API métier', detail: 'Règles, droits et intégrations', accent: 'blue', status: 'processing', zone: 'core', icon: 'api', evidenceLevel: 'cv-confirmed', proofWorkIds: ['tz-smart', 'fretunia', 'aim-beneficiaries', 'acm-iagasy'] },
+  { id: 'identities', label: 'Identités & droits', detail: 'RBAC, RLS et validation', accent: 'violet', status: 'verified', zone: 'core', icon: 'identity', evidenceLevel: 'cv-confirmed', proofWorkIds: ['fretunia', 'tz-smart'] },
+  { id: 'payment-reconciliation', label: 'Paiements & rapprochement', detail: 'Statuts, confirmation et suivi', accent: 'orange', status: 'verified', zone: 'core', icon: 'payments', evidenceLevel: 'cv-confirmed', proofWorkIds: ['aim-beneficiaries', 'tz-smart'] },
+  { id: 'business-data', label: 'Données & audit', detail: 'Historique, règles et exports', accent: 'navy', status: 'verified', zone: 'core', icon: 'business-data', evidenceLevel: 'cv-confirmed', proofWorkIds: ['aim-beneficiaries', 'tz-smart', 'fretunia'] },
+  { id: 'mvola', label: 'MVola', detail: 'Paiement mobile et confirmation', accent: 'orange', status: 'verified', zone: 'integration', icon: 'mvola', evidenceLevel: 'cv-confirmed', proofWorkIds: ['aim-beneficiaries'] },
+  { id: 'notifications', label: 'Notifications multicanales', detail: 'FCM, SMS, e-mail, WhatsApp', accent: 'blue', status: 'operational', zone: 'integration', icon: 'notifications', evidenceLevel: 'cv-confirmed', proofWorkIds: ['tz-smart', 'acm-iagasy', 'aim-mobile'] },
+  { id: 'radiusdesk', label: 'RadiusDesk', detail: 'Accès réseau et consommation', accent: 'navy', status: 'operational', zone: 'integration', icon: 'radiusdesk', evidenceLevel: 'cv-confirmed', proofWorkIds: ['tz-smart'] },
+  { id: 'ai-automation', label: 'IA & automatisations', detail: 'OpenAI, n8n et OpenClaw', accent: 'violet', status: 'processing', zone: 'integration', icon: 'automation', evidenceLevel: 'cv-confirmed', proofWorkIds: ['acm-iagasy'] },
+  { id: 'human-validation', label: 'Validation humaine', detail: 'Décision sur les cas sensibles', accent: 'green', status: 'review', zone: 'integration', icon: 'human', evidenceLevel: 'cv-confirmed', proofWorkIds: ['acm-iagasy', 'aim-beneficiaries'] },
+  { id: 'postgresql', label: 'PostgreSQL', detail: 'Persistance et isolation', accent: 'navy', status: 'verified', zone: 'data', icon: 'postgresql', evidenceLevel: 'cv-confirmed', proofWorkIds: ['tz-smart', 'fretunia', 'aim-beneficiaries'] },
+  { id: 'local-storage', label: 'Stockage local', detail: 'File offline et reprise', accent: 'green', status: 'operational', zone: 'data', icon: 'local-storage', evidenceLevel: 'cv-confirmed', proofWorkIds: ['aim-mobile', 'tz-smart-mobile'] },
+  { id: 'queue-worker', label: 'Queue Worker', detail: 'Lots, priorités et reprise', accent: 'violet', status: 'queued', zone: 'data', icon: 'worker', evidenceLevel: 'cv-confirmed', proofWorkIds: ['acm-iagasy', 'tz-smart'] },
+  { id: 'audit', label: 'Audit', detail: 'Actions et décisions tracées', accent: 'orange', status: 'verified', zone: 'data', icon: 'audit', evidenceLevel: 'cv-confirmed', proofWorkIds: ['aim-beneficiaries', 'tz-smart', 'fretunia'] },
+  { id: 'monitoring', label: 'Monitoring', detail: 'Logs, métriques, traces, alertes', accent: 'blue', status: 'observing', zone: 'data', icon: 'monitoring', evidenceLevel: 'cv-confirmed', proofWorkIds: ['tz-smart', 'fretunia'] },
 ];
 
 export const blueprintFlows: BlueprintFlow[] = [
-  { id: 'field-web', from: 'Équipes terrain', to: 'Web App', label: 'Données terrain', accent: 'green' },
-  { id: 'field-mobile', from: 'Équipes terrain', to: 'Mobile App', label: 'Capture offline', accent: 'green' },
-  { id: 'web-api', from: 'Web App', to: 'API métier', label: 'Flux applicatif', accent: 'blue' },
-  { id: 'mobile-api', from: 'Mobile App', to: 'API métier', label: 'Synchronisation', accent: 'blue' },
-  { id: 'payment-api', from: 'Payment Gateway', to: 'API métier', label: 'Paiement', accent: 'orange' },
-  { id: 'api-db', from: 'API métier', to: 'PostgreSQL', label: 'Écriture auditée', accent: 'navy' },
-  { id: 'api-queue', from: 'API métier', to: 'Queue Worker', label: 'Tâches', accent: 'violet' },
-  { id: 'queue-ai', from: 'Queue Worker', to: 'AI Assistant', label: 'Assistance', accent: 'orange' },
-  { id: 'ai-human', from: 'AI Assistant', to: 'Human Validation', label: 'Handoff', accent: 'violet' },
-  { id: 'human-approved', from: 'Human Validation', to: 'Approved', label: 'Validation', accent: 'green' },
-  { id: 'monitoring-loop', from: 'Monitoring', to: 'API métier', label: 'Observabilité', accent: 'blue' },
+  { id: 'field-mobile', from: 'field-teams', to: 'mobile-app', label: 'Collecte terrain', accent: 'green' },
+  { id: 'web-api', from: 'web-app', to: 'business-api', label: 'Flux web', accent: 'blue' },
+  { id: 'mobile-api', from: 'mobile-app', to: 'business-api', label: 'Synchronisation', accent: 'green' },
+  { id: 'partner-api', from: 'partner-systems', to: 'business-api', label: 'Événements partenaires', accent: 'violet' },
+  { id: 'api-identities', from: 'business-api', to: 'identities', label: 'Contrôle d’accès', accent: 'violet' },
+  { id: 'api-payments', from: 'business-api', to: 'payment-reconciliation', label: 'Paiement', accent: 'orange' },
+  { id: 'api-data', from: 'business-api', to: 'business-data', label: 'Règles métier', accent: 'navy' },
+  { id: 'api-notifications', from: 'business-api', to: 'notifications', label: 'Notification', accent: 'blue' },
+  { id: 'api-radiusdesk', from: 'business-api', to: 'radiusdesk', label: 'Provisionnement', accent: 'navy' },
+  { id: 'payments-mvola', from: 'payment-reconciliation', to: 'mvola', label: 'Confirmation MVola', accent: 'orange' },
+  { id: 'payments-postgresql', from: 'payment-reconciliation', to: 'postgresql', label: 'Écriture', accent: 'navy' },
+  { id: 'payments-audit', from: 'payment-reconciliation', to: 'audit', label: 'Rapprochement audité', accent: 'orange' },
+  { id: 'mobile-local', from: 'mobile-app', to: 'local-storage', label: 'Capture offline', accent: 'green' },
+  { id: 'local-api', from: 'local-storage', to: 'business-api', label: 'Reprise de synchronisation', accent: 'green' },
+  { id: 'api-postgresql', from: 'business-api', to: 'postgresql', label: 'Persistance', accent: 'navy' },
+  { id: 'api-queue', from: 'business-api', to: 'queue-worker', label: 'Traitement différé', accent: 'violet' },
+  { id: 'queue-ai', from: 'queue-worker', to: 'ai-automation', label: 'Automatisation', accent: 'violet' },
+  { id: 'ai-human', from: 'ai-automation', to: 'human-validation', label: 'Relais humain', accent: 'green' },
+  { id: 'human-audit', from: 'human-validation', to: 'audit', label: 'Décision auditée', accent: 'orange' },
+  { id: 'api-monitoring', from: 'business-api', to: 'monitoring', label: 'Télémétrie API', accent: 'blue' },
+  { id: 'queue-monitoring', from: 'queue-worker', to: 'monitoring', label: 'Télémétrie workers', accent: 'blue' },
+  { id: 'postgresql-monitoring', from: 'postgresql', to: 'monitoring', label: 'Signaux données', accent: 'blue' },
+  { id: 'monitoring-notifications', from: 'monitoring', to: 'notifications', label: 'Alertes', accent: 'blue' },
+];
+
+export const blueprintViews: BlueprintView[] = [
+  { id: 'overview', label: 'Vue globale', summary: 'Une vue d’ensemble des entrées opérationnelles, du cœur métier, des intégrations et de la supervision.', nodeIds: blueprintNodes.map((node) => node.id), mobileNodeIds: ['web-app', 'business-api', 'business-data', 'postgresql', 'monitoring'], flowIds: blueprintFlows.map((flow) => flow.id), proofWorkIds: ['tz-smart', 'fretunia', 'aim-beneficiaries', 'acm-iagasy'] },
+  { id: 'payments', label: 'Paiements', summary: 'Web et mobile alimentent une API métier qui confirme, rapproche et audite les paiements MVola.', nodeIds: ['web-app', 'mobile-app', 'business-api', 'payment-reconciliation', 'mvola', 'postgresql', 'audit'], mobileNodeIds: ['web-app', 'mobile-app', 'business-api', 'payment-reconciliation', 'mvola', 'postgresql', 'audit'], flowIds: ['web-api', 'mobile-api', 'api-payments', 'payments-mvola', 'payments-postgresql', 'payments-audit'], proofWorkIds: ['aim-beneficiaries', 'tz-smart'] },
+  { id: 'offline-mobile', label: 'Mobile offline', summary: 'Les équipes terrain capturent localement, puis reprennent la synchronisation vers l’API et PostgreSQL.', nodeIds: ['field-teams', 'mobile-app', 'local-storage', 'business-api', 'postgresql'], mobileNodeIds: ['field-teams', 'mobile-app', 'local-storage', 'business-api', 'postgresql'], flowIds: ['field-mobile', 'mobile-local', 'local-api', 'api-postgresql'], proofWorkIds: ['aim-mobile', 'tz-smart-mobile'] },
+  { id: 'controlled-ai', label: 'IA contrôlée', summary: 'Les événements partenaires passent par la file de traitement, l’automatisation et une validation humaine auditée.', nodeIds: ['partner-systems', 'business-api', 'queue-worker', 'ai-automation', 'human-validation', 'audit'], mobileNodeIds: ['partner-systems', 'business-api', 'queue-worker', 'ai-automation', 'human-validation', 'audit'], flowIds: ['partner-api', 'api-queue', 'queue-ai', 'ai-human', 'human-audit'], proofWorkIds: ['acm-iagasy'] },
+  { id: 'monitoring', label: 'Monitoring', summary: 'API, workers et PostgreSQL exposent des signaux regroupés par le monitoring puis transmis comme alertes.', nodeIds: ['business-api', 'queue-worker', 'postgresql', 'monitoring', 'notifications'], mobileNodeIds: ['business-api', 'queue-worker', 'postgresql', 'monitoring', 'notifications'], flowIds: ['api-monitoring', 'queue-monitoring', 'postgresql-monitoring', 'monitoring-notifications'], proofWorkIds: ['tz-smart', 'fretunia'] },
+];
+
+export const blueprintZoneLabels: Record<BlueprintZone, string> = {
+  entry: 'Points d’entrée',
+  core: 'Cœur métier',
+  integration: 'Intégrations',
+  data: 'Données & supervision',
+};
+
+export const blueprintSectionCopy = {
+  eyebrow: 'Architecture & vue système',
+  title: 'Concevoir des systèmes fiables, traçables et orientés opérations',
+  introduction: 'Sélectionnez un parcours pour isoler les composants et les preuves qui répondent à une contrainte opérationnelle précise.',
+  filtersLabel: 'Choisir un parcours système',
+  proofLabel: 'Réalisations de preuve',
+  mapLabel: 'Carte des composants du système',
+};
+
+export const architectureValues: ArchitectureValue[] = [
+  { id: 'security', title: 'Sécurité intégrée', summary: 'RBAC, RLS et validation au plus près des règles métier.', accent: 'blue' },
+  { id: 'continuity', title: 'Continuité terrain', summary: 'Offline, synchronisation batch et reprise quand le réseau revient.', accent: 'green' },
+  { id: 'traceability', title: 'Traçabilité', summary: 'Statuts, rapprochement et audit pour expliquer chaque opération.', accent: 'orange' },
+  { id: 'observability', title: 'Observabilité', summary: 'Logs, métriques, traces et alertes utiles au diagnostic.', accent: 'violet' },
 ];
 
 export const blueprintModules: BlueprintModule[] = [

@@ -16,6 +16,8 @@ Présenter Hasiniaina Christian LOVANIRINA comme Ingénieur Full-Stack Senior ca
 - Les trois applications mobiles sont autonomes et de même importance éditoriale que les réalisations web.
 - Les compétences citent des réalisations typées ; la méthode distingue agents de développement et IA intégrée au produit.
 - Le contact reste un composeur `mailto:` sans faux envoi.
+- L’accueil présente une carte système interactive pleine largeur, limitée aux capacités vérifiées et pilotée par cinq vues de flux.
+- Les vues Paiements, Mobile offline, IA contrôlée et Monitoring citent leurs réalisations de preuve sans transformer l’architecture en affirmation générique.
 
 ## Médias
 
@@ -34,6 +36,7 @@ Présenter Hasiniaina Christian LOVANIRINA comme Ingénieur Full-Stack Senior ca
 - Codex ou Claude ne sont jamais présentés comme fonctionnalités d’un produit.
 - Aucun retour dominant au tourisme, à la photographie ou au journalisme.
 - Les volumes AIM expriment la criticité du système, jamais une performance personnelle.
+- Le blueprint ne présente pas MongoDB, Redis, S3, IoT, une API Gateway générique, des microservices systématiques ou une haute disponibilité non démontrée.
 
 ## Acceptation
 
@@ -43,3 +46,4 @@ Présenter Hasiniaina Christian LOVANIRINA comme Ingénieur Full-Stack Senior ca
 - SEO par route, liens réels, aucune erreur console.
 - Typecheck, lint, build et audit média réussis.
 - Le hero reprend clairement les proportions de `image 1-hero.png` sans recopier ses métriques non vérifiées.
+- Le blueprint conserve son contexte lorsque les flux sont filtrés, devient un parcours vertical sous 700 px et n’utilise aucun raster.

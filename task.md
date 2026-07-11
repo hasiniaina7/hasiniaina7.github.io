@@ -39,6 +39,17 @@
 - [x] Vérifier visuellement la nouvelle palette et ses contrastes sur desktop/mobile.
 - [x] Valider le nouveau hero à 1440, 1024, 768, 430, 390 et 360 px.
 
+## Phase 5 — Blueprint système interactif
+
+- [x] Remplacer les connexions textuelles par des identifiants de nœuds stables.
+- [x] Ajouter les zones, icônes, niveaux de preuve et réalisations associées aux nœuds.
+- [x] Définir les vues Vue globale, Paiements, Mobile offline, IA contrôlée et Monitoring.
+- [x] Construire les filtres accessibles, le résumé live et les connexions SVG responsive.
+- [x] Fournir un parcours vertical ordonné sans SVG complexe sur mobile.
+- [x] Placer les quatre cartes de valeur vérifiées sous le diagramme.
+- [x] Valider les cinq vues, les sept largeurs, le clavier, WCAG AA et le mouvement réduit.
+- [x] Exécuter typecheck, lint, build, audit média et audit des termes interdits.
+
 ## État
 
-Réorganisation éditoriale, médias et validation terminés. Rapport : `artifacts/validation-2026-07-11/validation-report.md`.
+Réorganisation éditoriale, médias et blueprint interactif terminés. Rapports : `artifacts/validation-2026-07-11/validation-report.md` et `artifacts/blueprint-validation/browser-audit.json`.

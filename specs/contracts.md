@@ -22,6 +22,15 @@
 - Une réalisation peut répondre à plusieurs filtres sans être dupliquée dans les données.
 - JN Travel utilise le placeholder partagé tant qu’aucun média n’est disponible.
 
+## Blueprint interactif
+
+- Les cinq filtres sont des boutons natifs exposant `aria-pressed` et un focus visible.
+- Le changement de vue met à jour un résumé dans une zone `aria-live="polite"` et les réalisations de preuve associées.
+- Desktop et tablette conservent tous les nœuds ; les éléments hors parcours sont atténués, jamais supprimés.
+- Les connexions SVG sont décoratives et exclues de l’ordre de lecture. L’ordre DOM des zones et nœuds suffit à comprendre l’architecture.
+- Sous 700 px, le parcours actif est rendu comme une liste verticale ordonnée sans réseau SVG.
+- Le composant ne contient aucune formulation métier : il consomme exclusivement les données typées centralisées.
+
 ## Visionneuse
 
 - Dialogue modal avec fond sombre, image non recadrée, légende HTML et bouton de fermeture nommé.

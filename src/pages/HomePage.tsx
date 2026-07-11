@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { blueprintModules, homeSelections, operatingPrinciples, pageCopy, profile, recruiterValues, skillGroups, workById, workingMethod } from '@/data/portfolioData';
+import { architectureValues, blueprintModules, homeSelections, operatingPrinciples, pageCopy, profile, skillGroups, workById, workingMethod } from '@/data/portfolioData';
 import { getMediaAsset } from '@/data/mediaData';
 import { BlueprintDiagram } from '@/components/BlueprintDiagram';
 import { OperationalMap } from '@/components/OperationalMap';
@@ -41,13 +41,9 @@ export function HomePage() {
       </section>
 
       <section className="content-section architecture-section">
-        <div className="architecture-visual">
-          <ResponsiveMedia asset={getMediaAsset('architecture-system-core')} sizes="(max-width: 768px) 92vw, 660px" />
-          <BlueprintDiagram />
-        </div>
-        <div className="value-column">
-          <SectionHeading eyebrow="Architecture & valeur" title={pageCopy.home.valuesTitle} summary={pageCopy.home.valuesSummary} />
-          {recruiterValues.slice(0, 4).map((value, index) => <article className={`value-card value-card--${index + 1}`} key={value.title}><span>0{index + 1}</span><div><h3>{value.title}</h3><p>{value.summary}</p></div></article>)}
+        <BlueprintDiagram />
+        <div className="architecture-values">
+          {architectureValues.map((value, index) => <article className={`architecture-value architecture-value--${value.accent}`} key={value.id}><span>0{index + 1}</span><div><h3>{value.title}</h3><p>{value.summary}</p></div></article>)}
         </div>
       </section>
 

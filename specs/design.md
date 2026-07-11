@@ -60,6 +60,11 @@ Clarté avant décoration, espace généreux, hiérarchie nette et crédibilité
 - Schémas simplifiés sous 768 px, avec résumé textuel conservé.
 - Aucun overflow horizontal à partir de 360 px.
 - Les médias riches en texte passent en pleine largeur sur mobile et restent agrandissables.
+- Le blueprint occupe toute la largeur du conteneur. Ses quatre zones sont connectées par un SVG placé devant le fond des zones et derrière les cartes sur desktop, pour assurer que les lignes de liaisons restent pleinement visibles de carte à carte. Les connexions SVG sont calculées à l'aide d'une intersection géométrique avec les boîtes des cartes (avec une marge de recul/padding de 8 px) afin de garantir que les lignes et les flèches s'arrêtent net aux bordures extérieures des cartes et ne les traversent pas.
+- Sur tablette, les zones passent sur deux niveaux et les connexions sont simplifiées ; les quatre cartes de valeur forment une grille 2×2.
+- Sous 700 px, le réseau SVG disparaît au profit d’un parcours vertical ordonné ; les filtres reviennent à la ligne sans défilement horizontal.
+- Les nœuds hors parcours restent visibles à opacité réduite afin de préserver le contexte.
+- Les transitions du blueprint durent 180 à 240 ms et sont neutralisées avec `prefers-reduced-motion`.
 
 ## Accessibilité
 

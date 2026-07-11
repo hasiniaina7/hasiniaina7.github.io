@@ -66,3 +66,14 @@ Faire évoluer les six routes du portfolio premium afin de montrer l’étendue 
 - Aucun débordement horizontal de 360 à 1440 px.
 - `npm run typecheck`, `npm run lint`, `npm run build` et `npm run media:check` réussissent.
 - Captures et audits conservés comme artefacts de validation.
+
+## Évolution — Blueprint système interactif
+
+1. Remplacer le blueprint vertical par une carte pleine largeur construite en HTML, CSS et SVG.
+2. Centraliser quatre zones de nœuds vérifiés et cinq vues de flux typées dans `portfolioData.ts`.
+3. Relier chaque connexion par identifiants stables et chaque parcours à ses réalisations de preuve.
+4. Déplacer sous le diagramme les cartes Sécurité intégrée, Continuité terrain, Traçabilité et Observabilité.
+5. Fournir une carte connectée sur desktop/tablette et un parcours vertical sans SVG complexe sur mobile.
+6. Valider clavier, `aria-pressed`, zone live, mouvement réduit, responsive et absence de technologies non démontrées.
+
+La section porte le titre « Concevoir des systèmes fiables, traçables et orientés opérations ». Elle ne publie aucun raster et exclut MongoDB, Redis, S3, IoT, l’API Gateway générique, les microservices systématiques et la haute disponibilité non démontrée.
