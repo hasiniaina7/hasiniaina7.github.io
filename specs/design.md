@@ -1,224 +1,43 @@
-# Design System - Portfolio Recruteur
+# Design system — Direction premium
 
-## Design Direction
+## Principes
 
-Reference direction: recruiter-readable senior engineering portfolio.
+Clarté avant décoration, espace généreux, hiérarchie nette et crédibilité B2B. Les illustrations soutiennent la composition sans porter de texte métier.
 
-The site must help recruiters quickly identify the target role, seniority, stack coverage, project evidence and working method. Architecture diagrams remain useful, but they are secondary to a clear recruiting narrative.
-
-## Visual Principles
-
-- Clear before decorative.
-- Make every important claim scannable for recruiters.
-- Use diagrams as proof, not as the primary first impression.
-- Use cards for bounded proof blocks, not for every section.
-- Keep density high enough for B2B credibility.
-- Use whitespace and thin borders to avoid heavy dashboard aesthetics.
-- Accent colors must encode flow types, not random decoration.
-- The Africa-Europe-Madagascar map remains required, but it is secondary to the system blueprint identity.
-
-## Color Tokens
+## Tokens
 
 ```css
-:root {
-  --color-page: #f8fafc;
-  --color-surface: #ffffff;
-  --color-surface-soft: #f1f5f9;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-line: rgba(226, 232, 240, 0.8);
-  --color-line-strong: #cbd5e1;
-  --color-blue: #2563eb;
-  --color-blue-dark: #1e3a8a;
-  --color-green: #059669;
-  --color-orange: #ea580c;
-  --color-violet: #7c3aed;
-  --color-danger: #dc2626;
-  --color-focus: #2563eb;
-
-  /* Semi-transparent accents for modern UI elements */
-  --color-blue-soft: rgba(37, 99, 235, 0.05);
-  --color-blue-border: rgba(37, 99, 235, 0.2);
-  --color-green-soft: rgba(5, 150, 105, 0.05);
-  --color-green-border: rgba(5, 150, 105, 0.2);
-  --color-orange-soft: rgba(234, 88, 12, 0.05);
-  --color-orange-border: rgba(234, 88, 12, 0.2);
-  --color-violet-soft: rgba(124, 58, 237, 0.05);
-  --color-violet-border: rgba(124, 58, 237, 0.2);
-  --color-navy-soft: rgba(15, 23, 42, 0.05);
-  --color-navy-border: rgba(15, 23, 42, 0.2);
-}
+--color-navy-950: #0b1538;
+--color-blue-600: #315bff;
+--color-blue-500: #4772ff;
+--color-indigo-600: #5a48f5;
+--color-violet-500: #8b5cf6;
+--color-cyan-400: #35d4e7;
+--color-surface: #ffffff;
+--color-surface-soft: #f5f7ff;
+--color-border-soft: rgba(70, 92, 180, 0.14);
+--gradient-primary: linear-gradient(135deg, #315bff 0%, #5a48f5 52%, #8b5cf6 72%, #35d4e7 100%);
 ```
 
-Palette rules:
+## Règles
 
-- Navy is the dominant text color.
-- Blue is the primary action and application-flow color.
-- Green represents data, field reliability and operational trust.
-- Orange represents payments, integration, AI automation warnings or handoff.
-- Violet is reserved for product/security/operations secondary flows.
-- Avoid purple-blue gradient dominance.
-- Avoid beige/cream dominance.
-- Avoid dark dashboard themes.
+- Sans-serif système moderne et lisible.
+- Conteneur maximal : 1280 px, dans la plage autorisée 1240–1360 px.
+- Grandes cartes : 24–28 px ; petites surfaces : 14–16 px.
+- Ombres larges et faibles, bordures discrètes.
+- Gradient sur CTA et accents stratégiques uniquement.
+- Verre translucide limité au header, hero et rares cartes.
+- Transitions de 150–300 ms, neutralisées sous `prefers-reduced-motion`.
 
-## Typography
+## Responsive
 
-Recommended implementation:
+- Texte avant visuel dans le hero mobile.
+- Pipeline méthode horizontal sur desktop, vertical sur mobile.
+- Schémas simplifiés sous 768 px, avec résumé textuel conservé.
+- Aucun overflow horizontal à partir de 360 px.
 
-- Display: a serif with strong editorial authority, for example `Fraunces`, `Cormorant Garamond`, or `Libre Baskerville`.
-- Body/UI: a readable sans with technical neutrality, for example `IBM Plex Sans`, `Source Sans 3`, or `Atkinson Hyperlegible`.
+## Accessibilité
 
-Rules:
-
-- No viewport-width font scaling.
-- No negative letter spacing.
-- H1 must be large but must wrap cleanly on mobile.
-- UI labels and tags stay compact and readable.
-
-Indicative scale:
-
-```css
---font-display: "Fraunces", Georgia, serif;
---font-body: "IBM Plex Sans", Arial, sans-serif;
---text-xs: 0.75rem;
---text-sm: 0.875rem;
---text-base: 1rem;
---text-lg: 1.125rem;
---text-xl: 1.35rem;
---text-2xl: 1.75rem;
---text-3xl: 2.5rem;
---text-hero-mobile: 2.75rem;
---text-hero-tablet: 3.75rem;
---text-hero-desktop: 5rem;
-```
-
-Hero sizing must use breakpoint-based fixed sizes, not viewport-width scaling.
-
-## Spacing and Layout
-
-```css
---space-1: 0.25rem;
---space-2: 0.5rem;
---space-3: 0.75rem;
---space-4: 1rem;
---space-5: 1.5rem;
---space-6: 2rem;
---space-7: 3rem;
---space-8: 4rem;
---radius-sm: 6px;
---radius-md: 8px;
---shadow-subtle: 0 18px 50px rgba(6, 28, 79, 0.06);
-```
-
-Rules:
-
-- Cards max radius: 8px.
-- Page width: 1180px to 1240px.
-- Header fixed or sticky only if it does not cover anchor targets.
-- Sections are full-width layouts with constrained inner content.
-- Do not nest cards inside cards.
-
-## Components
-
-### Header
-
-- Left: typographic branding (full name and role, no monogram box).
-- Center/right: Accueil, Parcours, Projets, Compétences, Contact.
-- CTA: `Échanger` with arrow icon.
-- Active item: blue underline.
-
-### Section Title
-
-- Serif heading.
-- Short blue underline.
-- Supporting text below or aligned opposite on wide screens.
-
-### Cards
-
-- White surface.
-- Thin border.
-- 8px radius.
-- Minimal shadow.
-- Icons line-based, preferably lucide icons where possible.
-
-### Tags
-
-- Small bordered pills.
-- No decorative gradients.
-- Used for stacks and categories.
-
-### Diagrams
-
-- Native SVG/HTML components.
-- Dashed lines:
-  - Blue: application/data exchange.
-  - Green: data/operations.
-  - Orange: integration/AI/payment.
-  - Navy dashed: infrastructure/network.
-- Every diagram must have accessible text summary.
-
-## Page-Specific Design
-
-### Accueil
-
-- Hero states Senior Full-Stack Engineer with backend, frontend, mobile and applied AI.
-- First screen shows role, seniority, core stack, location and contact actions.
-- Proof modules below the hero show what the candidate brings to a team.
-- Africa-Europe-Madagascar operational map appears as a secondary required diagram.
-- Project cards below.
-- Specs-driven / AI-agent working method appears before or near project proof.
-
-### Parcours
-
-- Hero with world map progression.
-- Timeline cards.
-- Capability progression diagrams.
-- Lessons learned cards.
-
-### Projets
-
-- Stacked wide project cards.
-- Each card must read as a short recruiter case study:
-  - context;
-  - role;
-  - stack;
-  - built scope;
-  - technical complexity;
-  - public proof;
-  - private proof available in interview.
-
-### Compétences
-
-- Recruiter-readable skill evidence cards.
-- Each card shows stack, projects, proof, usage level and interview talking point.
-- Categories: backend, frontend, mobile, data/security, applied AI and delivery.
-
-### Méthode
-
-- Dedicated route or prominent section.
-- Explains specs-driven development with AI agents.
-- Shows workflow steps and quality gates without presenting AI as a replacement for engineering responsibility.
-
-### Contact
-
-- Left: client-oriented copy and intervention domains.
-- Right: form-like composer or mailto-safe form.
-- Lower cards: availability, channels, geography, approach, collaboration modes.
-
-## Responsive Rules
-
-- Desktop: diagram-first editorial layout.
-- Tablet: two-column sections collapse carefully.
-- Mobile:
-  - Header becomes compact.
-  - Diagrams become simplified stacked cards or horizontally scrollable if unavoidable.
-  - No text overlap.
-  - Buttons keep stable dimensions.
-
-## Design Risks
-
-- Raw screenshot replication would fail accessibility and responsiveness.
-- Too many flow lines can become visual noise on mobile.
-- Fake contact form would damage trust.
-- Using generic dashboard UI would weaken the premium editorial feel.
-- Dark cyberpunk, neon overload, code-wall backgrounds and generic AI claims would weaken the B2B operational positioning.
+- Focus très visible, contraste AA, cibles tactiles d’au moins 44 px.
+- Décorations avec `alt=""` ; placeholders expliqués dans le DOM.
+- Un seul H1 par route et hiérarchie de titres cohérente.

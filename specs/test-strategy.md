@@ -1,163 +1,35 @@
-# Test Strategy - Frontend Validation and Non-Regression
+# Stratégie de validation
 
-## Goal
+## Automatique
 
-Prove that the portfolio is buildable, readable, responsive, accessible, SEO-ready, and truthful to the CV.
+- `npm run typecheck`, `npm run lint`, `npm run build`.
+- Audit média : formats, dimensions, poids, absence d’upscale, budgets et manifeste.
+- Audit contenu : quatre projets, métriques traçables, aucune certification inventée, aucune image projet publiée.
 
-## Test Layers
+## Navigateur
 
-### 1. Static Build
+Tester les six routes à 1440, 1280, 1024, 768, 430, 390 et 360 px avec captures pleine page.
 
-Commands after implementation:
+Pour chaque route :
 
-```powershell
-npm run build
-npm run typecheck
-npm run lint
-```
+- aucun overflow horizontal, chevauchement ou texte tronqué ;
+- un H1, ordre des titres cohérent et métadonnées SEO présentes ;
+- aucune erreur console et aucun layout shift média évident ;
+- focus visible, parcours clavier et liens utilisables.
 
-Pass criteria:
+Scénarios spécifiques :
 
-- No TypeScript errors.
-- No build errors.
-- No lint errors that affect reliability, accessibility, or maintainability.
+- menu mobile : ouverture, Échap, navigation puis fermeture ;
+- contact : champs visibles et URL `mailto:` correctement composée ;
+- mouvement réduit : animations et smooth scroll non essentiels supprimés ;
+- médias : LCP non lazy, contenu sous la ligne de flottaison lazy.
 
-### 2. Browser Smoke
+## Accessibilité et performance
 
-Use the in-app Browser or Playwright against the local dev server.
+- Vérifier WCAG AA, labels, textes alternatifs et cibles tactiles.
+- Auditer Lighthouse mobile/desktop si l’outil est disponible.
+- Ne publier aucun score non mesuré.
 
-Viewport targets:
+## Artefacts
 
-- Desktop: 1440 x 1200.
-- Laptop: 1280 x 900.
-- Tablet: 768 x 1024.
-- Mobile: 390 x 844.
-
-Pass criteria:
-
-- Hero visible and readable.
-- Header navigation usable.
-- No text overlap.
-- Diagrams visible and not blank.
-- CTA visible.
-- Footer visible.
-- Blueprint flow lines and status modules remain readable without relying on animation.
-
-### 3. Responsive Regression
-
-Pages to screenshot:
-
-- `/`
-- `/parcours`
-- `/projets`
-- `/competences`
-- `/contact`
-
-Pass criteria:
-
-- No horizontal page overflow except intentional diagram scrollers.
-- Cards keep stable dimensions.
-- Buttons do not resize unpredictably.
-- Long French words do not escape containers.
-- Header and footer are captured on every route at desktop, tablet and mobile sizes.
-
-### 4. Accessibility Smoke
-
-Checks:
-
-- Keyboard tab through header, CTA, project links, contact fields.
-- Visible focus ring.
-- H1 present once per route.
-- Form labels visible.
-- SVG diagrams have accessible names or adjacent summaries.
-- Contrast visually checked for navy/blue/green/orange on white.
-
-Recommended automated check:
-
-```powershell
-npx axe http://localhost:5173
-```
-
-If axe is unavailable, use browser inspection and manual keyboard pass.
-
-### 5. SEO Static Audit
-
-Checks:
-
-- `html lang="fr"`.
-- Route-specific `title`.
-- Route-specific `description`.
-- Open Graph tags.
-- One H1.
-- H2 structure meaningful.
-- Content is present in built HTML or hydrated reliably for crawlers.
-- Canonical URL correct for GitHub Pages.
-
-### 6. Link Audit
-
-Links to verify:
-
-- `https://github.com/hasiniaina7`
-- `https://www.linkedin.com/in/hasiniaina-christian/`
-- `https://hasiniaina7.github.io/`
-- `https://www.techzone.lat`
-- `https://app.techzone.lat`
-- `https://fretunia.com`
-- `mailto:hasiniainachristian7@gmail.com`
-
-Pass criteria:
-
-- External links open in new tab with safe `rel`.
-- Mailto contains usable subject/body if generated.
-- No dead placeholder links.
-
-### 7. Content Truth Audit
-
-Required checks:
-
-- Search for banned dominant narrative:
-
-```powershell
-rg -n "tourisme|photo|photographie|journalisme" src
-```
-
-Allowed only if intentionally documented as minor historical context.
-
-- Search for unsupported performance language:
-
-```powershell
-rg -n "%|ROI|revenu|croissance|leader|expert mondial|mission-critical|enterprise-grade" src
-```
-
-Every hit must be verified or rewritten.
-
-- Verify claims against CV:
-  - `20+ entreprises` only for Fretunia/Trackmada.
-  - `500M+ Ar à 2Md+ Ar` only as AIM system criticality, not personal performance.
-  - TZ Smart stack matches CV.
-  - AI orchestrator stack matches CV.
-
-### 8. Visual Non-Regression
-
-After the first approved implementation:
-
-- Store baseline screenshots under `artifacts/screenshots/baseline/`.
-- Store later screenshots under `artifacts/screenshots/current/`.
-- Compare manually first; add automated visual diff only if design churn becomes frequent.
-
-Required current screenshots for a design candidate:
-
-- Full-page screenshots for `/`, `/parcours`, `/projets`, `/competences`, `/contact`.
-- Focused screenshots for header, home hero blueprint, contact composer and footer.
-- Viewports: 1440 x 1200, 1280 x 900, 768 x 1024 and 390 x 844.
-
-## Stop Rules
-
-Do not deploy if:
-
-- Build fails.
-- Contact form lies about message delivery.
-- Mobile has overlapping text.
-- A major claim is not traceable to the CV.
-- The page still reads primarily as generic web/tourism/photo/journalism portfolio.
-- The local Git boundary is unresolved for commit/deploy.
+Stocker captures et rapports dans un nouveau dossier horodaté sous `artifacts/`, sans remplacer les références précédentes.

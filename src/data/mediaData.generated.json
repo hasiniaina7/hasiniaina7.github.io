@@ -1,0 +1,422 @@
+[
+  {
+    "id": "hero-glass-portal",
+    "role": "decorative",
+    "alt": "",
+    "decorative": true,
+    "ratio": 0.800285,
+    "source": {
+      "path": "tmp/hero-glass-portal.png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1443271,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "baked checker converted to alpha"
+    },
+    "variants": [
+      {
+        "src": "/assets/decorative/hero-glass-portal-280.avif",
+        "width": 280,
+        "height": 350,
+        "format": "avif",
+        "bytes": 27743
+      },
+      {
+        "src": "/assets/decorative/hero-glass-portal-280.webp",
+        "width": 280,
+        "height": 350,
+        "format": "webp",
+        "bytes": 62434
+      },
+      {
+        "src": "/assets/decorative/hero-glass-portal-380.avif",
+        "width": 380,
+        "height": 475,
+        "format": "avif",
+        "bytes": 55560
+      },
+      {
+        "src": "/assets/decorative/hero-glass-portal-380.webp",
+        "width": 380,
+        "height": 475,
+        "format": "webp",
+        "bytes": 113394
+      },
+      {
+        "src": "/assets/decorative/hero-glass-portal-480.avif",
+        "width": 480,
+        "height": 600,
+        "format": "avif",
+        "bytes": 81592
+      },
+      {
+        "src": "/assets/decorative/hero-glass-portal-480.webp",
+        "width": 480,
+        "height": 600,
+        "format": "webp",
+        "bytes": 175370
+      }
+    ]
+  },
+  {
+    "id": "architecture-system-core",
+    "role": "decorative",
+    "alt": "",
+    "decorative": true,
+    "ratio": 1.776833,
+    "source": {
+      "path": "tmp/architecture-system-core.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1474946,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/decorative/architecture-system-core-480.avif",
+        "width": 480,
+        "height": 270,
+        "format": "avif",
+        "bytes": 7967
+      },
+      {
+        "src": "/assets/decorative/architecture-system-core-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 10456
+      },
+      {
+        "src": "/assets/decorative/architecture-system-core-720.avif",
+        "width": 720,
+        "height": 405,
+        "format": "avif",
+        "bytes": 14504
+      },
+      {
+        "src": "/assets/decorative/architecture-system-core-720.webp",
+        "width": 720,
+        "height": 405,
+        "format": "webp",
+        "bytes": 20072
+      },
+      {
+        "src": "/assets/decorative/architecture-system-core-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 21923
+      },
+      {
+        "src": "/assets/decorative/architecture-system-core-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 31266
+      }
+    ]
+  },
+  {
+    "id": "specs-driven-agent-flow",
+    "role": "decorative",
+    "alt": "",
+    "decorative": true,
+    "ratio": 1.5,
+    "source": {
+      "path": "tmp/specs-driven-agent-flow.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2295218,
+      "colorSpace": "srgb",
+      "hasAlpha": true,
+      "alphaTreatment": "source alpha preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/decorative/specs-driven-agent-flow-400.avif",
+        "width": 400,
+        "height": 267,
+        "format": "avif",
+        "bytes": 7185
+      },
+      {
+        "src": "/assets/decorative/specs-driven-agent-flow-400.webp",
+        "width": 400,
+        "height": 267,
+        "format": "webp",
+        "bytes": 16216
+      },
+      {
+        "src": "/assets/decorative/specs-driven-agent-flow-600.avif",
+        "width": 600,
+        "height": 400,
+        "format": "avif",
+        "bytes": 11139
+      },
+      {
+        "src": "/assets/decorative/specs-driven-agent-flow-600.webp",
+        "width": 600,
+        "height": 400,
+        "format": "webp",
+        "bytes": 30916
+      },
+      {
+        "src": "/assets/decorative/specs-driven-agent-flow-800.avif",
+        "width": 800,
+        "height": 533,
+        "format": "avif",
+        "bytes": 16620
+      },
+      {
+        "src": "/assets/decorative/specs-driven-agent-flow-800.webp",
+        "width": 800,
+        "height": 533,
+        "format": "webp",
+        "bytes": 50122
+      }
+    ]
+  },
+  {
+    "id": "global-operations-orb",
+    "role": "decorative",
+    "alt": "",
+    "decorative": true,
+    "ratio": 1.776833,
+    "source": {
+      "path": "tmp/global-operations-orb.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1513807,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "baked checker converted to alpha"
+    },
+    "variants": [
+      {
+        "src": "/assets/decorative/global-operations-orb-360.avif",
+        "width": 360,
+        "height": 203,
+        "format": "avif",
+        "bytes": 20946
+      },
+      {
+        "src": "/assets/decorative/global-operations-orb-360.webp",
+        "width": 360,
+        "height": 203,
+        "format": "webp",
+        "bytes": 45442
+      },
+      {
+        "src": "/assets/decorative/global-operations-orb-540.avif",
+        "width": 540,
+        "height": 304,
+        "format": "avif",
+        "bytes": 48491
+      },
+      {
+        "src": "/assets/decorative/global-operations-orb-540.webp",
+        "width": 540,
+        "height": 304,
+        "format": "webp",
+        "bytes": 99208
+      },
+      {
+        "src": "/assets/decorative/global-operations-orb-720.avif",
+        "width": 720,
+        "height": 405,
+        "format": "avif",
+        "bytes": 77416
+      },
+      {
+        "src": "/assets/decorative/global-operations-orb-720.webp",
+        "width": 720,
+        "height": 405,
+        "format": "webp",
+        "bytes": 167246
+      }
+    ]
+  },
+  {
+    "id": "security-reliability-shield",
+    "role": "decorative",
+    "alt": "",
+    "decorative": true,
+    "ratio": 1.5,
+    "source": {
+      "path": "tmp/ecurity-reliability-shield.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2347318,
+      "colorSpace": "srgb",
+      "hasAlpha": true,
+      "alphaTreatment": "source alpha preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/decorative/security-reliability-shield-400.avif",
+        "width": 400,
+        "height": 267,
+        "format": "avif",
+        "bytes": 11576
+      },
+      {
+        "src": "/assets/decorative/security-reliability-shield-400.webp",
+        "width": 400,
+        "height": 267,
+        "format": "webp",
+        "bytes": 20094
+      },
+      {
+        "src": "/assets/decorative/security-reliability-shield-600.avif",
+        "width": 600,
+        "height": 400,
+        "format": "avif",
+        "bytes": 20552
+      },
+      {
+        "src": "/assets/decorative/security-reliability-shield-600.webp",
+        "width": 600,
+        "height": 400,
+        "format": "webp",
+        "bytes": 40170
+      },
+      {
+        "src": "/assets/decorative/security-reliability-shield-800.avif",
+        "width": 800,
+        "height": 533,
+        "format": "avif",
+        "bytes": 29981
+      },
+      {
+        "src": "/assets/decorative/security-reliability-shield-800.webp",
+        "width": 800,
+        "height": 533,
+        "format": "webp",
+        "bytes": 67190
+      }
+    ]
+  },
+  {
+    "id": "cloud-certification-stack",
+    "role": "decorative",
+    "alt": "",
+    "decorative": true,
+    "ratio": 1.5,
+    "source": {
+      "path": "tmp/cloud-certification-stack.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2373715,
+      "colorSpace": "srgb",
+      "hasAlpha": true,
+      "alphaTreatment": "source alpha preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/decorative/cloud-certification-stack-400.avif",
+        "width": 400,
+        "height": 267,
+        "format": "avif",
+        "bytes": 12153
+      },
+      {
+        "src": "/assets/decorative/cloud-certification-stack-400.webp",
+        "width": 400,
+        "height": 267,
+        "format": "webp",
+        "bytes": 22522
+      },
+      {
+        "src": "/assets/decorative/cloud-certification-stack-600.avif",
+        "width": 600,
+        "height": 400,
+        "format": "avif",
+        "bytes": 21995
+      },
+      {
+        "src": "/assets/decorative/cloud-certification-stack-600.webp",
+        "width": 600,
+        "height": 400,
+        "format": "webp",
+        "bytes": 46266
+      },
+      {
+        "src": "/assets/decorative/cloud-certification-stack-800.avif",
+        "width": 800,
+        "height": 533,
+        "format": "avif",
+        "bytes": 33846
+      },
+      {
+        "src": "/assets/decorative/cloud-certification-stack-800.webp",
+        "width": 800,
+        "height": 533,
+        "format": "webp",
+        "bytes": 78246
+      }
+    ]
+  },
+  {
+    "id": "cta-modular-system",
+    "role": "decorative",
+    "alt": "",
+    "decorative": true,
+    "ratio": 1.776833,
+    "source": {
+      "path": "tmp/cta-modular-system.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1495614,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/decorative/cta-modular-system-480.avif",
+        "width": 480,
+        "height": 270,
+        "format": "avif",
+        "bytes": 5348
+      },
+      {
+        "src": "/assets/decorative/cta-modular-system-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 7306
+      },
+      {
+        "src": "/assets/decorative/cta-modular-system-720.avif",
+        "width": 720,
+        "height": 405,
+        "format": "avif",
+        "bytes": 9828
+      },
+      {
+        "src": "/assets/decorative/cta-modular-system-720.webp",
+        "width": 720,
+        "height": 405,
+        "format": "webp",
+        "bytes": 13914
+      },
+      {
+        "src": "/assets/decorative/cta-modular-system-960.avif",
+        "width": 960,
+        "height": 540,
+        "format": "avif",
+        "bytes": 15408
+      },
+      {
+        "src": "/assets/decorative/cta-modular-system-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 21130
+      }
+    ]
+  }
+]

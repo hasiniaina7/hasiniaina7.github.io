@@ -9,7 +9,7 @@ const tsconfigRootDir = fileURLToPath(new URL('.', import.meta.url));
 
 export default tseslint.config(
   {
-    ignores: ['dist', 'node_modules', 'artifacts', 'eslint.config.js'],
+    ignores: ['dist', 'node_modules', 'artifacts', 'scripts', 'eslint.config.js'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,

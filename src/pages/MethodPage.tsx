@@ -1,5 +1,8 @@
 import { pageCopy, workingMethod } from '@/data/portfolioData';
 import { SectionHeading } from '@/components/SectionHeading';
+import { ResponsiveMedia } from '@/components/ResponsiveMedia';
+import { getMediaAsset } from '@/data/mediaData';
+import { FinalCta } from '@/components/FinalCta';
 
 const detailedSteps = [
   {
@@ -49,6 +52,7 @@ export function MethodPage() {
 
       <section className="content-section method-band">
         <SectionHeading align="split" eyebrow="Specs-driven" title={workingMethod.title} summary={workingMethod.summary} />
+        <ResponsiveMedia asset={getMediaAsset('specs-driven-agent-flow')} sizes="(max-width: 768px) 90vw, 900px" className="method-illustration" />
         
         <div className="method-pipeline">
           {detailedSteps.map((step, index) => (
@@ -94,6 +98,7 @@ export function MethodPage() {
           </ul>
         </article>
       </section>
+      <FinalCta />
     </div>
   );
 }

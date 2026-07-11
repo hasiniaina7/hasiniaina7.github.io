@@ -16,3 +16,4 @@ hasina-home-*.png
 .DS_Store
 .vscode/
 .idea/
+tmp/

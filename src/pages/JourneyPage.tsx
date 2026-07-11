@@ -1,6 +1,7 @@
 import { evidenceLabels, experiences, pageCopy } from '@/data/portfolioData';
 import { JourneyProgression } from '@/components/JourneyProgression';
 import { SectionHeading } from '@/components/SectionHeading';
+import { FinalCta } from '@/components/FinalCta';
 
 export function JourneyPage() {
   return (
@@ -51,6 +52,7 @@ export function JourneyPage() {
           ))}
         </div>
       </section>
+      <FinalCta />
     </div>
   );
 }

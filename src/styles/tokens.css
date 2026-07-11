@@ -1,67 +1,57 @@
 :root {
-  --color-page: #f8fafc;
+  --color-navy-950: #0b1538;
+  --color-blue-600: #315bff;
+  --color-blue-500: #4772ff;
+  --color-indigo-600: #5a48f5;
+  --color-violet-500: #8b5cf6;
+  --color-cyan-400: #35d4e7;
+  --color-page: #f7f9ff;
   --color-surface: #ffffff;
-  --color-surface-soft: #f1f5f9;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-line: rgba(226, 232, 240, 0.8);
-  --color-line-strong: #cbd5e1;
-  --color-blue: #2563eb;
-  --color-blue-dark: #1e3a8a;
-  --color-green: #059669;
-  --color-orange: #ea580c;
-  --color-violet: #7c3aed;
-  --color-danger: #dc2626;
-  --color-focus: #2563eb;
-
-  /* Semi-transparent accents for modern UI elements */
-  --color-blue-soft: rgba(37, 99, 235, 0.05);
-  --color-blue-border: rgba(37, 99, 235, 0.2);
-  --color-green-soft: rgba(5, 150, 105, 0.05);
-  --color-green-border: rgba(5, 150, 105, 0.2);
-  --color-orange-soft: rgba(234, 88, 12, 0.05);
-  --color-orange-border: rgba(234, 88, 12, 0.2);
-  --color-violet-soft: rgba(124, 58, 237, 0.05);
-  --color-violet-border: rgba(124, 58, 237, 0.2);
-  --color-navy-soft: rgba(15, 23, 42, 0.05);
-  --color-navy-border: rgba(15, 23, 42, 0.2);
-
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
-
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
+  --color-surface-soft: #f1f4ff;
+  --color-text: #0b1538;
+  --color-text-muted: #526079;
+  --color-line: rgba(70, 92, 180, 0.14);
+  --color-line-strong: rgba(49, 91, 255, 0.32);
+  --color-blue: #315bff;
+  --color-blue-dark: #17265c;
+  --color-green: #16866f;
+  --color-orange: #c25218;
+  --color-violet: #7951e8;
+  --color-danger: #b42318;
+  --color-focus: #315bff;
+  --color-blue-soft: rgba(49, 91, 255, 0.08);
+  --color-blue-border: rgba(49, 91, 255, 0.2);
+  --color-green-soft: rgba(22, 134, 111, 0.08);
+  --color-green-border: rgba(22, 134, 111, 0.22);
+  --color-orange-soft: rgba(194, 82, 24, 0.08);
+  --color-orange-border: rgba(194, 82, 24, 0.22);
+  --color-violet-soft: rgba(121, 81, 232, 0.08);
+  --color-violet-border: rgba(121, 81, 232, 0.22);
+  --color-navy-soft: rgba(11, 21, 56, 0.06);
+  --color-navy-border: rgba(11, 21, 56, 0.16);
+  --gradient-primary: linear-gradient(135deg, #315bff 0%, #5a48f5 52%, #8b5cf6 72%, #35d4e7 100%);
+  --font-display: Inter, Manrope, "Segoe UI", sans-serif;
+  --font-body: Inter, Manrope, "Segoe UI", sans-serif;
+  --text-xs: .76rem;
+  --text-sm: .88rem;
   --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.35rem;
-  --text-2xl: 1.75rem;
-  --text-3xl: 2.5rem;
-  --text-hero-mobile: 2.35rem;
-  --text-hero-tablet: 3.15rem;
-  --text-hero-desktop: 4.1rem;
-
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
+  --text-lg: 1.12rem;
+  --text-xl: clamp(1.25rem, 2vw, 1.5rem);
+  --text-2xl: clamp(1.75rem, 3vw, 2.35rem);
+  --text-3xl: clamp(2.15rem, 4vw, 3.4rem);
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
   --space-4: 1rem;
   --space-5: 1.5rem;
   --space-6: 2rem;
   --space-7: 3rem;
-  --space-8: 4rem;
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --shadow-subtle: 0 10px 30px -10px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.02);
-  --shadow-card-hover: 0 20px 40px -15px rgba(15, 23, 42, 0.12), 0 4px 10px rgba(15, 23, 42, 0.04);
-  
-  /* Color-specific glow shadows (HSL based for high diffusion and soft saturation) */
-  --shadow-blue-glow: 0 15px 35px -10px rgba(37, 99, 235, 0.18), 0 4px 12px rgba(37, 99, 235, 0.06);
-  --shadow-green-glow: 0 15px 35px -10px rgba(5, 150, 105, 0.18), 0 4px 12px rgba(5, 150, 105, 0.06);
-  --shadow-orange-glow: 0 15px 35px -10px rgba(234, 88, 12, 0.18), 0 4px 12px rgba(234, 88, 12, 0.06);
-  --shadow-violet-glow: 0 15px 35px -10px rgba(124, 58, 237, 0.18), 0 4px 12px rgba(124, 58, 237, 0.06);
-  --shadow-navy-glow: 0 15px 35px -10px rgba(15, 23, 42, 0.18), 0 4px 12px rgba(15, 23, 42, 0.06);
-
-  /* Clean transitions with organic easing */
-  --transition-spring: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease;
-
-  --max-content-width: 1220px;
+  --space-8: clamp(4rem, 8vw, 7.5rem);
+  --radius-sm: 14px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 28px;
+  --shadow-subtle: 0 18px 60px rgba(34, 55, 130, .08);
+  --shadow-card-hover: 0 24px 70px rgba(34, 55, 130, .15);
+  --max-content-width: 1280px;
 }

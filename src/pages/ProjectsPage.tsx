@@ -1,6 +1,8 @@
 import { evidenceLabels, projects } from '@/data/portfolioData';
 import { SectionHeading } from '@/components/SectionHeading';
 import { pageCopy } from '@/data/portfolioData';
+import { VisualPlaceholder } from '@/components/VisualPlaceholder';
+import { FinalCta } from '@/components/FinalCta';
 
 export function ProjectsPage() {
   return (
@@ -12,6 +14,7 @@ export function ProjectsPage() {
       <section className="content-section stack">
         {projects.map((project) => (
           <article key={project.id} className="project-case">
+            <VisualPlaceholder kind="project" label="Média projet volontairement non publié" />
             <div className="project-case__header">
               <div className="project-detail__meta">
                 <p className="card-label">{project.category}</p>
@@ -102,6 +105,7 @@ export function ProjectsPage() {
           </article>
         ))}
       </section>
+      <FinalCta />
     </div>
   );
 }

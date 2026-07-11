@@ -1,152 +1,29 @@
-# Contracts - Portfolio Static Site
+# Contrats d’interface
 
-## Content Contract
+## Navigation
 
-### Single Source of Truth
+- Les six routes utilisent `NavLink` et exposent l’état actif.
+- Le menu mobile annonce son état, se ferme après navigation et avec Échap.
+- Le lien d’évitement cible `#main-content`.
 
-All route content must come from typed data files under `src/data/`.
+## Média responsive
 
-Contract:
+- `ResponsiveMedia` reçoit un `MediaAsset`, un `sizes`, une priorité et une classe facultative.
+- Ordre `<picture>` : AVIF puis WebP.
+- `srcset`, `sizes`, `width` et `height` sont obligatoires.
+- Le média hero prioritaire n’est pas lazy-loadé ; les décorations suivantes le sont.
+- Une décoration expose `alt=""` et `aria-hidden` ; un placeholder contextuel a un libellé adjacent dans le DOM.
 
-- Components may contain presentational labels.
-- Components must not contain project-specific claims unless they are static UI headings.
-- Data must include `evidenceLevel` for proof-sensitive items.
+## Projets
 
-### Evidence Contract
+- Les cartes et études de cas reçoivent uniquement un objet `Project` centralisé.
+- Le placeholder reste uniforme et ne simule pas une capture réelle.
 
-Allowed evidence levels:
+## Contact
 
-- `cv-confirmed`: directly present in the CV.
-- `derived-from-cv`: conservative wording derived from CV facts.
-- `requires-validation`: not ready to publish.
+- Le formulaire compose une URL `mailto:` ; il n’effectue aucun POST et ne présente aucun faux succès.
 
-Rule:
+## SEO
 
-- Production build must not render `requires-validation` claims unless they are hidden behind an internal debug flag.
-
-### Old Narrative Contract
-
-The following terms must not dominate headings, hero, project cards, or SEO:
-
-- tourisme
-- photographie
-- photo
-- journalisme
-
-They may appear only in a minor historical list if explicitly justified.
-
-## Route Contract
-
-Required routes:
-
-- `/` Accueil
-- `/parcours`
-- `/projets`
-- `/competences`
-- `/contact`
-
-Navigation contract:
-
-- Each route has one H1.
-- Header active state reflects route.
-- CTA `Échanger` links to contact.
-- Footer CTA appears on all pages.
-
-## SEO Contract
-
-Required static metadata:
-
-```ts
-type SeoMeta = {
-  title: string;
-  description: string;
-  canonicalPath: string;
-  ogTitle: string;
-  ogDescription: string;
-  ogImage?: string;
-};
-```
-
-Minimum route metadata:
-
-- Home: full positioning.
-- Parcours: terrain to SaaS/AI/infrastructure progression.
-- Projets: systems for network, commerce, logistics, payments.
-- Compétences: stack organized by business flows.
-- Contact: collaboration around reliable business systems.
-
-## Contact Contract
-
-v1 has no backend.
-
-Allowed interactions:
-
-- `mailto:` with generated subject/body.
-- external links to GitHub and LinkedIn.
-- visual form that prepares a mailto link.
-
-Forbidden interactions:
-
-- HTTP POST to a non-existent endpoint.
-- Success message implying server delivery.
-- Collection of personal data without clear handling.
-
-Contact fields if visual form exists:
-
-- full name
-- email
-- organization
-- subject
-- project type
-- message
-
-Validation:
-
-- email format checked client-side.
-- message length max 1000 characters.
-- submit button label must be honest, for example `Préparer l'e-mail` unless a real endpoint exists.
-
-## Diagram Contract
-
-Diagrams must be implemented as accessible components.
-
-Requirements:
-
-- Each diagram has an `aria-label` or adjacent text summary.
-- SVGs must not be the only source of important text if the text is tiny on mobile.
-- Flow colors follow `specs/design.md`.
-- Diagrams simplify on mobile.
-
-Required diagrams:
-
-- Africa-Europe-Madagascar operational map.
-- Project flow diagrams.
-- Parcours timeline/progression.
-- Skills matrix with input flows and business impacts.
-
-## Deployment Contract
-
-Target:
-
-- GitHub Pages static site.
-
-Required build assumptions:
-
-- No server runtime.
-- Correct base path for `hasiniaina7.github.io`.
-- Assets hashed by Vite.
-- Links work after static deployment.
-
-## Test Contract
-
-Before deployment candidate:
-
-- Build passes.
-- Typecheck passes.
-- Lint passes.
-- Browser screenshot desktop passes.
-- Browser screenshot mobile passes.
-- SEO route metadata checked.
-- Accessibility smoke checked.
-- Link audit checked.
-- Content anti-regression checked.
+- Chaque route consomme `seoByPath`, fournit title, description, canonical et Open Graph.
+- `lang="fr"` et un seul H1 par route.

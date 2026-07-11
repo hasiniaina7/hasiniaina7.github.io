@@ -35,7 +35,7 @@ export function Seo({ baseUrl }: SeoProps) {
     setMetaTag('meta[property="og:title"]', meta.ogTitle);
     setMetaTag('meta[property="og:description"]', meta.ogDescription);
     setMetaTag('meta[property="og:image"]', `${baseUrl}/og-image.svg`);
-    setMetaTag('meta[name="theme-color"]', '#fbfdff');
+    setMetaTag('meta[name="theme-color"]', '#f7f9ff');
 
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {

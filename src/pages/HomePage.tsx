@@ -1,134 +1,84 @@
 import { Link } from 'react-router-dom';
-import { evidenceLabels, operatingPrinciples, pageCopy, profile, projects, recruiterValues, workingMethod } from '@/data/portfolioData';
+import { blueprintModules, operatingPrinciples, pageCopy, profile, projects, recruiterValues, skillGroups, workingMethod } from '@/data/portfolioData';
+import { getMediaAsset } from '@/data/mediaData';
 import { BlueprintDiagram } from '@/components/BlueprintDiagram';
-import { BlueprintModules } from '@/components/BlueprintModules';
 import { OperationalMap } from '@/components/OperationalMap';
 import { SectionHeading } from '@/components/SectionHeading';
+import { ResponsiveMedia } from '@/components/ResponsiveMedia';
+import { VisualPlaceholder } from '@/components/VisualPlaceholder';
+import { ProjectCard } from '@/components/ProjectCard';
+import { FinalCta } from '@/components/FinalCta';
 
 export function HomePage() {
   const featuredProjects = projects.filter((project) => pageCopy.home.featuredProjectIds.includes(project.id));
 
   return (
     <div className="page page--home">
-      <section className="hero-grid hero-grid--blueprint">
-        <div className="hero-card hero-card--editorial hero-card--command">
+      <section className="premium-hero">
+        <div className="premium-hero__copy">
           <p className="section-heading__eyebrow">{pageCopy.home.eyebrow}</p>
           <h1 className="hero-title">{profile.hero.headline}</h1>
           <p className="hero-summary">{profile.hero.subheadline}</p>
-          <div className="hero-meta" aria-label="Profil">
-            <span>{profile.role}</span>
-            <span>{profile.location}</span>
-            <span>{profile.availability}</span>
-          </div>
           <div className="hero-actions">
-            <Link className="button button--primary" to="/projets">
-              Voir mes projets <span aria-hidden="true">→</span>
-            </Link>
-            <Link className="button button--secondary" to="/competences">
-              Voir mes compétences
-            </Link>
-            <Link className="button button--secondary" to="/contact">
-              Me contacter
-            </Link>
+            <Link className="button button--primary" to="/projets">Voir mes projets <span aria-hidden="true">→</span></Link>
+            <Link className="button button--secondary" to="/contact">Me contacter</Link>
           </div>
-          <p className="hero-assurance">Profil orienté livraison réelle : specs, code, tests, sécurité, production et responsabilité finale.</p>
+          <div className="hero-facts" aria-label="Informations professionnelles">
+            <div><span>Base</span><strong>{profile.location}</strong></div>
+            <div><span>Disponibilité</span><strong>{profile.availability}</strong></div>
+            <div><span>Approche</span><strong>Specs · tests · production</strong></div>
+          </div>
         </div>
-        <BlueprintDiagram />
+        <div className="premium-hero__visual">
+          <div className="portal-placeholder" aria-hidden="true" />
+          <VisualPlaceholder kind="portrait" label="Portrait non publié — emplacement réservé" />
+          <div className="availability-card"><span aria-hidden="true" /> Disponible pour collaboration remote</div>
+          <div className="expertise-card"><p>Expertises</p><strong>Backend · Frontend</strong><strong>Mobile · IA appliquée</strong></div>
+        </div>
+        <aside className="stack-card" aria-label="Stack principale">
+          <p className="card-label">Stack opérationnelle</p>
+          {skillGroups.slice(0, 5).map((group) => <div key={group.id}><span>{group.icon}</span><p><strong>{group.title}</strong><small>{group.technologies.slice(0, 3).join(' · ')}</small></p></div>)}
+        </aside>
+      </section>
+
+      <section className="content-section architecture-section">
+        <div className="architecture-visual">
+          <ResponsiveMedia asset={getMediaAsset('architecture-system-core')} sizes="(max-width: 768px) 92vw, 660px" />
+          <BlueprintDiagram />
+        </div>
+        <div className="value-column">
+          <SectionHeading eyebrow="Architecture & valeur" title={pageCopy.home.valuesTitle} summary={pageCopy.home.valuesSummary} />
+          {recruiterValues.slice(0, 4).map((value, index) => <article className={`value-card value-card--${index + 1}`} key={value.title}><span>0{index + 1}</span><div><h3>{value.title}</h3><p>{value.summary}</p></div></article>)}
+        </div>
+      </section>
+
+      <section className="content-section method-showcase">
+        <div><SectionHeading eyebrow="Méthode" title={workingMethod.title} summary={workingMethod.summary} /><ResponsiveMedia asset={getMediaAsset('specs-driven-agent-flow')} sizes="(max-width: 768px) 90vw, 760px" /></div>
+        <div className="method-pipeline">{workingMethod.steps.map((step, index) => <article className="pipeline-step" key={step}><span className="pipeline-step__number">{String(index + 1).padStart(2, '0')}</span><h3>{step}</h3></article>)}</div>
+        <Link className="text-link" to="/methode">Explorer la méthode <span aria-hidden="true">→</span></Link>
       </section>
 
       <section className="content-section">
-        <SectionHeading align="split" eyebrow="Valeur opérationnelle" title={pageCopy.home.valuesTitle} summary={pageCopy.home.valuesSummary} />
-        <div className="recruiter-value-grid">
-          {recruiterValues.map((value) => (
-            <article key={value.title} className="surface-card recruiter-value-card">
-              <h3>{value.title}</h3>
-              <p>{value.summary}</p>
-              <div className="tag-row">
-                {value.keywords.map((keyword) => (
-                  <span key={keyword} className="tag">
-                    {keyword}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
+        <SectionHeading align="split" eyebrow="Capacités techniques" title="Des briques déjà rencontrées sur projets réels." summary="Synchronisation, isolation, paiements, IA contrôlée et monitoring : chaque capacité répond à une contrainte opérationnelle vécue." />
+        <div className="capability-grid">{blueprintModules.map((module, index) => <article className="capability-card" key={module.id}><span>0{index + 1}</span><h3>{module.title}</h3><p>{module.summary}</p><div className="tag-row">{module.steps.map((step) => <span className="tag" key={step}>{step}</span>)}</div></article>)}</div>
       </section>
 
-      <section className="content-section method-band">
-        <SectionHeading
-          align="split"
-          eyebrow="Méthode"
-          title={workingMethod.title}
-          summary={workingMethod.summary}
-        />
-        <div className="method-preview">
-          {workingMethod.steps.map((step, index) => (
-            <article key={step} className="method-step">
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <h3>{step}</h3>
-            </article>
-          ))}
-        </div>
-        <Link className="text-link" to="/methode">
-          Voir ma méthode de travail <span aria-hidden="true">→</span>
-        </Link>
+      <section className="content-section operations-section">
+        <div><SectionHeading eyebrow="Opérations internationales" title={pageCopy.home.mapTitle} summary={pageCopy.home.mapSummary} /><OperationalMap /></div>
+        <div className="orb-placeholder"><span aria-hidden="true">AF</span><p>L’orbe décoratif a été écarté après contrôle qualité. La géographie utile reste portée par le schéma accessible.</p></div>
       </section>
 
       <section className="content-section">
-        <SectionHeading
-          align="split"
-          eyebrow="Preuves techniques"
-          title="Des briques déjà rencontrées sur projets réels."
-          summary="Ces modules résument les sujets qui reviennent dans mes projets : synchronisation, isolation, paiements, IA contrôlée et monitoring."
-        />
-        <BlueprintModules />
+        <SectionHeading align="split" eyebrow="Réalisations" title="Quatre systèmes, des contraintes concrètes" summary="Les médias projet évolueront séparément. Ici, seuls les contenus actuellement vérifiés sont présentés." />
+        <div className="project-grid">{featuredProjects.map((project) => <ProjectCard key={project.id} project={project} />)}</div>
       </section>
 
-      <section className="content-section map-band">
-        <SectionHeading align="split" eyebrow="Présence" title={pageCopy.home.mapTitle} summary={pageCopy.home.mapSummary} />
-        <OperationalMap />
+      <section className="content-section principles-showcase">
+        <div><SectionHeading eyebrow="Principes" title="Fiabilité, clarté et responsabilité" summary={pageCopy.home.principlesSummary} /><div className="principles-grid">{operatingPrinciples.map((principle) => <article key={principle.id} className="principle"><h3>{principle.title}</h3><p>{principle.summary}</p></article>)}</div></div>
+        <div className="specialization-card"><ResponsiveMedia asset={getMediaAsset('security-reliability-shield')} sizes="(max-width: 768px) 90vw, 520px" /><h3>Sécurité et fiabilité</h3><p>Des spécialisations techniques issues de systèmes réellement livrés, sans intitulé de certification inventé.</p><div className="tag-row">{skillGroups.flatMap((group) => group.technologies).filter((item) => ['PostgreSQL','RBAC','RLS','Docker','Linux','WireGuard'].includes(item)).map((item) => <span className="tag" key={item}>{item}</span>)}</div></div>
       </section>
 
-      <section className="content-section">
-        <SectionHeading
-          align="split"
-          eyebrow="Réalisations"
-          title="Projets sélectionnés"
-          summary="Chaque projet détaille un rôle, une stack technologique, une complexité et les réalisations concrètes associées."
-        />
-        <div className="project-preview-grid">
-          {featuredProjects.map((project) => (
-            <article key={project.id} className={`project-preview project-preview--${project.solutionFlow[0]?.accent ?? 'blue'}`}>
-              <div className="project-preview__head">
-                <div>
-                  <p className="card-label">{evidenceLabels[project.evidenceLevel]}</p>
-                  <h3>{project.title}</h3>
-                </div>
-                <span className="tag">{project.period}</span>
-              </div>
-              <p className="project-preview__domain">{project.category}</p>
-              <p>{project.domain}</p>
-              <p className="project-preview__result">{project.operationalResult}</p>
-              <Link className="text-link" to="/projets">
-                Voir le projet <span aria-hidden="true">→</span>
-              </Link>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="content-section operating-band">
-        <SectionHeading eyebrow="Principes" title="Règles d’exploitation" summary={pageCopy.home.principlesSummary} />
-        <div className="principles-grid">
-          {operatingPrinciples.map((principle) => (
-            <article key={principle.id} className={`principle principle--${principle.accent}`}>
-              <h3>{principle.title}</h3>
-              <p>{principle.summary}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <FinalCta />
     </div>
   );
 }

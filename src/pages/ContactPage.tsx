@@ -1,6 +1,7 @@
 import { collaborationModes, pageCopy, profile } from '@/data/portfolioData';
 import { ContactComposer } from '@/components/ContactComposer';
 import { SectionHeading } from '@/components/SectionHeading';
+import { FinalCta } from '@/components/FinalCta';
 
 export function ContactPage() {
   return (
@@ -66,6 +67,7 @@ export function ContactPage() {
         </div>
         <ContactComposer />
       </section>
+      <FinalCta />
     </div>
   );
 }

@@ -1,254 +1,36 @@
-# Data Model - Portfolio Content
+# Modèle de données
 
-## Goal
+## Source métier
 
-All publishable content must be centralized in typed data. Components render data; they do not own business copy.
+`src/data/portfolioData.ts` centralise profil, navigation, SEO, projets, expériences, compétences, méthode, principes, collaboration et schémas. Les composants ne doivent pas dupliquer d’affirmations métier.
 
-## Proposed Types
+## Contrat média
 
 ```ts
-export type EvidenceLevel = "cv-confirmed" | "derived-from-cv" | "requires-validation";
-
-export type Profile = {
-  fullName: string;
-  initials: string;
-  role: string;
-  location: string;
-  availability: string;
-  email: string;
-  links: ContactLink[];
-  hero: {
-    headline: string;
-    subheadline: string;
-    proofPillars: ProofPillar[];
-  };
+type MediaVariant = {
+  src: string;
+  width: number;
+  height: number;
+  format: 'avif' | 'webp';
+  bytes: number;
 };
 
-export type ContactLink = {
-  label: string;
-  href: string;
-  kind: "email" | "github" | "linkedin" | "portfolio" | "product";
-  isPublic: boolean;
-};
-
-export type ProofPillar = {
+type MediaAsset = {
   id: string;
-  title: string;
-  summary: string;
-  icon: string;
-  accent: "blue" | "green" | "orange" | "violet";
-  evidenceLevel: EvidenceLevel;
-};
-
-export type Project = {
-  id: string;
-  title: string;
-  category: string;
-  period?: string;
-  domain: string;
-  context: string;
-  problem: string;
-  role: string;
-  built: string[];
-  technicalComplexity: string[];
-  publicProofLinks: ContactLink[];
-  privateProofNote: string;
-  solutionFlow: FlowNode[];
-  stack: string[];
-  operationalResult: string;
-  sourceNotes: string[];
-  evidenceLevel: EvidenceLevel;
-  publishableMetrics: PublishableMetric[];
-};
-
-export type PublishableMetric = {
-  label: string;
-  value: string;
-  wordingGuardrail: string;
-  evidenceLevel: EvidenceLevel;
-};
-
-export type FlowNode = {
-  id: string;
-  label: string;
-  description?: string;
-  kind: "actor" | "system" | "data" | "payment" | "ai" | "infrastructure" | "output";
-  accent: "blue" | "green" | "orange" | "navy" | "violet";
-};
-
-export type Experience = {
-  id: string;
-  organization: string;
-  role: string;
-  period: string;
-  summary: string;
-  capabilityTags: string[];
-  progressionStage: "terrain" | "data" | "operations" | "saas-ai" | "infrastructure";
-  evidenceLevel: EvidenceLevel;
-};
-
-export type SkillGroup = {
-  id: string;
-  title: string;
-  icon: string;
-  accent: "blue" | "green" | "orange" | "violet";
-  technologies: string[];
-  useCases: string[];
-  impacts: string[];
-  evidenceLevel: EvidenceLevel;
-};
-
-export type RecruiterValue = {
-  title: string;
-  summary: string;
-  proofProjectIds: string[];
-  keywords: string[];
-};
-
-export type SkillEvidence = {
-  category: string;
-  technologies: string[];
-  projects: string[];
-  proof: string;
-  interviewTalkingPoint: string;
-  level: "production" | "advanced" | "solid";
-  accent: "blue" | "green" | "orange" | "violet" | "navy";
-};
-
-export type WorkingMethod = {
-  title: string;
-  summary: string;
-  steps: string[];
-  agentUsageNote: string;
-  qualityGates: string[];
-};
-
-export type OperatingPrinciple = {
-  id: string;
-  title: string;
-  summary: string;
-  icon: string;
-  accent: "blue" | "green" | "orange" | "violet";
-};
-
-export type CollaborationMode = {
-  id: string;
-  title: string;
-  summary: string;
-  bestFor: string[];
+  role: 'decorative' | 'portrait-placeholder' | 'project-placeholder';
+  alt: string;
+  decorative: boolean;
+  ratio: number;
+  source?: { path: string; width: number; height: number; bytes: number; colorSpace: string; hasAlpha: boolean };
+  variants: MediaVariant[];
 };
 ```
 
-## Required Data Instances
+Les sept décorations et les placeholders sont indexés par identifiant stable. Dimensions et poids correspondent aux fichiers générés. Aucun chemin média n’est dispersé dans les composants.
 
-### `profile`
+## Invariants
 
-Required values:
-
-- `fullName`: `Hasiniaina Christian LOVANIRINA`
-- `initials`: `HCL`
-- `role`: `Ingénieur Full-Stack Senior`
-- `location`: `Madagascar`
-- `availability`: `Remote Afrique-Europe`
-- `email`: `hasiniainachristian7@gmail.com`
-
-### `projects`
-
-Required ids:
-
-- `tz-smart`
-- `ai-commerce-orchestrator`
-- `fretunia-trackmada`
-- `aim-madagascar`
-
-### `experiences`
-
-Required ids:
-
-- `instat`
-- `fid`
-- `action-contre-la-faim`
-- `aim-madagascar`
-- `fretunia-trackmada`
-- `techzone-it-solution`
-
-### `skillGroups`
-
-Required ids:
-
-- `backend`
-- `frontend`
-- `mobile`
-- `ai`
-- `infrastructure`
-- `product-operations`
-
-### `recruiterValues`
-
-Required values:
-
-- reliable MVP delivery;
-- product team reinforcement;
-- business tool modernization;
-- data/payment security;
-- AI-assisted delivery under senior control.
-
-### `skillEvidence`
-
-Required categories:
-
-- Backend;
-- Frontend;
-- Mobile;
-- Data / sécurité;
-- IA appliquée;
-- Delivery.
-
-### `workingMethod`
-
-Required message:
-
-- specs-driven development with AI agents;
-- agents accelerate execution;
-- design, validation and responsibility remain human.
-
-## Claim Guardrails
-
-Every `Project.operationalResult` must have one of:
-
-- direct CV support;
-- conservative derived phrasing;
-- `requires-validation`, which means it should not be published until verified.
-
-Forbidden data patterns:
-
-- `impact: "x% improvement"` without source.
-- `revenue`, `ROI`, `conversion`, `enterprise-grade`, or `mission-critical` claims without proof.
-- AIM financial volumes framed as personal achievement.
-- Old project narratives used as leading proof.
-- Private GitHub repositories framed as a weakness.
-- AI agents presented as replacing engineering judgment.
-
-## Suggested Initial Data Seeds
-
-### Proof Pillars
-
-- SaaS multi-tenant: secured, isolated, evolutive platforms for several organizations.
-- Applications terrain offline: offline operation, synchronization, continuity.
-- Paiements et traçabilité: integrated payments, transaction tracking, audit.
-- IA appliquée et automatisation: measurable assistant workflows with human control.
-
-### Operating Principles
-
-- Fiabilité d'abord.
-- Impact métier.
-- Qualité du code.
-- Données maîtrisées.
-- Autonomie et collaboration.
-
-### Collaboration Modes
-
-- Mission produit.
-- Renfort technique.
-- Cadrage d'architecture.
-- Modernisation d'outils métier.
+- Quatre `ProjectId` seulement.
+- Routes limitées aux six chemins publiés.
+- Métriques associées à leur niveau de preuve et à leur garde-fou.
+- Les images projet de `tmp` ne sont jamais des données applicatives.
