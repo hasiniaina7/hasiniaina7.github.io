@@ -3,6 +3,8 @@ import { SectionHeading } from '@/components/SectionHeading';
 import { ResponsiveMedia } from '@/components/ResponsiveMedia';
 import { getMediaAsset } from '@/data/mediaData';
 import { FinalCta } from '@/components/FinalCta';
+import { MediaLightbox } from '@/components/MediaLightbox';
+import { Link } from 'react-router-dom';
 
 const detailedSteps = [
   {
@@ -97,6 +99,18 @@ export function MethodPage() {
             ))}
           </ul>
         </article>
+      </section>
+
+      <section className="content-section method-agents">
+        <SectionHeading align="split" eyebrow="Agents de développement" title="Accélérer l’exécution sans déléguer la responsabilité" summary="Codex et Claude Code interviennent dans la conception, l’implémentation, les tests et la revue. Ils ne sont pas présentés comme des fonctionnalités utilisateur des produits." />
+        <div className="method-agent-row">
+          <MediaLightbox asset={getMediaAsset('codex-development-agent')} caption="Codex dans le processus de développement supervisé. Les nombres visibles dans la composition ne sont pas des métriques publiées." sizes="(max-width: 700px) 94vw, 620px" />
+          <div><h3>Exécution contrôlée</h3><p>Les tâches partent de spécifications, de contrats et de critères d’acceptation. Les diffs restent revus et les gates qualité restent obligatoires.</p></div>
+        </div>
+        <div className="method-agent-row method-agent-row--reverse">
+          <MediaLightbox asset={getMediaAsset('claude-development-agent')} caption="Claude Code dans le processus d’implémentation et de revue. Les indicateurs visibles appartiennent à l’illustration." sizes="(max-width: 700px) 94vw, 620px" />
+          <div><h3>Deux usages à ne pas confondre</h3><p>Les agents utilisés pour développer accélèrent le travail d’ingénierie. L’IA intégrée au produit exécute, elle, des fonctions métier encadrées et documentées.</p><Link className="text-link" to="/projets">Voir les intégrations IA produit <span aria-hidden="true">→</span></Link></div>
+        </div>
       </section>
       <FinalCta />
     </div>

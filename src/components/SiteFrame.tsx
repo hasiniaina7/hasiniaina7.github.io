@@ -24,9 +24,9 @@ export function SiteFrame() {
       <a className="skip-link" href="#main-content">Aller au contenu</a>
       <header className="site-header">
         <div className="site-header__inner">
-          <NavLink className="brand" to="/" aria-label={`${profile.fullName}, accueil`}>
+          <NavLink className="brand" to="/">
             <span className="brand__mark" aria-hidden="true">HC</span>
-            <span className="brand__text"><strong>Hasiniaina Christian</strong><span>Full-Stack Senior</span></span>
+            <span className="brand__text"><strong>Hasiniaina Christian</strong><span>Full-Stack Senior</span></span><span className="sr-only">, accueil</span>
           </NavLink>
           <button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={() => setMenuOpen((open) => !open)}>
             <span className="sr-only">{menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}</span>

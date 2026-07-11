@@ -2,7 +2,19 @@ export type EvidenceLevel = 'cv-confirmed' | 'derived-from-cv' | 'requires-valid
 
 export type Accent = 'blue' | 'green' | 'orange' | 'violet' | 'navy';
 
-export type ProjectId = 'tz-smart' | 'ai-commerce-orchestrator' | 'fretunia-trackmada' | 'aim-madagascar';
+export type WorkId =
+  | 'tz-smart'
+  | 'fretunia'
+  | 'aim-beneficiaries'
+  | 'acm-iagasy'
+  | 'sbt-travel'
+  | 'rmb-cargo'
+  | 'jn-travel'
+  | 'rmb-cargo-mobile'
+  | 'aim-mobile'
+  | 'tz-smart-mobile';
+
+export type WorkCategory = 'system' | 'web' | 'mobile' | 'product-ai';
 
 export type ContactLink = {
   label: string;
@@ -34,23 +46,26 @@ export type PublishableMetric = {
   evidenceLevel: EvidenceLevel;
 };
 
-export type Project = {
-  id: ProjectId;
+export type WorkItem = {
+  id: WorkId;
   title: string;
-  category: string;
+  categories: WorkCategory[];
+  categoryLabel: string;
   period?: string;
-  domain: string;
-  context: string;
-  problem: string;
+  summary: string;
+  operationalPurpose: string;
   role: string;
-  built: string[];
+  capabilities: string[];
   technicalComplexity: string[];
-  publicProofLinks: ContactLink[];
-  privateProofNote: string;
-  solutionFlow: FlowNode[];
   stack: string[];
-  operationalResult: string;
-  sourceNotes: string[];
+  publicUrl?: string;
+  alternatePublicUrl?: string;
+  relatedSystemId?: WorkId;
+  mediaIds: string[];
+  featured: boolean;
+  caseStudy: boolean;
+  mediaLayout: 'editorial-4-3' | 'wide-16-9' | 'placeholder';
+  mediaNote?: string;
   evidenceLevel: EvidenceLevel;
   publishableMetrics: PublishableMetric[];
 };
@@ -80,14 +95,14 @@ export type SkillGroup = {
 export type RecruiterValue = {
   title: string;
   summary: string;
-  proofProjectIds: ProjectId[];
+  proofWorkIds: WorkId[];
   keywords: string[];
 };
 
 export type SkillEvidence = {
   category: string;
   technologies: string[];
-  projects: string[];
+  workIds: WorkId[];
   proof: string;
   interviewTalkingPoint: string;
   level: 'production' | 'advanced' | 'solid';
@@ -371,208 +386,261 @@ export const seoByPath: Record<NavigationItem['path'], SeoMeta> = {
   },
 };
 
-export const projects: Project[] = [
+export const works: WorkItem[] = [
   {
     id: 'tz-smart',
-    title: 'TZ Smart',
-    category: 'SaaS réseau et opérations terrain',
+    title: 'TZ Smart / TechZone Smart',
+    categories: ['system', 'web', 'product-ai'],
+    categoryLabel: 'Plateforme FAI',
     period: '2024-2026',
-    domain: 'CRM, incidents, visites terrain, paiements et notifications',
-    context: 'Un opérateur réseau suit ses clients, ses zones, ses incidents, ses visites et ses paiements dans un même environnement.',
-    problem: 'Les informations critiques se dispersent vite entre terrain, support, paiement et supervision réseau.',
-    role: 'Fondateur technique et ingénieur full-stack senior: cadrage, architecture, backend, frontend, mobile, intégrations paiement/réseau et support production.',
-    built: [
+    summary: 'Plateforme complète pour fournisseur d’accès à Internet, du pilotage web aux opérations terrain.',
+    operationalPurpose: 'Consolider clients, zones, incidents, visites, paiements, notifications et supervision réseau dans un même environnement.',
+    role: 'Fondateur technique et ingénieur full-stack senior : cadrage, architecture, backend, frontend, mobile, intégrations paiement/réseau et support production.',
+    capabilities: [
       'Backend Django Ninja/PostgreSQL structuré par domaines métier.',
-      'Back-office React/Vite pour clients, zones, staff, monitoring, météo, notifications et paiements.',
-      'Application Android Kotlin pour terrain/client, diagnostics, notifications et récupération CPE.',
-      'Passerelle SMS/MVola et intégration RadiusDesk pour fulfillment réseau.',
+      'Back-office React/Vite pour les opérations et le monitoring.',
+      'API OpenAI intégrée aux réponses et au chat IA.',
+      'Automatisations n8n pour les notifications et traitements métier.',
     ],
-    technicalComplexity: [
-      'Contrats API entre web, mobile et backend.',
-      'RBAC admin/NOC/technicien/client.',
-      'Synchronisation terrain et notifications FCM.',
-      'Paiements, reconciliation, ledger, quarantaines et contraintes réseau.',
-    ],
-    publicProofLinks: [
-      { label: 'TZ Smart', href: 'https://app.techzone.lat', kind: 'product', isPublic: true },
-      { label: 'TechZone', href: 'https://www.techzone.lat', kind: 'product', isPublic: true },
-    ],
-    privateProofNote: 'Architecture, démonstrations applicatives, spécifications et extraits de code disponibles lors de nos échanges.',
-    solutionFlow: [
-      { id: 'tz-field', label: 'Équipes terrain', description: 'Visites, incidents, interventions', kind: 'actor', accent: 'green' },
-      { id: 'tz-api', label: 'API métier', description: 'Clients, zones, droits', kind: 'system', accent: 'blue' },
-      { id: 'tz-db', label: 'Base consolidée', description: 'Historique exploitable', kind: 'data', accent: 'navy' },
-      { id: 'tz-mobile', label: 'Application mobile', description: 'Usage terrain', kind: 'system', accent: 'violet' },
-      { id: 'tz-fcm', label: 'Notifications', description: 'Alertes utiles', kind: 'output', accent: 'orange' },
-      { id: 'tz-mvola', label: 'Paiements MVola', description: 'Encaissement suivi', kind: 'payment', accent: 'orange' },
-    ],
-    stack: ['Django Ninja', 'PostgreSQL', 'React', 'Vite', 'TypeScript', 'Android Kotlin', 'Jetpack Compose', 'FCM', 'MVola', 'RadiusDesk', 'Starlink'],
-    operationalResult: 'Les équipes disposent d’un suivi consolidé des clients, incidents, visites terrain, paiements intégrés et notifications.',
-    sourceNotes: [
-      'CV: SaaS réseau, exploitation terrain et paiement client.',
-      'CV: Django Ninja, PostgreSQL, React/Vite, TypeScript, Android Kotlin, Jetpack Compose, FCM, MVola, RadiusDesk, Starlink.',
-    ],
+    technicalComplexity: ['Contrats API web/mobile/backend.', 'RBAC par rôle opérationnel.', 'Paiements, rapprochement et contraintes réseau.', 'Suggestions IA séparées des décisions opérationnelles.'],
+    stack: ['Django Ninja', 'PostgreSQL', 'React', 'Vite', 'TypeScript', 'OpenAI API', 'n8n', 'MVola', 'RadiusDesk'],
+    publicUrl: 'https://www.tzsmart.app',
+    alternatePublicUrl: 'https://app.techzone.lat',
+    mediaIds: ['tz-smart-web'],
+    featured: true,
+    caseStudy: true,
+    mediaLayout: 'editorial-4-3',
+    mediaNote: 'Composition éditoriale : les chiffres visibles dans l’image ne sont pas présentés comme des métriques vérifiées.',
     evidenceLevel: 'cv-confirmed',
     publishableMetrics: [],
   },
   {
-    id: 'ai-commerce-orchestrator',
-    title: 'AI Commerce Orchestrator',
-    category: 'Orchestration de support commercial',
+    id: 'fretunia',
+    title: 'Fretunia',
+    categories: ['system', 'web', 'product-ai'],
+    categoryLabel: 'SaaS logistique',
     period: '2024-2026',
-    domain: 'Meta webhooks, Messenger, WhatsApp, queue, worker et RAG',
-    context: 'Les conversations clients arrivent par Messenger et WhatsApp, avec un besoin de réponse rapide et cohérente.',
-    problem: 'Répondre plus vite sans laisser l’IA décider seule des cas sensibles.',
-    role: 'Product engineer IA appliquée: architecture SaaS, webhooks Meta, pipeline RAG, prompts, sécurité des tokens, traces et handoff humain.',
-    built: [
-      'SaaS multi-tenant Next.js/Supabase pour orchestration Messenger/WhatsApp.',
-      'Queue de messages, worker, endpoint agent et modes shadow/live.',
-      'Pipeline RAG avec ingestion, chunking, embeddings, base de connaissance et seuils de confiance.',
-      'Extracteur Facebook Graph API avec checkpoints, anti-duplication et exports.',
+    summary: 'Plateforme SaaS multi-tenant de gestion logistique, de facturation et de suivi de colis.',
+    operationalPurpose: 'Unifier les opérations internes, les espaces clients et le suivi public sans mélanger les données des organisations.',
+    role: 'Développeur full-stack / product engineer sur plateforme logistique multi-tenant : opérations, facturation, tracking public, PWA, SEO et intégrations.',
+    capabilities: [
+      'Gestion des colis, lots, événements, tarifs, factures et suivi public.',
+      'Notifications WhatsApp, e-mail et SMS automatisées par n8n.',
+      'Statistiques et analyses avancées produites à partir des données logistiques.',
+      'API OpenAI intégrée à la gestion intelligente des colis pour assister l’analyse opérationnelle.',
     ],
-    technicalComplexity: [
-      'Validation webhooks Meta et séparation des secrets.',
-      'Audit des prompts, traces IA et garde-fous de livraison.',
-      'Handoff humain, pause/reprise conversation et rejet des doublons/stale events.',
-      'Tests contractuels sur payloads, runtime agent et anti-régression.',
-    ],
-    publicProofLinks: [],
-    privateProofNote: 'Démonstrations des flux, spécifications, tests et décisions d’architecture disponibles lors de nos échanges.',
-    solutionFlow: [
-      { id: 'ai-channels', label: 'Messenger / WhatsApp', description: 'Demandes clients', kind: 'actor', accent: 'orange' },
-      { id: 'ai-webhooks', label: 'Webhooks Meta', description: 'Messages entrants', kind: 'system', accent: 'blue' },
-      { id: 'ai-queue', label: 'File de traitement', description: 'Priorités et reprise', kind: 'system', accent: 'violet' },
-      { id: 'ai-rag', label: 'Base de connaissance', description: 'Réponses contextualisées', kind: 'data', accent: 'green' },
-      { id: 'ai-openai', label: 'Modèle IA', description: 'Assistance contrôlée', kind: 'ai', accent: 'orange' },
-      { id: 'ai-human', label: 'Relais humain', description: 'Décision si besoin', kind: 'output', accent: 'navy' },
-    ],
-    stack: ['Meta Webhooks', 'Messenger', 'WhatsApp', 'Queue', 'Worker', 'RAG', 'ChromaDB', 'OpenAI'],
-    operationalResult: 'Les réponses peuvent être automatisées tout en conservant un contrôle humain, une trace des prompts et des seuils de confiance.',
-    sourceNotes: ['CV: Meta Webhooks, Messenger/WhatsApp, queue, worker, RAG, ChromaDB, OpenAI, human handoff.'],
+    technicalComplexity: ['Isolation tenant avec RLS/RBAC.', 'Workflows logistiques multi-rôles.', 'Outbox de notifications multicanales.', 'IA d’assistance sans décision autonome non validée.'],
+    stack: ['React', 'TypeScript', 'PostgreSQL', 'RLS', 'RBAC', 'n8n', 'OpenAI API', 'Webhooks', 'PWA'],
+    publicUrl: 'https://www.fretunia.com',
+    mediaIds: ['fretunia-web', 'n8n-product-automation'],
+    featured: true,
+    caseStudy: true,
+    mediaLayout: 'editorial-4-3',
+    mediaNote: 'Composition éditoriale : seuls les repères explicitement publiés dans le texte HTML constituent des preuves.',
     evidenceLevel: 'cv-confirmed',
-    publishableMetrics: [],
+    publishableMetrics: [{ label: 'Entreprises utilisatrices', value: '20+ entreprises', wordingGuardrail: 'Usage de la plateforme, pas performance personnelle.', evidenceLevel: 'cv-confirmed' }],
   },
   {
-    id: 'fretunia-trackmada',
-    title: 'Fretunia / Trackmada',
-    category: 'Logistique B2B multi-tenant',
-    period: '2024-2026',
-    domain: 'Colis, lots, événements, facturation, tracking public et webhooks',
-    context: 'Des entreprises logistiques doivent suivre les colis, lots, événements, tarifs et factures par client.',
-    problem: 'Unifier les opérations internes, les accès clients et le suivi public sans mélanger les données des organisations.',
-    role: 'Développeur full-stack / product engineer sur plateforme logistique multi-tenant: opérations, facturation, tracking public, PWA, SEO et intégrations.',
-    built: [
-      'Surfaces Next.js/React pour colis, lots, événements, facturation, tarifs et suivi public.',
-      'Architecture multi-tenant avec RLS/RBAC, memberships, settings, API keys et webhooks.',
-      'Facturation PDF, moteur tarifaire, devis, paliers et workflows partenaires.',
-      'SEO technique, PWA, cache local, tracking public tenant-scoped et notifications.',
-    ],
-    technicalComplexity: [
-      'Isolation tenant et garde-fous SQL sur données sensibles.',
-      'Workflows logistiques multi-rôles: agence, client, partenaire, public.',
-      'Outbox notifications email/SMS/WhatsApp et webhooks Meta WhatsApp.',
-      'Large surface de tests API, composants, billing, tracking, tenants et PWA.',
-    ],
-    publicProofLinks: [
-      { label: 'Fretunia', href: 'https://fretunia.com', kind: 'product', isPublic: true },
-    ],
-    privateProofNote: 'Parcours produit, architecture, tests et détails multi-tenant disponibles lors de nos échanges.',
-    solutionFlow: [
-      { id: 'ft-clients', label: 'Entreprises clientes', description: 'Opérations séparées', kind: 'actor', accent: 'green' },
-      { id: 'ft-api', label: 'API multi-tenant', description: 'Droits et isolation', kind: 'system', accent: 'blue' },
-      { id: 'ft-parcels', label: 'Colis et lots', description: 'Événements logistiques', kind: 'data', accent: 'navy' },
-      { id: 'ft-invoice', label: 'Facturation', description: 'Tarifs et factures', kind: 'payment', accent: 'orange' },
-      { id: 'ft-tracking', label: 'Suivi public', description: 'Visibilité client', kind: 'output', accent: 'violet' },
-      { id: 'ft-webhooks', label: 'Webhooks', description: 'Systèmes partenaires', kind: 'system', accent: 'orange' },
-    ],
-    stack: ['React', 'TypeScript', 'API multi-tenant', 'RBAC', 'RLS', 'Webhooks', 'Facturation', 'Tracking public'],
-    operationalResult: 'La plateforme est utilisée par 20+ entreprises en Afrique pour suivre et gérer leurs opérations logistiques.',
-    sourceNotes: [
-      'CV: logistique B2B, multi-tenant, parcels, lots, events, invoicing, tariffs, public tracking, RLS/RBAC, API keys, webhooks.',
-      'CV: used by 20+ enterprises in Africa.',
-    ],
-    evidenceLevel: 'cv-confirmed',
-    publishableMetrics: [
-      {
-        label: 'Entreprises utilisatrices',
-        value: '20+ entreprises',
-        wordingGuardrail: 'Uniquement pour Fretunia / Trackmada, formulé comme usage plateforme.',
-        evidenceLevel: 'cv-confirmed',
-      },
-    ],
-  },
-  {
-    id: 'aim-madagascar',
-    title: 'AIM Madagascar',
-    category: 'Gestion bénéficiaires et paiements cash',
+    id: 'aim-beneficiaries',
+    title: 'Système Bénéficiaires AIM',
+    categories: ['system', 'web'],
+    categoryLabel: 'Système bénéficiaires et paiements',
     period: '2023-2025',
-    domain: 'Paiements, synchronisation locale, exports financiers et audit trail',
-    context: 'Les paiements cash à des bénéficiaires exigent une saisie fiable, des statuts clairs et des exports financiers exploitables.',
-    problem: 'Maintenir la continuité terrain, éviter les pertes de trace et produire des fichiers financiers prêts à contrôler.',
-    role: 'Développeur full-stack web/mobile sur système bénéficiaires et paiements: backend, back-office, application caissier, exports financiers et support production.',
-    built: [
-      'Backend Express/Sequelize/PostgreSQL pour bénéficiaires, caissiers, périodes, lignes et paiements.',
-      'Back-office React/Vite pour imports, rapports, assignations, corrections, audit et clôtures.',
-      'Application mobile Flutter caissier avec stockage local et synchronisation par batch.',
-      'Exports Excel financiers avec montants prévus, payés, non payés, arriérés et contrôles métier.',
-    ],
-    technicalComplexity: [
-      'Paiements partiels/refusés, synchronisations tardives et reprise après incident réseau.',
-      'Audit trail, validations/clôtures, corrections post-clôture et garde-fous de suppression.',
-      'Volumes financiers présentés comme criticité système, pas comme performance personnelle.',
-      'Contrats mobiles, scripts de migration et tests contractuels ciblés.',
-    ],
-    publicProofLinks: [],
-    privateProofNote: 'Détails fonctionnels, captures anonymisées, exports et indicateurs de criticité disponibles lors de nos échanges.',
-    solutionFlow: [
-      { id: 'aim-cashier', label: 'Application caissier', description: 'Paiement sur terrain', kind: 'actor', accent: 'green' },
-      { id: 'aim-local', label: 'Stockage local', description: 'Continuité hors ligne', kind: 'data', accent: 'navy' },
-      { id: 'aim-sync', label: 'Synchronisation batch', description: 'Remontée contrôlée', kind: 'system', accent: 'blue' },
-      { id: 'aim-payment', label: 'Paiements partiels / refusés', description: 'Cas réels gérés', kind: 'payment', accent: 'orange' },
-      { id: 'aim-export', label: 'Exports Excel', description: 'Contrôle financier', kind: 'output', accent: 'violet' },
-      { id: 'aim-audit', label: 'Historique complet', description: 'Audit et vérification', kind: 'system', accent: 'green' },
-    ],
-    stack: ['Express', 'Sequelize', 'PostgreSQL', 'React', 'Vite', 'Flutter', 'ExcelJS'],
-    operationalResult: 'Les paiements restent tracés, les statuts sont gérés et les exports financiers peuvent être contrôlés.',
-    sourceNotes: [
-      'CV: beneficiary and cash payment management system.',
-      'CV: Express/Sequelize/PostgreSQL, React/Vite, Flutter, ExcelJS.',
-      'CV: mobile cashier app, local recording, batch synchronization, partial/refused payments, Excel financial exports, audit trail.',
-    ],
+    summary: 'Système web de gestion des bénéficiaires, des paiements cash, des contrôles et des exports financiers.',
+    operationalPurpose: 'Maintenir la continuité terrain, tracer les statuts de paiement et produire des fichiers financiers contrôlables.',
+    role: 'Développeur full-stack web/mobile : backend, back-office, application caissier, exports financiers et support production.',
+    capabilities: ['Gestion des bénéficiaires, caissiers, périodes et paiements.', 'Imports, rapports, assignations, corrections et clôtures.', 'Exports Excel financiers et historique d’audit.', 'Synchronisation mobile par lots en réseau contraint.'],
+    technicalComplexity: ['Paiements partiels ou refusés.', 'Synchronisations tardives et reprise réseau.', 'Audit trail et corrections post-clôture.', 'Volumes financiers traités comme preuve de criticité système.'],
+    stack: ['Express', 'Sequelize', 'PostgreSQL', 'React', 'Vite', 'ExcelJS'],
+    publicUrl: 'https://www.dms-aim.online',
+    mediaIds: ['aim-web'],
+    featured: true,
+    caseStudy: true,
+    mediaLayout: 'editorial-4-3',
+    mediaNote: 'Composition éditoriale : les données visibles servent à présenter l’interface, pas à publier des volumes.',
+    evidenceLevel: 'cv-confirmed',
+    publishableMetrics: [],
+  },
+  {
+    id: 'acm-iagasy',
+    title: 'ACM / Iagasy',
+    categories: ['system', 'web', 'product-ai'],
+    categoryLabel: 'Commerce social et IA produit',
+    period: '2024-2026',
+    summary: 'Orchestrateur de commerce social pour Messenger et WhatsApp avec automatisations et relais humain.',
+    operationalPurpose: 'Répondre avec le contexte catalogue et métier, orchestrer les conversations et conserver des contrôles opérationnels.',
+    role: 'Product engineer IA appliquée : architecture, webhooks Meta, orchestration, contexte métier, sécurité des accès, traces et handoff humain.',
+    capabilities: ['Interactions Messenger et WhatsApp.', 'Orchestration des automatisations par n8n.', 'Exécution agentique avec OpenClaw.', 'Catalogue, contexte métier, traces et relais humains.'],
+    technicalComplexity: ['Validation des webhooks et séparation des secrets.', 'File de traitement et reprise.', 'Seuils et garde-fous de livraison.', 'Responsabilité humaine sur les cas sensibles.'],
+    stack: ['n8n', 'OpenClaw', 'Meta Webhooks', 'Messenger', 'WhatsApp', 'Queue', 'RAG', 'OpenAI'],
+    publicUrl: 'https://www.iagasy.com',
+    alternatePublicUrl: 'https://acmv2.techzone.lat/',
+    mediaIds: ['iagasy-web', 'openclaw-product-agent', 'n8n-product-automation'],
+    featured: true,
+    caseStudy: true,
+    mediaLayout: 'editorial-4-3',
+    mediaNote: 'Composition éditoriale : les nombres visibles dans la maquette ne sont pas repris comme résultats publiables.',
+    evidenceLevel: 'cv-confirmed',
+    publishableMetrics: [],
+  },
+  {
+    id: 'sbt-travel',
+    title: 'SBT Travel',
+    categories: ['web'],
+    categoryLabel: 'Réalisation web full-stack',
+    summary: 'Site web full-stack livré comme réalisation autonome.',
+    operationalPurpose: 'Présenter l’offre et fournir une présence web publique adaptée à l’activité.',
+    role: 'Ingénierie full-stack.',
+    capabilities: ['Conception et réalisation du site web.', 'Mise à disposition sur un domaine public.'],
+    technicalComplexity: ['Expérience responsive.', 'Publication web.'],
+    stack: ['Application web full-stack'],
+    publicUrl: 'https://www.sbt-travel.mg',
+    mediaIds: ['sbt-travel-web'],
+    featured: false,
+    caseStudy: false,
+    mediaLayout: 'editorial-4-3',
+    mediaNote: 'Composition de présentation ; les promesses visibles dans l’image appartiennent au visuel client.',
+    evidenceLevel: 'cv-confirmed',
+    publishableMetrics: [],
+  },
+  {
+    id: 'rmb-cargo',
+    title: 'RMB Cargo',
+    categories: ['web'],
+    categoryLabel: 'Réalisation web full-stack',
+    summary: 'Site web logistique livré comme réalisation autonome.',
+    operationalPurpose: 'Présenter les services de fret et donner accès à une présence publique structurée.',
+    role: 'Ingénierie full-stack.',
+    capabilities: ['Conception et réalisation du site web.', 'Mise à disposition sur un domaine public.'],
+    technicalComplexity: ['Présentation d’une offre logistique.', 'Expérience responsive.'],
+    stack: ['Application web full-stack'],
+    publicUrl: 'https://www.rmb-cargo.mg',
+    mediaIds: ['rmb-cargo-web'],
+    featured: false,
+    caseStudy: false,
+    mediaLayout: 'editorial-4-3',
+    mediaNote: 'Composition de présentation ; aucune donnée fournisseur ou promesse commerciale n’est reprise comme preuve.',
+    evidenceLevel: 'cv-confirmed',
+    publishableMetrics: [],
+  },
+  {
+    id: 'jn-travel',
+    title: 'JN Travel',
+    categories: ['web'],
+    categoryLabel: 'Réalisation web full-stack',
+    summary: 'Site web livré comme réalisation autonome.',
+    operationalPurpose: 'Fournir une présence web publique claire pour l’activité.',
+    role: 'Ingénierie full-stack.',
+    capabilities: ['Conception et réalisation du site web.', 'Mise à disposition sur un domaine public.'],
+    technicalComplexity: ['Expérience responsive.', 'Publication web.'],
+    stack: ['Application web full-stack'],
+    publicUrl: 'https://jntravel.mg',
+    mediaIds: [],
+    featured: false,
+    caseStudy: false,
+    mediaLayout: 'placeholder',
+    mediaNote: 'Aucun média réel validé n’est disponible pour cette réalisation.',
+    evidenceLevel: 'cv-confirmed',
+    publishableMetrics: [],
+  },
+  {
+    id: 'rmb-cargo-mobile',
+    title: 'RMB Cargo — espace client mobile',
+    categories: ['mobile'],
+    categoryLabel: 'Application mobile',
+    summary: 'Espace client mobile RMB Cargo présenté comme réalisation autonome.',
+    operationalPurpose: 'Donner aux clients un accès mobile aux services et informations RMB Cargo.',
+    role: 'Ingénierie mobile et intégration produit.',
+    capabilities: ['Espace client mobile.', 'Intégration au contexte opérationnel RMB Cargo.'],
+    technicalComplexity: ['Interface mobile dédiée.', 'Continuité avec les services métier.'],
+    stack: ['Application mobile'],
+    relatedSystemId: 'rmb-cargo',
+    mediaIds: ['rmb-cargo-mobile'],
+    featured: false,
+    caseStudy: false,
+    mediaLayout: 'wide-16-9',
+    mediaNote: 'Composition éditoriale présentée en entier, sans extraction de ses promesses commerciales.',
+    evidenceLevel: 'cv-confirmed',
+    publishableMetrics: [],
+  },
+  {
+    id: 'aim-mobile',
+    title: 'AIM — application mobile de paiement',
+    categories: ['mobile'],
+    categoryLabel: 'Application mobile Flutter',
+    summary: 'Application terrain de paiement et de gestion des bénéficiaires, conçue pour les réseaux contraints.',
+    operationalPurpose: 'Enregistrer les paiements localement puis synchroniser les données par lots avec une trace exploitable.',
+    role: 'Développement mobile Flutter, contrats backend et synchronisation.',
+    capabilities: ['Stockage local.', 'Synchronisation par batch.', 'Gestion des paiements partiels ou refusés.', 'Usage terrain hors ligne.'],
+    technicalComplexity: ['Reprise après incident réseau.', 'Cohérence des statuts.', 'Contrats mobiles et migrations.'],
+    stack: ['Flutter', 'Stockage local', 'Synchronisation batch'],
+    relatedSystemId: 'aim-beneficiaries',
+    mediaIds: ['aim-mobile'],
+    featured: true,
+    caseStudy: false,
+    mediaLayout: 'wide-16-9',
+    mediaNote: 'Composition éditoriale : les volumes visibles illustrent l’interface et non une performance personnelle.',
+    evidenceLevel: 'cv-confirmed',
+    publishableMetrics: [],
+  },
+  {
+    id: 'tz-smart-mobile',
+    title: 'TZ Smart — application mobile FAI',
+    categories: ['mobile'],
+    categoryLabel: 'Application mobile opérateur FAI',
+    summary: 'Application mobile pour les opérations terrain et client d’un fournisseur d’accès à Internet.',
+    operationalPurpose: 'Accompagner diagnostics, notifications, interventions et continuité des opérations réseau sur mobile.',
+    role: 'Architecture et développement mobile intégré à TZ Smart.',
+    capabilities: ['Diagnostics terrain.', 'Notifications FCM.', 'Interventions et récupération CPE.', 'Intégration aux contrats API métier.'],
+    technicalComplexity: ['Contraintes réseau.', 'Synchronisation terrain.', 'Droits par rôle.'],
+    stack: ['Android Kotlin', 'Jetpack Compose', 'FCM', 'API métier'],
+    relatedSystemId: 'tz-smart',
+    mediaIds: ['tz-smart-mobile'],
+    featured: false,
+    caseStudy: false,
+    mediaLayout: 'wide-16-9',
+    mediaNote: 'Composition éditoriale présentée sans recadrage ; ses nombres ne sont pas des métriques publiées.',
     evidenceLevel: 'cv-confirmed',
     publishableMetrics: [],
   },
 ];
 
+export const workById = Object.fromEntries(works.map((work) => [work.id, work])) as Record<WorkId, WorkItem>;
+
+export const homeSelections = {
+  products: ['tz-smart', 'fretunia', 'aim-mobile', 'acm-iagasy'] as WorkId[],
+  productionSites: ['sbt-travel', 'rmb-cargo', 'jn-travel'] as WorkId[],
+};
+
 export const recruiterValues: RecruiterValue[] = [
   {
     title: 'Livrer un MVP fiable',
     summary: 'Transformer une spec métier en produit exploitable avec backend, frontend, données, tests et déploiement.',
-    proofProjectIds: ['tz-smart', 'fretunia-trackmada'],
+    proofWorkIds: ['tz-smart', 'fretunia'],
     keywords: ['MVP', 'architecture', 'tests', 'production'],
   },
   {
     title: 'Renforcer une équipe produit',
     summary: 'Prendre un sujet complexe, découper les tâches, sécuriser les choix techniques et livrer avec une équipe.',
-    proofProjectIds: ['fretunia-trackmada', 'aim-madagascar'],
+    proofWorkIds: ['fretunia', 'aim-beneficiaries'],
     keywords: ['full-stack', 'delivery', 'support production', 'qualité'],
   },
   {
     title: 'Moderniser un outil métier',
     summary: 'Remplacer des flux dispersés par une application lisible, traçable et maintenable.',
-    proofProjectIds: ['aim-madagascar', 'tz-smart'],
+    proofWorkIds: ['aim-beneficiaries', 'tz-smart'],
     keywords: ['audit trail', 'exports', 'données', 'workflow'],
   },
   {
     title: 'Sécuriser données et paiements',
     summary: 'Concevoir des flux avec validation, rôles, audit, synchronisation et garde-fous adaptés aux opérations sensibles.',
-    proofProjectIds: ['tz-smart', 'aim-madagascar'],
+    proofWorkIds: ['tz-smart', 'aim-beneficiaries'],
     keywords: ['RBAC', 'RLS', 'paiements', 'audit'],
   },
   {
     title: 'Accélérer avec agents IA',
     summary: 'Utiliser Claude Code, Codex, Antigravity et autres outils selon les phases, sous specs, tests et revue humaine.',
-    proofProjectIds: ['ai-commerce-orchestrator', 'tz-smart'],
+    proofWorkIds: ['acm-iagasy', 'tz-smart'],
     keywords: ['specs-driven', 'agents IA', 'revue diff', 'tests'],
   },
 ];
@@ -581,7 +649,7 @@ export const skillEvidence: SkillEvidence[] = [
   {
     category: 'Backend',
     technologies: ['Python', 'Django', 'Django Ninja', 'Node.js', 'Next.js API', 'Express', 'Sequelize', 'Prisma', 'PostgreSQL', 'Supabase', 'Zod', 'OpenAPI'],
-    projects: ['TZ Smart', 'Trackmada', 'Agent CM', 'AIM Madagascar', 'TechZone'],
+    workIds: ['tz-smart', 'fretunia', 'acm-iagasy', 'aim-beneficiaries'],
     proof: 'APIs modulaires, workers, webhooks, migrations, exports Excel/PDF, contrats API et domaines métier séparés.',
     interviewTalkingPoint: 'Comment une règle métier se décline en modèle de données, endpoint, permissions, tests et script de déploiement.',
     level: 'production',
@@ -590,7 +658,7 @@ export const skillEvidence: SkillEvidence[] = [
   {
     category: 'Frontend',
     technologies: ['React', 'TypeScript', 'Next.js', 'Vite', 'React Router', 'React Query', 'PWA', 'SEO technique', 'dashboards', 'formulaires complexes'],
-    projects: ['Trackmada', 'TZ Smart Frontend', 'AIM Frontend', 'Portfolio', 'TechZone'],
+    workIds: ['fretunia', 'tz-smart', 'aim-beneficiaries', 'sbt-travel', 'rmb-cargo', 'jn-travel'],
     proof: 'Back-offices B2B, tracking public, interfaces de paiements, dashboards, tables, filtres, statuts et pages publiques indexables.',
     interviewTalkingPoint: 'Comment concevoir et organiser une interface dense (back-office, dashboard) pour les opérateurs et administrateurs.',
     level: 'production',
@@ -599,7 +667,7 @@ export const skillEvidence: SkillEvidence[] = [
   {
     category: 'Mobile',
     technologies: ['Android Kotlin', 'Jetpack Compose', 'WorkManager', 'Room/SQLCipher', 'FCM', 'Flutter', 'offline sync', 'Retrofit/OkHttp'],
-    projects: ['TZ Smart Android', 'SMS Paiement Gateway', 'AIM Mobile'],
+    workIds: ['tz-smart-mobile', 'aim-mobile', 'rmb-cargo-mobile'],
     proof: 'Apps terrain/client, notifications, diagnostics, paiements SMS/MVola, stockage local, synchronisation batch et reprise réseau.',
     interviewTalkingPoint: 'Les choix d’architecture offline-first et les mécanismes de synchronisation sans conflit.',
     level: 'advanced',
@@ -608,7 +676,7 @@ export const skillEvidence: SkillEvidence[] = [
   {
     category: 'Data / Sécurité',
     technologies: ['PostgreSQL', 'RLS', 'RBAC', 'audit trail', 'migrations', 'validation input/output', 'secrets', 'logs sans données sensibles'],
-    projects: ['Trackmada', 'Agent CM', 'TZ Smart', 'AIM Madagascar'],
+    workIds: ['fretunia', 'acm-iagasy', 'tz-smart', 'aim-beneficiaries'],
     proof: 'Isolation tenant, permissions, validations, audit, signatures HMAC, chiffrement, rapports financiers et contrôles de cohérence.',
     interviewTalkingPoint: 'L’équilibre entre rapidité de livraison d’un MVP et exigences de sécurité fondamentales.',
     level: 'production',
@@ -616,9 +684,9 @@ export const skillEvidence: SkillEvidence[] = [
   },
   {
     category: 'IA appliquée',
-    technologies: ['OpenAI API', 'RAG', 'ChromaDB', 'Meta Webhooks', 'prompts versionnés', 'human handoff', 'traces IA', 'workers'],
-    projects: ['Agent CM', 'Facebook App', 'Trackmada', 'TZ Smart'],
-    proof: 'Orchestration Messenger/WhatsApp, queue, RAG, seuils de confiance, audit prompts, shadow/live modes et relais humain.',
+    technologies: ['OpenAI API', 'n8n', 'OpenClaw', 'RAG', 'Meta Webhooks', 'human handoff', 'traces IA', 'workers'],
+    workIds: ['acm-iagasy', 'tz-smart', 'fretunia'],
+    proof: 'Orchestration Messenger/WhatsApp, automatisations n8n, exécution OpenClaw, intégrations OpenAI, traces et relais humain.',
     interviewTalkingPoint: 'L’intégration de l’IA en production : traçabilité, garde-fous et gestion des relais humains.',
     level: 'advanced',
     accent: 'orange',
@@ -626,7 +694,7 @@ export const skillEvidence: SkillEvidence[] = [
   {
     category: 'Delivery',
     technologies: ['specs-driven', 'tests', 'lint/typecheck', 'scripts de déploiement', 'CI/GitHub Pages', 'support production', 'runbooks'],
-    projects: ['TZ Smart Specs', 'Agent CM', 'Trackmada', 'Portfolio'],
+    workIds: ['tz-smart', 'acm-iagasy', 'fretunia', 'aim-beneficiaries'],
     proof: 'Specs, contrats, data-models, tasks, tests unitaires/intégration/contract, scripts migration/deploy et validation build.',
     interviewTalkingPoint: 'Le workflow de développement collaboratif specs-first : conception, implémentation outillée et intégration continue.',
     level: 'production',
@@ -712,8 +780,8 @@ export const experiences: Experience[] = [
     organization: 'TECHZONE IT SOLUTION',
     role: 'Ingénierie SaaS, réseau et IA appliquée',
     period: '2025-2026',
-    summary: 'Consolidation sur des plateformes métier qui combinent logiciel, réseau, automatisation IA et maintien en production.',
-    capabilityTags: ['SaaS', 'IA appliquée', 'infrastructure'],
+    summary: 'Consolidation sur des plateformes complètes qui combinent web, mobile, réseau, automatisations n8n, IA intégrée et maintien en production.',
+    capabilityTags: ['SaaS', 'mobile', 'IA produit', 'infrastructure'],
     progressionStage: 'infrastructure',
     evidenceLevel: 'derived-from-cv',
   },
@@ -822,9 +890,14 @@ export const pageCopy = {
     eyebrow: 'Portfolio technique',
     mapTitle: 'Opérations entre terrain, clients et distance',
     mapSummary: 'Madagascar comme base, collaboration remote Afrique-Europe, et expérience sur des produits utilisés dans des contextes opérationnels réels.',
-    featuredProjectIds: ['tz-smart', 'ai-commerce-orchestrator', 'fretunia-trackmada', 'aim-madagascar'] satisfies ProjectId[],
     valuesTitle: 'Ce que je peux apporter à une équipe',
     valuesSummary: 'Un profil senior utile quand il faut transformer une contrainte métier en produit livré, testé et maintenable.',
+    productsTitle: 'Produits et systèmes livrés',
+    productsSummary: 'Une sélection resserrée entre plateforme métier, SaaS logistique, application mobile et IA directement intégrée au produit.',
+    productionSitesTitle: 'Sites en production',
+    productionSitesSummary: 'Trois réalisations web autonomes, présentées sans suggérer de socle ou de processus partagé.',
+    automationTitle: 'Automatisations contrôlées',
+    automationSummary: 'n8n orchestre des notifications et des traitements métier dans plusieurs produits. Les règles, traces et décisions sensibles restent contrôlées.',
     principlesSummary: 'La séniorité se voit dans les choix, la traçabilité, les tests et la capacité à livrer sans abandonner la qualité.',
   },
   parcours: {
@@ -840,11 +913,13 @@ export const pageCopy = {
   },
   projets: {
     eyebrow: 'Projets',
-    intro: 'Études de cas courtes pour évaluer mon rôle, mon stack, ce que j’ai construit, la complexité technique et les preuves disponibles.',
+    intro: 'Systèmes, sites web, applications mobiles et IA intégrée : un inventaire éditorial des produits livrés et de leur rôle opérationnel.',
   },
   competences: {
     eyebrow: 'Compétences',
-    intro: 'Présentation de mes compétences full-stack : stack technologique, projets de preuve, niveau d’usage et thématiques d’échange.',
+    intro: 'Compétences full-stack reliées aux systèmes, sites, applications mobiles et intégrations IA réellement livrés.',
+    productAiSummary: 'OpenAI API, n8n, OpenClaw, webhooks, contexte métier, traces et relais humains participent au fonctionnement des produits livrés.',
+    developmentAgentsSummary: 'Codex, Claude Code et les agents similaires assistent la conception et l’exécution sous specs, tests et revue humaine.',
   },
   methode: {
     eyebrow: 'Méthode',
@@ -853,6 +928,7 @@ export const pageCopy = {
   contact: {
     eyebrow: 'Contact',
     intro: 'Opportunités senior full-stack, missions produit ou collaborations techniques.',
-    interventionDomains: ['Senior full-stack', 'backend Python/Node', 'frontend React/Next.js', 'mobile terrain', 'IA appliquée', 'sécurité et delivery'],
+    interventionDomains: ['plateforme métier full-stack', 'application mobile', 'SaaS opérationnel', 'intégration IA / automatisation', 'reprise et fiabilisation'],
+    projectTypes: ['Plateforme métier full-stack', 'Application mobile', 'SaaS opérationnel', 'Intégration IA / automatisation', 'Reprise et fiabilisation'],
   },
 } as const;

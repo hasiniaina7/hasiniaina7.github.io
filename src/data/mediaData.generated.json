@@ -57,7 +57,8 @@
         "format": "webp",
         "bytes": 175370
       }
-    ]
+    ],
+    "surface": "adaptive"
   },
   {
     "id": "architecture-system-core",
@@ -117,7 +118,8 @@
         "format": "webp",
         "bytes": 31266
       }
-    ]
+    ],
+    "surface": "light"
   },
   {
     "id": "specs-driven-agent-flow",
@@ -177,7 +179,8 @@
         "format": "webp",
         "bytes": 50122
       }
-    ]
+    ],
+    "surface": "light"
   },
   {
     "id": "global-operations-orb",
@@ -237,7 +240,8 @@
         "format": "webp",
         "bytes": 167246
       }
-    ]
+    ],
+    "surface": "dark"
   },
   {
     "id": "security-reliability-shield",
@@ -297,7 +301,8 @@
         "format": "webp",
         "bytes": 67190
       }
-    ]
+    ],
+    "surface": "light"
   },
   {
     "id": "cloud-certification-stack",
@@ -357,7 +362,8 @@
         "format": "webp",
         "bytes": 78246
       }
-    ]
+    ],
+    "surface": "light"
   },
   {
     "id": "cta-modular-system",
@@ -416,6 +422,800 @@
         "height": 540,
         "format": "webp",
         "bytes": 21130
+      }
+    ],
+    "surface": "light"
+  },
+  {
+    "id": "tz-smart-web",
+    "role": "work-editorial",
+    "alt": "Présentation visuelle de la plateforme web TZ Smart et de ses interfaces de pilotage.",
+    "decorative": false,
+    "surface": "light",
+    "ratio": 1.333333,
+    "source": {
+      "path": "tmp/TZ smart web.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1599288,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/tz-smart-web-480.avif",
+        "width": 480,
+        "height": 360,
+        "format": "avif",
+        "bytes": 11635
+      },
+      {
+        "src": "/assets/media/tz-smart-web-480.webp",
+        "width": 480,
+        "height": 360,
+        "format": "webp",
+        "bytes": 14954
+      },
+      {
+        "src": "/assets/media/tz-smart-web-800.avif",
+        "width": 800,
+        "height": 600,
+        "format": "avif",
+        "bytes": 26067
+      },
+      {
+        "src": "/assets/media/tz-smart-web-800.webp",
+        "width": 800,
+        "height": 600,
+        "format": "webp",
+        "bytes": 34398
+      },
+      {
+        "src": "/assets/media/tz-smart-web-1280.avif",
+        "width": 1280,
+        "height": 960,
+        "format": "avif",
+        "bytes": 50931
+      },
+      {
+        "src": "/assets/media/tz-smart-web-1280.webp",
+        "width": 1280,
+        "height": 960,
+        "format": "webp",
+        "bytes": 67460
+      }
+    ]
+  },
+  {
+    "id": "fretunia-web",
+    "role": "work-editorial",
+    "alt": "Présentation visuelle de la plateforme logistique Fretunia.",
+    "decorative": false,
+    "surface": "dark",
+    "ratio": 1.333333,
+    "source": {
+      "path": "tmp/fretunia web.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1556399,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/fretunia-web-480.avif",
+        "width": 480,
+        "height": 360,
+        "format": "avif",
+        "bytes": 11545
+      },
+      {
+        "src": "/assets/media/fretunia-web-480.webp",
+        "width": 480,
+        "height": 360,
+        "format": "webp",
+        "bytes": 15876
+      },
+      {
+        "src": "/assets/media/fretunia-web-800.avif",
+        "width": 800,
+        "height": 600,
+        "format": "avif",
+        "bytes": 26004
+      },
+      {
+        "src": "/assets/media/fretunia-web-800.webp",
+        "width": 800,
+        "height": 600,
+        "format": "webp",
+        "bytes": 35304
+      },
+      {
+        "src": "/assets/media/fretunia-web-1280.avif",
+        "width": 1280,
+        "height": 960,
+        "format": "avif",
+        "bytes": 47546
+      },
+      {
+        "src": "/assets/media/fretunia-web-1280.webp",
+        "width": 1280,
+        "height": 960,
+        "format": "webp",
+        "bytes": 66860
+      }
+    ]
+  },
+  {
+    "id": "iagasy-web",
+    "role": "work-editorial",
+    "alt": "Présentation visuelle de la plateforme de commerce conversationnel Iagasy.",
+    "decorative": false,
+    "surface": "dark",
+    "ratio": 1.333333,
+    "source": {
+      "path": "tmp/iagasy web.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1549889,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/iagasy-web-480.avif",
+        "width": 480,
+        "height": 360,
+        "format": "avif",
+        "bytes": 11236
+      },
+      {
+        "src": "/assets/media/iagasy-web-480.webp",
+        "width": 480,
+        "height": 360,
+        "format": "webp",
+        "bytes": 13628
+      },
+      {
+        "src": "/assets/media/iagasy-web-800.avif",
+        "width": 800,
+        "height": 600,
+        "format": "avif",
+        "bytes": 24479
+      },
+      {
+        "src": "/assets/media/iagasy-web-800.webp",
+        "width": 800,
+        "height": 600,
+        "format": "webp",
+        "bytes": 31312
+      },
+      {
+        "src": "/assets/media/iagasy-web-1280.avif",
+        "width": 1280,
+        "height": 960,
+        "format": "avif",
+        "bytes": 46340
+      },
+      {
+        "src": "/assets/media/iagasy-web-1280.webp",
+        "width": 1280,
+        "height": 960,
+        "format": "webp",
+        "bytes": 60492
+      }
+    ]
+  },
+  {
+    "id": "aim-web",
+    "role": "work-editorial",
+    "alt": "Présentation visuelle du système web de gestion des bénéficiaires AIM.",
+    "decorative": false,
+    "surface": "light",
+    "ratio": 1.333333,
+    "source": {
+      "path": "tmp/DMS AIM web.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1434531,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/aim-web-480.avif",
+        "width": 480,
+        "height": 360,
+        "format": "avif",
+        "bytes": 9646
+      },
+      {
+        "src": "/assets/media/aim-web-480.webp",
+        "width": 480,
+        "height": 360,
+        "format": "webp",
+        "bytes": 12246
+      },
+      {
+        "src": "/assets/media/aim-web-800.avif",
+        "width": 800,
+        "height": 600,
+        "format": "avif",
+        "bytes": 22047
+      },
+      {
+        "src": "/assets/media/aim-web-800.webp",
+        "width": 800,
+        "height": 600,
+        "format": "webp",
+        "bytes": 28122
+      },
+      {
+        "src": "/assets/media/aim-web-1280.avif",
+        "width": 1280,
+        "height": 960,
+        "format": "avif",
+        "bytes": 43087
+      },
+      {
+        "src": "/assets/media/aim-web-1280.webp",
+        "width": 1280,
+        "height": 960,
+        "format": "webp",
+        "bytes": 56060
+      }
+    ]
+  },
+  {
+    "id": "sbt-travel-web",
+    "role": "work-editorial",
+    "alt": "Présentation visuelle du site web SBT Travel.",
+    "decorative": false,
+    "surface": "dark",
+    "ratio": 1.333333,
+    "source": {
+      "path": "tmp/sbt-web.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1605786,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/sbt-travel-web-480.avif",
+        "width": 480,
+        "height": 360,
+        "format": "avif",
+        "bytes": 10703
+      },
+      {
+        "src": "/assets/media/sbt-travel-web-480.webp",
+        "width": 480,
+        "height": 360,
+        "format": "webp",
+        "bytes": 14782
+      },
+      {
+        "src": "/assets/media/sbt-travel-web-800.avif",
+        "width": 800,
+        "height": 600,
+        "format": "avif",
+        "bytes": 24306
+      },
+      {
+        "src": "/assets/media/sbt-travel-web-800.webp",
+        "width": 800,
+        "height": 600,
+        "format": "webp",
+        "bytes": 31900
+      },
+      {
+        "src": "/assets/media/sbt-travel-web-1280.avif",
+        "width": 1280,
+        "height": 960,
+        "format": "avif",
+        "bytes": 46782
+      },
+      {
+        "src": "/assets/media/sbt-travel-web-1280.webp",
+        "width": 1280,
+        "height": 960,
+        "format": "webp",
+        "bytes": 60190
+      }
+    ]
+  },
+  {
+    "id": "rmb-cargo-web",
+    "role": "work-editorial",
+    "alt": "Présentation visuelle du site web RMB Cargo.",
+    "decorative": false,
+    "surface": "light",
+    "ratio": 1.333333,
+    "source": {
+      "path": "tmp/rmb-web.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1512163,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/rmb-cargo-web-480.avif",
+        "width": 480,
+        "height": 360,
+        "format": "avif",
+        "bytes": 12362
+      },
+      {
+        "src": "/assets/media/rmb-cargo-web-480.webp",
+        "width": 480,
+        "height": 360,
+        "format": "webp",
+        "bytes": 18376
+      },
+      {
+        "src": "/assets/media/rmb-cargo-web-800.avif",
+        "width": 800,
+        "height": 600,
+        "format": "avif",
+        "bytes": 27213
+      },
+      {
+        "src": "/assets/media/rmb-cargo-web-800.webp",
+        "width": 800,
+        "height": 600,
+        "format": "webp",
+        "bytes": 39008
+      },
+      {
+        "src": "/assets/media/rmb-cargo-web-1280.avif",
+        "width": 1280,
+        "height": 960,
+        "format": "avif",
+        "bytes": 51284
+      },
+      {
+        "src": "/assets/media/rmb-cargo-web-1280.webp",
+        "width": 1280,
+        "height": 960,
+        "format": "webp",
+        "bytes": 73378
+      }
+    ]
+  },
+  {
+    "id": "aim-mobile",
+    "role": "work-editorial",
+    "alt": "Présentation visuelle de l’application mobile AIM dédiée aux paiements et aux bénéficiaires.",
+    "decorative": false,
+    "surface": "light",
+    "ratio": 1.776833,
+    "source": {
+      "path": "tmp/aim application de paiement.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1634814,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/aim-mobile-480.avif",
+        "width": 480,
+        "height": 270,
+        "format": "avif",
+        "bytes": 8077
+      },
+      {
+        "src": "/assets/media/aim-mobile-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 12590
+      },
+      {
+        "src": "/assets/media/aim-mobile-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 16664
+      },
+      {
+        "src": "/assets/media/aim-mobile-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 26424
+      },
+      {
+        "src": "/assets/media/aim-mobile-1280.avif",
+        "width": 1280,
+        "height": 720,
+        "format": "avif",
+        "bytes": 31201
+      },
+      {
+        "src": "/assets/media/aim-mobile-1280.webp",
+        "width": 1280,
+        "height": 720,
+        "format": "webp",
+        "bytes": 49632
+      }
+    ]
+  },
+  {
+    "id": "rmb-cargo-mobile",
+    "role": "work-editorial",
+    "alt": "Présentation visuelle de l’espace client mobile RMB Cargo.",
+    "decorative": false,
+    "surface": "dark",
+    "ratio": 1.776833,
+    "source": {
+      "path": "tmp/rmb cargo espace client.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1547642,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/rmb-cargo-mobile-480.avif",
+        "width": 480,
+        "height": 270,
+        "format": "avif",
+        "bytes": 8991
+      },
+      {
+        "src": "/assets/media/rmb-cargo-mobile-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 14502
+      },
+      {
+        "src": "/assets/media/rmb-cargo-mobile-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 19004
+      },
+      {
+        "src": "/assets/media/rmb-cargo-mobile-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 29450
+      },
+      {
+        "src": "/assets/media/rmb-cargo-mobile-1280.avif",
+        "width": 1280,
+        "height": 720,
+        "format": "avif",
+        "bytes": 34770
+      },
+      {
+        "src": "/assets/media/rmb-cargo-mobile-1280.webp",
+        "width": 1280,
+        "height": 720,
+        "format": "webp",
+        "bytes": 54656
+      }
+    ]
+  },
+  {
+    "id": "tz-smart-mobile",
+    "role": "work-editorial",
+    "alt": "Présentation visuelle de l’application mobile TZ Smart pour opérateur FAI.",
+    "decorative": false,
+    "surface": "dark",
+    "ratio": 1.776833,
+    "source": {
+      "path": "tmp/tz smart application de fai.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1646023,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/tz-smart-mobile-480.avif",
+        "width": 480,
+        "height": 270,
+        "format": "avif",
+        "bytes": 9741
+      },
+      {
+        "src": "/assets/media/tz-smart-mobile-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 15750
+      },
+      {
+        "src": "/assets/media/tz-smart-mobile-800.avif",
+        "width": 800,
+        "height": 450,
+        "format": "avif",
+        "bytes": 21334
+      },
+      {
+        "src": "/assets/media/tz-smart-mobile-800.webp",
+        "width": 800,
+        "height": 450,
+        "format": "webp",
+        "bytes": 33186
+      },
+      {
+        "src": "/assets/media/tz-smart-mobile-1280.avif",
+        "width": 1280,
+        "height": 720,
+        "format": "avif",
+        "bytes": 39113
+      },
+      {
+        "src": "/assets/media/tz-smart-mobile-1280.webp",
+        "width": 1280,
+        "height": 720,
+        "format": "webp",
+        "bytes": 62564
+      }
+    ]
+  },
+  {
+    "id": "n8n-product-automation",
+    "role": "product-ai-illustration",
+    "alt": "Illustration des automatisations métier contrôlées orchestrées avec n8n.",
+    "decorative": false,
+    "surface": "dark",
+    "ratio": 1.59879,
+    "source": {
+      "path": "tmp/n8n.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1316950,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/n8n-product-automation-480.avif",
+        "width": 480,
+        "height": 300,
+        "format": "avif",
+        "bytes": 8343
+      },
+      {
+        "src": "/assets/media/n8n-product-automation-480.webp",
+        "width": 480,
+        "height": 300,
+        "format": "webp",
+        "bytes": 10038
+      },
+      {
+        "src": "/assets/media/n8n-product-automation-800.avif",
+        "width": 800,
+        "height": 500,
+        "format": "avif",
+        "bytes": 16028
+      },
+      {
+        "src": "/assets/media/n8n-product-automation-800.webp",
+        "width": 800,
+        "height": 500,
+        "format": "webp",
+        "bytes": 20526
+      },
+      {
+        "src": "/assets/media/n8n-product-automation-1280.avif",
+        "width": 1280,
+        "height": 801,
+        "format": "avif",
+        "bytes": 30734
+      },
+      {
+        "src": "/assets/media/n8n-product-automation-1280.webp",
+        "width": 1280,
+        "height": 801,
+        "format": "webp",
+        "bytes": 37918
+      }
+    ]
+  },
+  {
+    "id": "openclaw-product-agent",
+    "role": "product-ai-illustration",
+    "alt": "Illustration de l’exécution agentique OpenClaw intégrée au commerce conversationnel.",
+    "decorative": false,
+    "surface": "dark",
+    "ratio": 1.59879,
+    "source": {
+      "path": "tmp/openclaw.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1449379,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/openclaw-product-agent-480.avif",
+        "width": 480,
+        "height": 300,
+        "format": "avif",
+        "bytes": 7737
+      },
+      {
+        "src": "/assets/media/openclaw-product-agent-480.webp",
+        "width": 480,
+        "height": 300,
+        "format": "webp",
+        "bytes": 9664
+      },
+      {
+        "src": "/assets/media/openclaw-product-agent-800.avif",
+        "width": 800,
+        "height": 500,
+        "format": "avif",
+        "bytes": 18604
+      },
+      {
+        "src": "/assets/media/openclaw-product-agent-800.webp",
+        "width": 800,
+        "height": 500,
+        "format": "webp",
+        "bytes": 23858
+      },
+      {
+        "src": "/assets/media/openclaw-product-agent-1280.avif",
+        "width": 1280,
+        "height": 801,
+        "format": "avif",
+        "bytes": 37430
+      },
+      {
+        "src": "/assets/media/openclaw-product-agent-1280.webp",
+        "width": 1280,
+        "height": 801,
+        "format": "webp",
+        "bytes": 48100
+      }
+    ]
+  },
+  {
+    "id": "codex-development-agent",
+    "role": "method-illustration",
+    "alt": "Illustration de Codex utilisé comme agent de développement dans une méthode supervisée.",
+    "decorative": false,
+    "surface": "adaptive",
+    "ratio": 1.59879,
+    "source": {
+      "path": "tmp/codex-agent.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1713271,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/codex-development-agent-480.avif",
+        "width": 480,
+        "height": 300,
+        "format": "avif",
+        "bytes": 10091
+      },
+      {
+        "src": "/assets/media/codex-development-agent-480.webp",
+        "width": 480,
+        "height": 300,
+        "format": "webp",
+        "bytes": 13604
+      },
+      {
+        "src": "/assets/media/codex-development-agent-800.avif",
+        "width": 800,
+        "height": 500,
+        "format": "avif",
+        "bytes": 22007
+      },
+      {
+        "src": "/assets/media/codex-development-agent-800.webp",
+        "width": 800,
+        "height": 500,
+        "format": "webp",
+        "bytes": 29366
+      },
+      {
+        "src": "/assets/media/codex-development-agent-1280.avif",
+        "width": 1280,
+        "height": 801,
+        "format": "avif",
+        "bytes": 42160
+      },
+      {
+        "src": "/assets/media/codex-development-agent-1280.webp",
+        "width": 1280,
+        "height": 801,
+        "format": "webp",
+        "bytes": 55956
+      }
+    ]
+  },
+  {
+    "id": "claude-development-agent",
+    "role": "method-illustration",
+    "alt": "Illustration de Claude Code utilisé pour l’implémentation et la revue sous contrôle humain.",
+    "decorative": false,
+    "surface": "light",
+    "ratio": 1.59879,
+    "source": {
+      "path": "tmp/claude.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1384045,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/claude-development-agent-480.avif",
+        "width": 480,
+        "height": 300,
+        "format": "avif",
+        "bytes": 8769
+      },
+      {
+        "src": "/assets/media/claude-development-agent-480.webp",
+        "width": 480,
+        "height": 300,
+        "format": "webp",
+        "bytes": 11122
+      },
+      {
+        "src": "/assets/media/claude-development-agent-800.avif",
+        "width": 800,
+        "height": 500,
+        "format": "avif",
+        "bytes": 18775
+      },
+      {
+        "src": "/assets/media/claude-development-agent-800.webp",
+        "width": 800,
+        "height": 500,
+        "format": "webp",
+        "bytes": 24060
+      },
+      {
+        "src": "/assets/media/claude-development-agent-1280.avif",
+        "width": 1280,
+        "height": 801,
+        "format": "avif",
+        "bytes": 34863
+      },
+      {
+        "src": "/assets/media/claude-development-agent-1280.webp",
+        "width": 1280,
+        "height": 801,
+        "format": "webp",
+        "bytes": 45774
       }
     ]
   }

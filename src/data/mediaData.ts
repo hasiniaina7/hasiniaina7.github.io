@@ -10,10 +10,11 @@ export type MediaVariant = {
 
 export type MediaAsset = {
   id: string;
-  role: 'decorative' | 'portrait-placeholder' | 'project-placeholder';
+  role: 'decorative' | 'work-editorial' | 'method-illustration' | 'product-ai-illustration';
   alt: string;
   decorative: boolean;
   ratio: number;
+  surface: 'light' | 'dark' | 'adaptive';
   usable: boolean;
   source?: {
     path: string;
@@ -30,7 +31,7 @@ export type MediaAsset = {
 const rejectedAfterVisualReview = new Set(['hero-glass-portal', 'global-operations-orb']);
 
 export const mediaAssets = Object.fromEntries(
-  generatedAssets.map((asset) => [asset.id, { ...asset, role: 'decorative', usable: !rejectedAfterVisualReview.has(asset.id) }]),
+  generatedAssets.map((asset) => [asset.id, { ...asset, usable: !rejectedAfterVisualReview.has(asset.id) }]),
 ) as Record<string, MediaAsset>;
 
 export function getMediaAsset(id: string): MediaAsset {

@@ -1,39 +1,36 @@
-# Tâches — Refonte premium B2B
+# Tâches — Réorganisation éditoriale des réalisations
 
-## Phase 1 — Médias
+## Phase 1 — Spécifications
 
-- [x] Auditer les sept sources décoratives autorisées.
-- [x] Nettoyer les fonds artificiels lorsque le résultat est premium.
-- [x] Générer au maximum trois variantes AVIF/WebP sans upscale.
-- [x] Contrôler contours, dimensions et budgets.
-- [x] Créer le manifeste média TypeScript et les placeholders honnêtes.
-- [x] Confirmer qu’aucune image projet n’a été touchée.
+- [x] Intégrer `specs/portfolio-reorganisation.md` comme nouvelle source de vérité.
+- [x] Retirer la limite de quatre projets et documenter la taxonomie système/web/mobile/IA.
+- [x] Définir le contrat des médias éditoriaux, des filtres et de la visionneuse.
 
-## Phase 2 — Spécifications
+## Phase 2 — Données et médias
 
-- [x] Aligner `plan.md` et `task.md` sur les six routes et la direction premium.
-- [x] Aligner `specs/spec.md`, `design.md`, `data-model.md`, `contracts.md` et `test-strategy.md`.
+- [x] Migrer les quatre anciennes entrées vers le modèle `WorkItem`.
+- [x] Ajouter SBT Travel, RMB Cargo, JN Travel et les trois applications mobiles.
+- [x] Séparer IA produit et agents de développement.
+- [x] Générer les variantes AVIF/WebP des treize médias publiables sans upscale.
+- [x] Conserver `image 1` et `image 2` hors publication.
 
 ## Phase 3 — Implémentation
 
-- [x] Créer le composant média responsive partagé.
-- [x] Créer les placeholders portrait et projet.
-- [x] Rendre le header sticky et le menu mobile accessibles.
-- [x] Refaire l’accueil et ses sections métier.
-- [x] Refaire `/projets`, `/competences`, `/methode`, `/parcours` et `/contact`.
-- [x] Harmoniser CTA, footer, cartes, tags et schémas.
-- [x] Préserver tous les contenus publiés dans les données typées.
+- [x] Créer la carte générique de réalisation et les filtres accessibles.
+- [x] Créer la visionneuse accessible avec restitution du focus.
+- [x] Recomposer l’accueil avec quatre médias sélectionnés et la rangée des sites.
+- [x] Refaire `/projets` en inventaire filtrable et études de cas principales.
+- [x] Relier `/competences`, `/methode`, `/parcours` et `/contact` aux nouvelles données.
+- [x] Ajouter Codex/Claude à la méthode et n8n/OpenClaw aux contenus IA produit.
 
 ## Phase 4 — Validation
 
-- [x] Exécuter typecheck, lint et build.
+- [x] Exécuter typecheck, lint, build et audit média.
 - [x] Tester les six routes aux largeurs 1440, 1280, 1024, 768, 430, 390 et 360 px.
-- [x] Produire les captures pleine page.
-- [x] Auditer menu mobile, clavier, focus, titres, contrastes et mouvement réduit.
-- [x] Auditer console, liens, SEO, poids média et layout shift.
-- [x] Auditer les contenus interdits, métriques et certifications.
+- [x] Auditer visionneuse, filtres, menu mobile, clavier, focus, titres et mouvement réduit.
+- [x] Auditer console, liens, SEO, poids média, layout shift et métriques non traçables.
 - [x] Corriger tous les échecs avant clôture.
 
 ## État
 
-Refonte premium exécutée. Les résultats détaillés sont consignés dans `artifacts/premium-refonte-validation.md`.
+Réorganisation éditoriale, médias et validation terminés. Rapport : `artifacts/validation-2026-07-11/validation-report.md`.

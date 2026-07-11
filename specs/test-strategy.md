@@ -2,33 +2,31 @@
 
 ## Automatique
 
-- `npm run typecheck`, `npm run lint`, `npm run build`.
-- Audit média : formats, dimensions, poids, absence d’upscale, budgets et manifeste.
-- Audit contenu : quatre projets, métriques traçables, aucune certification inventée, aucune image projet publiée.
+- `npm run typecheck`, `npm run lint`, `npm run build`, `npm run media:check`.
+- Audit média : formats, dimensions, poids, absence d’upscale, trois variantes maximum et exclusion de `image 1`/`image 2`.
+- Audit contenu : dix réalisations, trois mobiles autonomes, sept sites représentables, quatre études principales.
+- Recherche de métriques non traçables et de confusion entre agents de développement et IA produit.
 
 ## Navigateur
 
 Tester les six routes à 1440, 1280, 1024, 768, 430, 390 et 360 px avec captures pleine page.
 
-Pour chaque route :
-
 - aucun overflow horizontal, chevauchement ou texte tronqué ;
-- un H1, ordre des titres cohérent et métadonnées SEO présentes ;
+- un H1 et métadonnées SEO présentes ;
 - aucune erreur console et aucun layout shift média évident ;
-- focus visible, parcours clavier et liens utilisables.
-
-Scénarios spécifiques :
-
+- focus visible, parcours clavier et liens utilisables ;
+- filtres utilisables et résultats cohérents ;
+- visionneuse : ouverture, fermeture Échap, restitution du focus, légende et image entière ;
 - menu mobile : ouverture, Échap, navigation puis fermeture ;
-- contact : champs visibles et URL `mailto:` correctement composée ;
-- mouvement réduit : animations et smooth scroll non essentiels supprimés ;
-- médias : LCP non lazy, contenu sous la ligne de flottaison lazy.
+- contact : URL `mailto:` correctement composée ;
+- mouvement réduit : animations non essentielles supprimées.
 
-## Accessibilité et performance
+## Médias et preuves
 
-- Vérifier WCAG AA, labels, textes alternatifs et cibles tactiles.
-- Auditer Lighthouse mobile/desktop si l’outil est disponible.
-- Ne publier aucun score non mesuré.
+- Vérifier AVIF/WebP, `srcset`, `sizes`, dimensions et lazy-loading sous la ligne de flottaison.
+- Vérifier visuellement les compositions sur leurs surfaces claires/sombres.
+- Ne jamais considérer les chiffres intégrés aux images comme des métriques publiables.
+- Vérifier que JN Travel reste un placeholder et que les images de référence ne sont pas publiées.
 
 ## Artefacts
 

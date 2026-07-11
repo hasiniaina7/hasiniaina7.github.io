@@ -2,35 +2,57 @@
 
 ## Source métier
 
-`src/data/portfolioData.ts` centralise profil, navigation, SEO, projets, expériences, compétences, méthode, principes, collaboration et schémas. Les composants ne doivent pas dupliquer d’affirmations métier.
+`src/data/portfolioData.ts` centralise profil, navigation, SEO, réalisations, expériences, compétences, méthode, principes, collaboration et sélections éditoriales.
+
+## Réalisations
+
+```ts
+type WorkId =
+  | 'tz-smart' | 'fretunia' | 'aim-beneficiaries' | 'acm-iagasy'
+  | 'sbt-travel' | 'rmb-cargo' | 'jn-travel'
+  | 'rmb-cargo-mobile' | 'aim-mobile' | 'tz-smart-mobile';
+
+type WorkCategory = 'system' | 'web' | 'mobile' | 'product-ai';
+
+type WorkItem = {
+  id: WorkId;
+  title: string;
+  categories: WorkCategory[];
+  relatedSystemId?: WorkId;
+  summary: string;
+  operationalPurpose: string;
+  stack: string[];
+  capabilities: string[];
+  publicUrl?: string;
+  alternatePublicUrl?: string;
+  mediaIds: string[];
+  featured: boolean;
+  caseStudy: boolean;
+};
+```
+
+Une réalisation peut apparaître dans plusieurs vues sans duplication. `relatedSystemId` fournit du contexte sans créer de hiérarchie visuelle.
 
 ## Contrat média
 
 ```ts
-type MediaVariant = {
-  src: string;
-  width: number;
-  height: number;
-  format: 'avif' | 'webp';
-  bytes: number;
-};
-
 type MediaAsset = {
   id: string;
-  role: 'decorative' | 'portrait-placeholder' | 'project-placeholder';
+  role: 'decorative' | 'work-editorial' | 'method-illustration' | 'product-ai-illustration';
   alt: string;
   decorative: boolean;
   ratio: number;
-  source?: { path: string; width: number; height: number; bytes: number; colorSpace: string; hasAlpha: boolean };
+  surface: 'light' | 'dark' | 'adaptive';
   variants: MediaVariant[];
 };
 ```
 
-Les sept décorations et les placeholders sont indexés par identifiant stable. Dimensions et poids correspondent aux fichiers générés. Aucun chemin média n’est dispersé dans les composants.
+Chaque média publié possède AVIF/WebP, dimensions, poids, ratio, rôle et texte alternatif. Les métriques visibles dans une composition ne sont pas stockées comme faits métier.
 
 ## Invariants
 
-- Quatre `ProjectId` seulement.
-- Routes limitées aux six chemins publiés.
-- Métriques associées à leur niveau de preuve et à leur garde-fou.
-- Les images projet de `tmp` ne sont jamais des données applicatives.
+- Dix `WorkId`, dont trois applications mobiles autonomes.
+- Sélections d’accueil explicites, jamais dérivées de l’ordre d’un tableau.
+- URLs, stacks, relations et identifiants média centralisés.
+- Agents de développement modélisés séparément des capacités `product-ai`.
+- `image 1` et `image 2` absents du manifeste publié.

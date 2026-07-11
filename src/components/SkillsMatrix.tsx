@@ -1,4 +1,4 @@
-import { skillEvidence } from '@/data/portfolioData';
+import { skillEvidence, workById } from '@/data/portfolioData';
 
 export function SkillsMatrix() {
   return (
@@ -20,7 +20,7 @@ export function SkillsMatrix() {
           </div>
           <div className="skill-evidence-card__section">
             <h4>Projets de preuve</h4>
-            <p>{skill.projects.join(' · ')}</p>
+            <p>{skill.workIds.map((id) => workById[id].title).join(' · ')}</p>
           </div>
           <div className="skill-evidence-card__section">
             <h4>Réalisations clés</h4>

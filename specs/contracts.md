@@ -2,28 +2,32 @@
 
 ## Navigation
 
-- Les six routes utilisent `NavLink` et exposent l’état actif.
-- Le menu mobile annonce son état, se ferme après navigation et avec Échap.
+- Les six routes exposent l’état actif ; le menu mobile se ferme après navigation et avec Échap.
 - Le lien d’évitement cible `#main-content`.
 
 ## Média responsive
 
-- `ResponsiveMedia` reçoit un `MediaAsset`, un `sizes`, une priorité et une classe facultative.
-- Ordre `<picture>` : AVIF puis WebP.
-- `srcset`, `sizes`, `width` et `height` sont obligatoires.
-- Le média hero prioritaire n’est pas lazy-loadé ; les décorations suivantes le sont.
-- Une décoration expose `alt=""` et `aria-hidden` ; un placeholder contextuel a un libellé adjacent dans le DOM.
+- `ResponsiveMedia` reçoit un `MediaAsset`, `sizes`, priorité et classes facultatives.
+- Ordre `<picture>` : AVIF puis WebP ; `srcset`, `sizes`, `width` et `height` obligatoires.
+- Le média principal d’une étude de cas est prioritaire ; les suivants sont lazy-loadés.
+- `object-fit: contain` et aucune métrique n’est extraite du média vers le DOM.
+- Une légende visible précise qu’une composition est une représentation visuelle lorsque nécessaire.
 
-## Projets
+## Réalisations et filtres
 
-- Les cartes et études de cas reçoivent uniquement un objet `Project` centralisé.
-- Le placeholder reste uniforme et ne simule pas une capture réelle.
+- `WorkCard` reçoit uniquement un `WorkItem` centralisé et résout ses médias via le manifeste.
+- Les filtres sont des boutons avec état `aria-pressed`, utilisables sans souris.
+- Une réalisation peut répondre à plusieurs filtres sans être dupliquée dans les données.
+- JN Travel utilise le placeholder partagé tant qu’aucun média n’est disponible.
 
-## Contact
+## Visionneuse
 
-- Le formulaire compose une URL `mailto:` ; il n’effectue aucun POST et ne présente aucun faux succès.
+- Dialogue modal avec fond sombre, image non recadrée, légende HTML et bouton de fermeture nommé.
+- Fermeture par Échap et clic explicite ; focus initial dans le dialogue et restitution au déclencheur.
+- Le document arrière ne doit pas être parcourable pendant l’ouverture.
 
-## SEO
+## Contact et SEO
 
+- Le formulaire compose une URL `mailto:` et n’effectue aucun POST.
 - Chaque route consomme `seoByPath`, fournit title, description, canonical et Open Graph.
 - `lang="fr"` et un seul H1 par route.

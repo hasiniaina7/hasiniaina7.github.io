@@ -1,16 +1,18 @@
 import { Link } from 'react-router-dom';
-import { blueprintModules, operatingPrinciples, pageCopy, profile, projects, recruiterValues, skillGroups, workingMethod } from '@/data/portfolioData';
+import { blueprintModules, homeSelections, operatingPrinciples, pageCopy, profile, recruiterValues, skillGroups, workById, workingMethod } from '@/data/portfolioData';
 import { getMediaAsset } from '@/data/mediaData';
 import { BlueprintDiagram } from '@/components/BlueprintDiagram';
 import { OperationalMap } from '@/components/OperationalMap';
 import { SectionHeading } from '@/components/SectionHeading';
 import { ResponsiveMedia } from '@/components/ResponsiveMedia';
 import { VisualPlaceholder } from '@/components/VisualPlaceholder';
-import { ProjectCard } from '@/components/ProjectCard';
+import { WorkCard } from '@/components/WorkCard';
+import { MediaLightbox } from '@/components/MediaLightbox';
 import { FinalCta } from '@/components/FinalCta';
 
 export function HomePage() {
-  const featuredProjects = projects.filter((project) => pageCopy.home.featuredProjectIds.includes(project.id));
+  const featuredWorks = homeSelections.products.map((id) => workById[id]);
+  const productionSites = homeSelections.productionSites.map((id) => workById[id]);
 
   return (
     <div className="page page--home">
@@ -63,14 +65,25 @@ export function HomePage() {
         <div className="capability-grid">{blueprintModules.map((module, index) => <article className="capability-card" key={module.id}><span>0{index + 1}</span><h3>{module.title}</h3><p>{module.summary}</p><div className="tag-row">{module.steps.map((step) => <span className="tag" key={step}>{step}</span>)}</div></article>)}</div>
       </section>
 
+      <section className="content-section automation-feature">
+        <MediaLightbox asset={getMediaAsset('n8n-product-automation')} caption="Illustration explicative des automatisations n8n. Les nombres éventuellement visibles appartiennent à la composition et ne sont pas publiés comme résultats." sizes="(max-width: 700px) 94vw, 620px" />
+        <SectionHeading eyebrow="IA intégrée aux produits" title={pageCopy.home.automationTitle} summary={pageCopy.home.automationSummary} />
+      </section>
+
       <section className="content-section operations-section">
         <div><SectionHeading eyebrow="Opérations internationales" title={pageCopy.home.mapTitle} summary={pageCopy.home.mapSummary} /><OperationalMap /></div>
         <div className="orb-placeholder"><span aria-hidden="true">AF</span><p>L’orbe décoratif a été écarté après contrôle qualité. La géographie utile reste portée par le schéma accessible.</p></div>
       </section>
 
       <section className="content-section">
-        <SectionHeading align="split" eyebrow="Réalisations" title="Quatre systèmes, des contraintes concrètes" summary="Les médias projet évolueront séparément. Ici, seuls les contenus actuellement vérifiés sont présentés." />
-        <div className="project-grid">{featuredProjects.map((project) => <ProjectCard key={project.id} project={project} />)}</div>
+        <SectionHeading align="split" eyebrow="Réalisations sélectionnées" title={pageCopy.home.productsTitle} summary={pageCopy.home.productsSummary} />
+        <div className="work-grid work-grid--home">{featuredWorks.map((work, index) => <WorkCard key={work.id} work={work} homeLayout={index < 2 ? 'dominant' : 'secondary'} />)}</div>
+        <div className="section-action"><Link className="button button--secondary" to="/projets">Voir toutes les réalisations</Link></div>
+      </section>
+
+      <section className="content-section">
+        <SectionHeading align="split" eyebrow="Web full-stack" title={pageCopy.home.productionSitesTitle} summary={pageCopy.home.productionSitesSummary} />
+        <div className="production-sites">{productionSites.map((work) => <WorkCard key={work.id} work={work} />)}</div>
       </section>
 
       <section className="content-section principles-showcase">

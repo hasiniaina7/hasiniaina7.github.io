@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { profile } from '@/data/portfolioData';
+import { pageCopy, profile } from '@/data/portfolioData';
 
 type ComposerState = {
   name: string;
@@ -15,7 +15,7 @@ const initialState: ComposerState = {
   email: '',
   organization: '',
   subject: 'Demande de collaboration',
-  projectType: 'Mission produit',
+  projectType: pageCopy.contact.projectTypes[0],
   message: '',
 };
 
@@ -88,10 +88,7 @@ export function ContactComposer() {
             value={state.projectType}
             onChange={(event) => setState((current) => ({ ...current, projectType: event.target.value }))}
           >
-            <option>Mission produit</option>
-            <option>Renfort technique</option>
-            <option>Cadrage d’architecture</option>
-            <option>Modernisation métier</option>
+            {pageCopy.contact.projectTypes.map((projectType) => <option key={projectType}>{projectType}</option>)}
           </select>
         </label>
         <label>
