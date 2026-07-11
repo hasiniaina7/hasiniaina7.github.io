@@ -66,7 +66,14 @@ export function HomePage() {
 
       <section className="content-section operations-section">
         <div><SectionHeading eyebrow="Opérations internationales" title={pageCopy.home.mapTitle} summary={pageCopy.home.mapSummary} /><OperationalMap /></div>
-        <div className="orb-placeholder"><span aria-hidden="true">AF</span><p>L’orbe décoratif a été écarté après contrôle qualité. La géographie utile reste portée par le schéma accessible.</p></div>
+        <div className="operations-atmosphere" aria-hidden="true">
+          <span className="operations-atmosphere__orbit operations-atmosphere__orbit--one" />
+          <span className="operations-atmosphere__orbit operations-atmosphere__orbit--two" />
+          <span className="operations-atmosphere__route operations-atmosphere__route--one" />
+          <span className="operations-atmosphere__route operations-atmosphere__route--two" />
+          <span className="operations-atmosphere__signal operations-atmosphere__signal--one" />
+          <span className="operations-atmosphere__signal operations-atmosphere__signal--two" />
+        </div>
       </section>
 
       <section className="content-section">
