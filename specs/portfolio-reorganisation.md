@@ -31,10 +31,10 @@ Le visiteur doit comprendre trois choses :
 
 Ces réalisations peuvent recevoir une étude de cas complète :
 
-1. **TZ Smart / TechZone Smart** — plateforme pour fournisseur d’accès à Internet, composée d’un backend, d’un frontend et d’une application mobile.
+1. **TZ Smart** — plateforme pour fournisseur d’accès à Internet, composée d’un backend, d’un frontend et d’une application mobile.
 2. **Fretunia** — plateforme SaaS de gestion logistique et de suivi de colis.
 3. **Système Bénéficiaires AIM** — système web et mobile de gestion des bénéficiaires et des paiements.
-4. **ACM / Iagasy** — orchestrateur de commerce social pour Messenger et WhatsApp, reposant notamment sur n8n et OpenClaw.
+4. **ACM / iagasy** — orchestrateur de commerce social pour Messenger et WhatsApp, reposant notamment sur n8n et OpenClaw.
 
 Une étude de cas peut contenir plusieurs livrables. Chaque site ou application effectivement réalisé peut néanmoins être présenté au même niveau dans l’inventaire des réalisations, avec sa propre carte et sa propre présentation.
 
@@ -68,7 +68,7 @@ Le filtre `Mobile`, s’il est utilisé, sert uniquement à faciliter la consult
 
 Cette catégorie décrit des fonctionnalités exécutées dans les produits en production. Elle ne décrit pas la méthode utilisée pour écrire le code.
 
-#### ACM / Iagasy
+#### ACM / iagasy
 
 - agent orchestrateur de commerce social ;
 - interactions Messenger et WhatsApp ;
@@ -111,7 +111,7 @@ Les deux contenus ne doivent jamais être fusionnés dans une même carte ou une
 - Remplacer l’aperçu limité aux quatre anciens projets par une sélection représentative des quatre familles : système métier, web, mobile et IA intégrée.
 - Conserver le positionnement Full-Stack Senior et la méthode specs-driven.
 - Ajouter une section courte « Produits et systèmes livrés » mettant en avant TZ Smart, Fretunia, AIM et ACM/Iagasy.
-- Ajouter une rangée « Sites en production » avec SBT Travel, RMB Cargo et JN Travel.
+- Ajouter une rangée « Sites web en production » avec SBT Travel, RMB Cargo et JN Travel.
 - Reformuler la carte « IA appliquée » pour parler d’intégrations dans les produits, sans recopier le discours sur les agents de développement.
 - Conserver un lien clair vers `/projets` pour l’inventaire complet.
 

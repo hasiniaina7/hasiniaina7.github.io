@@ -25,7 +25,7 @@ export function SkillsPage() {
         <article className="surface-card surface-card--accent-orange"><p className="card-label">Fonction produit</p><h2>IA intégrée aux produits</h2><p>{pageCopy.competences.productAiSummary}</p></article>
         <article className="surface-card surface-card--accent-violet"><p className="card-label">Méthode d’ingénierie</p><h2>Agents de développement</h2><p>{pageCopy.competences.developmentAgentsSummary}</p></article>
       </section>
-      <section className="content-section skills-proof"><ResponsiveMedia asset={getMediaAsset('cloud-certification-stack')} sizes="(max-width: 768px) 90vw, 620px" /><div><SectionHeading eyebrow="Spécialisations" title="Une stack reliée à des preuves concrètes" summary="Cette illustration reste décorative. Les technologies, usages et niveaux de pratique sont intégralement lisibles dans la matrice ci-dessus." /></div></section>
+      <section className="content-section skills-proof"><ResponsiveMedia asset={getMediaAsset('cloud-certification-stack')} sizes="(max-width: 768px) 90vw, 620px" /><div><SectionHeading eyebrow="Sécurisation" title="Pour moi, la sécurité est une priorité" summary="La sécurité est primordiale, que ce soit pour les utilisateurs et pendant le developpement.  L'audit des logs et les preventions en cas de pannes sont systematique pour eviter toutes surprise en PROD" /></div></section>
       <FinalCta />
     </div>
   );

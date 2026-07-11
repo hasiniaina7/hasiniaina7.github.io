@@ -56,7 +56,7 @@ export function ProjectsPage() {
       </section>
 
       <section className="content-section">
-        <SectionHeading align="split" eyebrow="Inventaire" title="Un même portfolio, plusieurs angles de lecture" summary="Les filtres facilitent la consultation sans créer de hiérarchie entre web, mobile, systèmes et IA intégrée." />
+        <SectionHeading align="split" eyebrow="Inventaire" title="Mon portfolio, visible sous plusieurs angles de lecture" summary="Les filtres facilitent la consultation sans créer de hiérarchie entre web, mobile, systèmes et IA intégrée." />
         <WorkFilters active={filter} onChange={setFilter} />
         <p className="filter-result" aria-live="polite">{filteredWorks.length} réalisation{filteredWorks.length > 1 ? 's' : ''} affichée{filteredWorks.length > 1 ? 's' : ''}</p>
         <div className="work-grid">{filteredWorks.map((work, index) => <WorkCard key={work.id} work={work} priority={index === 0} />)}</div>
