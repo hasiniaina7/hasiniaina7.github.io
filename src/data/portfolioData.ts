@@ -177,6 +177,19 @@ export type BlueprintFlow = {
   accent: Accent;
 };
 
+export type BlueprintNodeLayout = {
+  position: { x: number; y: number };
+  width: number;
+};
+
+export type BlueprintHandleSide = 'top' | 'right' | 'bottom' | 'left';
+
+export type BlueprintFlowLayout = {
+  source: BlueprintHandleSide;
+  target: BlueprintHandleSide;
+  offset?: number;
+};
+
 export type BlueprintView = {
   id: BlueprintViewId;
   label: string;
@@ -320,6 +333,27 @@ export const blueprintNodes: BlueprintNode[] = [
   { id: 'monitoring', label: 'Monitoring', detail: 'Logs, métriques, traces, alertes', accent: 'blue', status: 'observing', zone: 'data', icon: 'monitoring', evidenceLevel: 'cv-confirmed', proofWorkIds: ['tz-smart', 'fretunia'] },
 ];
 
+export const blueprintNodeLayout: Record<BlueprintNodeId, BlueprintNodeLayout> = {
+  'field-teams': { position: { x: 28, y: 60 }, width: 220 },
+  'web-app': { position: { x: 28, y: 160 }, width: 220 },
+  'mobile-app': { position: { x: 28, y: 260 }, width: 220 },
+  'partner-systems': { position: { x: 28, y: 360 }, width: 220 },
+  'business-api': { position: { x: 320, y: 60 }, width: 215 },
+  identities: { position: { x: 565, y: 60 }, width: 215 },
+  'payment-reconciliation': { position: { x: 320, y: 180 }, width: 215 },
+  'business-data': { position: { x: 565, y: 180 }, width: 215 },
+  mvola: { position: { x: 850, y: 60 }, width: 250 },
+  notifications: { position: { x: 850, y: 160 }, width: 250 },
+  radiusdesk: { position: { x: 850, y: 260 }, width: 250 },
+  'ai-automation': { position: { x: 850, y: 360 }, width: 250 },
+  'human-validation': { position: { x: 850, y: 460 }, width: 250 },
+  postgresql: { position: { x: 320, y: 420 }, width: 215 },
+  'local-storage': { position: { x: 565, y: 420 }, width: 215 },
+  'queue-worker': { position: { x: 320, y: 535 }, width: 215 },
+  audit: { position: { x: 565, y: 535 }, width: 215 },
+  monitoring: { position: { x: 320, y: 650 }, width: 215 },
+};
+
 export const blueprintFlows: BlueprintFlow[] = [
   { id: 'field-mobile', from: 'field-teams', to: 'mobile-app', label: 'Collecte terrain', accent: 'green' },
   { id: 'web-api', from: 'web-app', to: 'business-api', label: 'Flux web', accent: 'blue' },
@@ -345,6 +379,32 @@ export const blueprintFlows: BlueprintFlow[] = [
   { id: 'postgresql-monitoring', from: 'postgresql', to: 'monitoring', label: 'Signaux données', accent: 'blue' },
   { id: 'monitoring-notifications', from: 'monitoring', to: 'notifications', label: 'Alertes', accent: 'blue' },
 ];
+
+export const blueprintFlowLayout: Record<BlueprintFlowId, BlueprintFlowLayout> = {
+  'field-mobile': { source: 'bottom', target: 'top' },
+  'web-api': { source: 'right', target: 'left' },
+  'mobile-api': { source: 'right', target: 'left', offset: 18 },
+  'partner-api': { source: 'right', target: 'left', offset: 34 },
+  'api-identities': { source: 'right', target: 'left' },
+  'api-payments': { source: 'bottom', target: 'top' },
+  'api-data': { source: 'right', target: 'left', offset: 16 },
+  'api-notifications': { source: 'right', target: 'left', offset: 26 },
+  'api-radiusdesk': { source: 'right', target: 'left', offset: 42 },
+  'payments-mvola': { source: 'right', target: 'left' },
+  'payments-postgresql': { source: 'bottom', target: 'top' },
+  'payments-audit': { source: 'bottom', target: 'top', offset: 22 },
+  'mobile-local': { source: 'bottom', target: 'left', offset: 18 },
+  'local-api': { source: 'top', target: 'bottom', offset: 30 },
+  'api-postgresql': { source: 'bottom', target: 'top', offset: 14 },
+  'api-queue': { source: 'bottom', target: 'top', offset: 26 },
+  'queue-ai': { source: 'right', target: 'left', offset: 30 },
+  'ai-human': { source: 'bottom', target: 'top' },
+  'human-audit': { source: 'left', target: 'right', offset: 22 },
+  'api-monitoring': { source: 'bottom', target: 'top', offset: 38 },
+  'queue-monitoring': { source: 'bottom', target: 'top' },
+  'postgresql-monitoring': { source: 'bottom', target: 'left', offset: 18 },
+  'monitoring-notifications': { source: 'right', target: 'left', offset: 44 },
+};
 
 export const blueprintViews: BlueprintView[] = [
   { id: 'overview', label: 'Vue globale', summary: 'Une vue d’ensemble des entrées opérationnelles, du cœur métier, des intégrations et de la supervision.', nodeIds: blueprintNodes.map((node) => node.id), mobileNodeIds: ['web-app', 'business-api', 'business-data', 'postgresql', 'monitoring'], flowIds: blueprintFlows.map((flow) => flow.id), proofWorkIds: ['tz-smart', 'fretunia', 'aim-beneficiaries', 'acm-iagasy'] },
