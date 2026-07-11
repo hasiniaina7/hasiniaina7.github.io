@@ -44,7 +44,8 @@ Clarté avant décoration, espace généreux, hiérarchie nette et crédibilité
 - Gradient sur CTA et accents stratégiques uniquement.
 - Verre translucide limité au header, hero et rares cartes.
 - Transitions de 150–300 ms, neutralisées sous `prefers-reduced-motion`.
-- Tous les contrôles remplis, états actifs de filtres et le monogramme « HC » utilisent `--gradient-action`, centré sur le Deep Teal `#52796F`, suffisamment sombre pour conserver le contraste du texte blanc.
+- Tous les contrôles remplis et états actifs de filtres utilisent `--gradient-action`, centré sur le Deep Teal `#52796F`, suffisamment sombre pour conserver le contraste du texte blanc.
+- Le monogramme « HC » du header et du footer est remplacé par la plus petite variante publiée du portrait réel (`hasiniaina-portrait-320` en AVIF avec fallback WebP), recadrée sur le visage et entourée d’un liseré Deep Teal. L’image reste décorative, car le lien porte déjà un libellé accessible.
 - La carte finale « Construisons utile » réutilise `--gradient-contact`, alias de `--gradient-action`. Les accents décoratifs et les cartes hors CTA conservent la palette bleu-violet.
 - `#6274E7` et `#686EDC` servent aux halos, bordures et fonds doux plutôt qu’aux textes blancs de petite taille.
 - Les cartes conservent une surface blanche : la palette intervient par accents fins et non par aplats concurrençant les médias.

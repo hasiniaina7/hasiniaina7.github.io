@@ -117,3 +117,10 @@ Captures : `artifacts/lightbox-direct-2026-07-11/`.
 - [x] Valider le contraste, le rendu responsive et le build.
 
 Captures : `artifacts/contact-teal-2026-07-11/`.
+
+## Phase 13 — Portrait miniature de marque
+
+- [x] Remplacer les monogrammes « HC » du header et du footer par la variante portrait 320 px déjà publiée.
+- [x] Valider le recadrage, la performance et le rendu responsive.
+
+Captures : `artifacts/contact-teal-2026-07-11/portrait-mark-mobile.png` et `artifacts/contact-teal-2026-07-11/portrait-mark-desktop.png`.
