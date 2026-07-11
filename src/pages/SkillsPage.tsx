@@ -7,9 +7,12 @@ import { getMediaAsset } from '@/data/mediaData';
 
 export function SkillsPage() {
   return (
-    <div className="page">
-      <section className="page-hero page-hero--blueprint">
+    <div className="page skills-page">
+      <section className="page-hero page-hero--blueprint skills-page__hero">
         <SectionHeading as="h1" eyebrow={pageCopy.competences.eyebrow} title="Compétences" summary={pageCopy.competences.intro} />
+        <div className="skills-page__hero-pattern" aria-hidden="true">
+          <span>Produit</span><span>Flux</span><span>Terrain</span><span>Fiabilité</span>
+        </div>
       </section>
 
       <section className="content-section">
@@ -21,7 +24,7 @@ export function SkillsPage() {
         />
         <SkillsMatrix />
       </section>
-      <section className="content-section ai-distinction">
+      <section className="content-section ai-distinction" aria-label="Distinguer l’IA produit des agents de développement">
         <article className="surface-card surface-card--accent-orange"><p className="card-label">Fonction produit</p><h2>IA intégrée aux produits</h2><p>{pageCopy.competences.productAiSummary}</p></article>
         <article className="surface-card surface-card--accent-violet"><p className="card-label">Méthode d’ingénierie</p><h2>Agents de développement</h2><p>{pageCopy.competences.developmentAgentsSummary}</p></article>
       </section>

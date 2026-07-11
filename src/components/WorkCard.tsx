@@ -19,6 +19,7 @@ export function WorkCard({ work, priority = false, homeLayout }: WorkCardProps) 
         <MediaLightbox
           asset={asset}
           caption={work.mediaNote ?? `Présentation visuelle de ${work.title}.`}
+          publicUrl={work.publicUrl}
           sizes={homeLayout ? '(max-width: 700px) 94vw, (max-width: 1100px) 46vw, 600px' : '(max-width: 700px) 94vw, (max-width: 1100px) 46vw, 620px'}
           priority={priority}
         />
@@ -35,7 +36,7 @@ export function WorkCard({ work, priority = false, homeLayout }: WorkCardProps) 
           <span className="card-label">{evidenceLabels[work.evidenceLevel]}</span>
           <div className="work-card__links">
             {work.caseStudy ? <a className="text-link" href={`#etude-${work.id}`}>Voir l’étude <span aria-hidden="true">↓</span></a> : null}
-            {work.publicUrl ? <a className="text-link" href={work.publicUrl} target="_blank" rel="noopener noreferrer">Voir le produit <span aria-hidden="true">↗</span></a> : null}
+            {work.publicUrl ? <a className="text-link" href={work.publicUrl} target="_blank" rel="noopener noreferrer">{work.publicUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')} <span aria-hidden="true">↗</span></a> : null}
           </div>
         </div>
       </div>

@@ -36,10 +36,10 @@
 
 ## Visionneuse
 
-- Dialogue modal avec fond sombre, image non recadrée, légende HTML et bouton de fermeture nommé.
+- Dialogue modal avec fond sombre, image non recadrée, légende HTML et bouton de fermeture nommé. Lorsqu’un média est rattaché à une réalisation avec URL publique, le dialogue expose ce lien externe avec son domaine lisible.
 - L’image miniature entière est le bouton d’ouverture ; aucun bouton textuel « Agrandir l’image » n’est affiché.
 - La visionneuse ne propose pas de zoom. Un unique bouton icône `X`, nommé « Fermer la visionneuse », assure la fermeture visible.
-- Fermeture par Échap et clic explicite ; focus initial dans le dialogue et restitution au déclencheur.
+- Fermeture par Échap, bouton, clic sur le backdrop ou sur l’espace vide autour de l’image ; focus initial dans le dialogue et restitution au déclencheur.
 - Le document arrière ne doit pas être parcourable pendant l’ouverture.
 
 ## Pipeline méthode

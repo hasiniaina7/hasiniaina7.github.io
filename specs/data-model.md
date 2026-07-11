@@ -57,7 +57,7 @@ Le hero v2 ajoute `hasiniaina-portrait-cutout` (`portrait`) et `hero-glass-porta
 
 - Dix `WorkId`, dont trois applications mobiles autonomes.
 - Sélections d’accueil explicites, jamais dérivées de l’ordre d’un tableau.
-- URLs, stacks, relations et identifiants média centralisés.
+- URLs, stacks, relations et identifiants média centralisés. Les composants dérivent uniquement un libellé de domaine à partir de `publicUrl` ; ils ne stockent pas de lien produit local.
 - Agents de développement modélisés séparément des capacités `product-ai`.
 - `image 1` et `image 2` absents du manifeste publié.
 

@@ -95,3 +95,10 @@ Captures et rapport : `artifacts/motion-premium-2026-07-11/`.
 - [x] Valider typecheck, lint, build et interaction navigateur.
 
 Captures : `artifacts/lightbox-direct-2026-07-11/`.
+
+## Phase 11 — Liens produit et fermeture de visionneuse
+
+- [x] Remplacer le libellé générique « Voir le produit » par le domaine public réellement ciblé.
+- [x] Exposer l’URL publique dans chaque visionneuse de média rattachée à une réalisation, y compris les médias secondaires.
+- [x] Fermer la visionneuse par clic sur le backdrop et l’espace vide autour de l’image, sur tactile comme sur pointeur.
+- [x] Valider typecheck, lint, build et interactions navigateur desktop/mobile.

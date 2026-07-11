@@ -60,7 +60,7 @@ export function HomePage() {
       </section>
 
       <section className="content-section automation-feature">
-        <MediaLightbox asset={getMediaAsset('n8n-product-automation')} caption="Illustration explicative des automatisations n8n. Les nombres éventuellement visibles appartiennent à la composition et ne sont pas publiés comme résultats." sizes="(max-width: 700px) 94vw, 620px" />
+        <MediaLightbox asset={getMediaAsset('n8n-product-automation')} caption="Illustration explicative des automatisations n8n. Les nombres éventuellement visibles appartiennent à la composition et ne sont pas publiés comme résultats." publicUrl={workById.fretunia.publicUrl} sizes="(max-width: 700px) 94vw, 620px" />
         <SectionHeading eyebrow="IA intégrée aux produits" title={pageCopy.home.automationTitle} summary={pageCopy.home.automationSummary} />
       </section>
 

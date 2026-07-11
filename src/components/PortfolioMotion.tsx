@@ -13,6 +13,7 @@ const revealGroups = [
   { container: '.principles-grid', children: '.principle' },
   { container: '.timeline', children: '.timeline-item' },
   { container: '.card-grid', children: '.surface-card' },
+  { container: '.skill-evidence-grid', children: '.skill-evidence-card' },
   { container: '.mode-list', children: '.mode-item' },
   { container: '.method-agents', children: '.method-agent-row' },
 ] as const;

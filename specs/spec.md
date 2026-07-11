@@ -44,7 +44,7 @@ Présenter Hasiniaina Christian LOVANIRINA comme Ingénieur Full-Stack Senior ca
 
 - Sept réalisations web et trois applications mobiles représentables dans les données.
 - Six routes cohérentes et responsive de 360 à 1440 px.
-- Filtres et visionneuse accessibles au clavier.
+- Filtres et visionneuse accessibles au clavier ; les liens de produits affichent leur domaine lisible et les médias de réalisations exposent la même URL dans la visionneuse.
 - SEO par route, liens réels, aucune erreur console.
 - Typecheck, lint, build et audit média réussis.
 - Le hero reprend clairement les proportions de `image 1-hero.png` sans recopier ses métriques non vérifiées.

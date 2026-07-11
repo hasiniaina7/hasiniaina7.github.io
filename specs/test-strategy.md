@@ -20,7 +20,7 @@ Tester également chaque URL en chargement direct après le découpage, puis nav
 - aucune erreur console et aucun layout shift média évident ;
 - focus visible, parcours clavier et liens utilisables ;
 - filtres utilisables et résultats cohérents ;
-- visionneuse : ouverture par clic sur l’image et par clavier, absence de bouton textuel et de zoom, fermeture par `X` ou Échap, restitution du focus, légende et image entière ;
+- visionneuse : ouverture par clic sur l’image et par clavier, absence de zoom, fermeture par `X`, Échap, backdrop et espace vide autour de l’image, restitution du focus, légende et image entière ; vérifier aussi le lien de domaine externe lorsque la réalisation possède une URL publique ;
 - menu mobile : ouverture, Échap, navigation puis fermeture ;
 - contact : URL `mailto:` correctement composée ;
 - mouvement réduit : animations non essentielles supprimées.

@@ -33,7 +33,7 @@ Faire évoluer les six routes du portfolio premium afin de montrer l’étendue 
 - Médias 4:3 ou 16:9 affichés sans recadrage sur surface claire ou sombre selon leur composition.
 - Deux cartes dominantes et deux secondaires seulement sur l’accueil.
 - Études de cas principales généreuses, texte métier en HTML avant le média.
-- Visionneuse accessible avec fermeture Échap, restitution du focus et image non recadrée.
+- Visionneuse accessible avec fermeture Échap, clic hors image, restitution du focus, image non recadrée et lien produit conditionnel issu des données centralisées.
 
 ## Palette d’accent
 

@@ -20,7 +20,7 @@ function CaseStudy({ work, priority = false }: { work: WorkItem; priority?: bool
       <section className="case-study__purpose" aria-label={`Rôle opérationnel de ${work.title}`}>
         <h3>Rôle opérationnel du produit</h3><p>{work.operationalPurpose}</p>
       </section>
-      {mainAsset ? <MediaLightbox asset={mainAsset} caption={work.mediaNote ?? `Présentation visuelle de ${work.title}.`} sizes="(max-width: 700px) 96vw, 1280px" priority={priority} className="case-study__media" /> : null}
+      {mainAsset ? <MediaLightbox asset={mainAsset} caption={work.mediaNote ?? `Présentation visuelle de ${work.title}.`} publicUrl={work.publicUrl} sizes="(max-width: 700px) 96vw, 1280px" priority={priority} className="case-study__media" /> : null}
       <div className="case-study__details">
         <section><h3>Prise en charge</h3><p>{work.role}</p></section>
         <section><h3>Fonctions livrées</h3><ul className="plain-list">{work.capabilities.map((item) => <li key={item}>{item}</li>)}</ul></section>
@@ -30,7 +30,7 @@ function CaseStudy({ work, priority = false }: { work: WorkItem; priority?: bool
       {work.publishableMetrics.length > 0 ? <div className="verified-metrics" aria-label="Repères vérifiés">{work.publishableMetrics.map((metric) => <p key={metric.label}><strong>{metric.value}</strong><span>{metric.label}</span></p>)}</div> : null}
       {supportingMediaIds.length > 0 ? (
         <div className="supporting-media">
-          {supportingMediaIds.map((mediaId) => <MediaLightbox key={mediaId} asset={getMediaAsset(mediaId)} caption={`Illustration explicative associée à ${work.title}. Les informations métier vérifiées restent dans le texte HTML.`} sizes="(max-width: 700px) 94vw, 600px" />)}
+          {supportingMediaIds.map((mediaId) => <MediaLightbox key={mediaId} asset={getMediaAsset(mediaId)} caption={`Illustration explicative associée à ${work.title}. Les informations métier vérifiées restent dans le texte HTML.`} publicUrl={work.publicUrl} sizes="(max-width: 700px) 94vw, 600px" />)}
         </div>
       ) : null}
       <footer className="case-study__footer">

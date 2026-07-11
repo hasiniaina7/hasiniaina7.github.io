@@ -51,7 +51,7 @@ Clarté avant décoration, espace généreux, hiérarchie nette et crédibilité
 - Le hero desktop tient dans une composition compacte : environ 44 % texte, 27 % portrait/portail et 29 % stack.
 - Le portrait détouré domine le portail sans carte opaque ; les badges flottants restent en HTML et ne masquent pas le visage.
 - Sous 900 px, le texte reste premier, puis le portrait, puis la stack ; aucun chevauchement essentiel n’est conservé sur mobile.
-- La visionneuse conserve la légende dans le DOM, s’ouvre par clic ou clavier sur l’image, ferme avec un unique `X` ou Échap et restitue le focus. Aucun contrôle de zoom n’est exposé.
+- La visionneuse conserve la légende dans le DOM, s’ouvre par clic ou clavier sur l’image, ferme avec un unique `X`, Échap ou un clic hors de l’image et restitue le focus. Aucun contrôle de zoom n’est exposé. Quand une réalisation possède une URL publique, son domaine est visible dans la barre de la visionneuse et ouvre le produit dans un nouvel onglet.
 
 ## Responsive
 
