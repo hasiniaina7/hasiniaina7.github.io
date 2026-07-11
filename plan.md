@@ -38,8 +38,9 @@ Faire évoluer les six routes du portfolio premium afin de montrer l’étendue 
 ## Palette d’accent
 
 - Palette fournie : `#6274E7`, `#686EDC`, `#6E69D0`, `#7563C5`, `#7B5DBA`, `#8158AE`, `#8752A3`.
-- Les tons les plus sombres portent les CTA avec texte blanc ; les tons clairs servent aux bordures, halos et surfaces teintées.
+- Le Deep Teal `#52796F` porte les CTA remplis et le monogramme « HC » avec texte blanc ; les tons bleu-violet servent aux bordures, halos et surfaces teintées.
 - Les cartes restent majoritairement blanches et reçoivent seulement une ligne d’accent, une ombre colorée ou un hover maîtrisé.
+- Les boutons et états actifs qui utilisaient le dégradé violet emploient le dégradé Deep Teal centré sur `#52796F` ; les autres cartes et accents conservent la palette bleu-violet.
 
 ## Hero cible
 

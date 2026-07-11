@@ -39,6 +39,9 @@
   --gradient-primary: linear-gradient(135deg, #6e69d0 0%, #7563c5 48%, #8158ae 76%, #8752a3 100%);
   --gradient-palette-full: linear-gradient(120deg, #6274e7 0%, #6e69d0 34%, #7b5dba 68%, #8752a3 100%);
   --gradient-palette-soft: linear-gradient(145deg, rgba(98,116,231,.10), rgba(117,99,197,.06) 52%, rgba(135,82,163,.10));
+  --color-contact-teal: #52796f;
+  --gradient-action: linear-gradient(135deg, #354f52 0%, #52796f 68%, #44685f 100%);
+  --gradient-contact: var(--gradient-action);
   --font-display: Inter, Manrope, "Segoe UI", sans-serif;
   --font-body: Inter, Manrope, "Segoe UI", sans-serif;
   --text-xs: .76rem;

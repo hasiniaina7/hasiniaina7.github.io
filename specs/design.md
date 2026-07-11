@@ -30,6 +30,9 @@ Clarté avant décoration, espace généreux, hiérarchie nette et crédibilité
 --palette-mauve: #7b5dba;
 --palette-plum: #8158ae;
 --palette-deep-plum: #8752a3;
+--color-contact-teal: #52796f;
+--gradient-action: linear-gradient(135deg, #354f52 0%, #52796f 68%, #44685f 100%);
+--gradient-contact: var(--gradient-action);
 ```
 
 ## Règles
@@ -41,7 +44,8 @@ Clarté avant décoration, espace généreux, hiérarchie nette et crédibilité
 - Gradient sur CTA et accents stratégiques uniquement.
 - Verre translucide limité au header, hero et rares cartes.
 - Transitions de 150–300 ms, neutralisées sous `prefers-reduced-motion`.
-- Le gradient principal des CTA utilise uniquement les tons `#6E69D0` à `#8752A3`, suffisamment sombres pour conserver le contraste du texte blanc.
+- Tous les contrôles remplis, états actifs de filtres et le monogramme « HC » utilisent `--gradient-action`, centré sur le Deep Teal `#52796F`, suffisamment sombre pour conserver le contraste du texte blanc.
+- La carte finale « Construisons utile » réutilise `--gradient-contact`, alias de `--gradient-action`. Les accents décoratifs et les cartes hors CTA conservent la palette bleu-violet.
 - `#6274E7` et `#686EDC` servent aux halos, bordures et fonds doux plutôt qu’aux textes blancs de petite taille.
 - Les cartes conservent une surface blanche : la palette intervient par accents fins et non par aplats concurrençant les médias.
 - Les compositions riches en texte utilisent `object-fit: contain`, jamais de recadrage.

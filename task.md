@@ -109,3 +109,11 @@ Captures : `artifacts/lightbox-direct-2026-07-11/`.
 - [x] Exposer l’URL publique dans chaque visionneuse de média rattachée à une réalisation, y compris les médias secondaires.
 - [x] Fermer la visionneuse par clic sur le backdrop et l’espace vide autour de l’image, sur tactile comme sur pointeur.
 - [x] Valider typecheck, lint, build et interactions navigateur desktop/mobile.
+
+## Phase 12 — Accent Deep Teal des actions
+
+- [x] Isoler un token Deep Teal `#52796F` et son dégradé pour les actions remplies, états actifs et le monogramme « HC ».
+- [x] Conserver le gradient bleu-violet pour les cartes et accents qui ne sont pas des actions.
+- [x] Valider le contraste, le rendu responsive et le build.
+
+Captures : `artifacts/contact-teal-2026-07-11/`.
