@@ -20,6 +20,8 @@ Présenter Hasiniaina Christian LOVANIRINA comme Ingénieur Full-Stack Senior ca
 ## Médias
 
 - Treize compositions validées sont des médias éditoriaux ou explicatifs, optimisés et servis via manifeste.
+- Le portrait réel `hasiniaina.png` est publié dans le hero au ratio 4:5, sans génération ni modification d’identité.
+- Pour la nouvelle composition du hero, une édition identity-preserve validée du portrait peut remplacer la source initiale ; le portail généré reste purement décoratif.
 - Les métriques, slogans et données visibles dans ces compositions ne deviennent pas des preuves HTML.
 - `image 1` et `image 2` sont non publiables.
 - JN Travel conserve un placeholder neutre faute de média validé.
@@ -40,3 +42,4 @@ Présenter Hasiniaina Christian LOVANIRINA comme Ingénieur Full-Stack Senior ca
 - Filtres et visionneuse accessibles au clavier.
 - SEO par route, liens réels, aucune erreur console.
 - Typecheck, lint, build et audit média réussis.
+- Le hero reprend clairement les proportions de `image 1-hero.png` sans recopier ses métriques non vérifiées.

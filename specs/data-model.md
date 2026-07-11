@@ -38,7 +38,7 @@ Une réalisation peut apparaître dans plusieurs vues sans duplication. `related
 ```ts
 type MediaAsset = {
   id: string;
-  role: 'decorative' | 'work-editorial' | 'method-illustration' | 'product-ai-illustration';
+  role: 'decorative' | 'portrait' | 'work-editorial' | 'method-illustration' | 'product-ai-illustration';
   alt: string;
   decorative: boolean;
   ratio: number;
@@ -48,6 +48,10 @@ type MediaAsset = {
 ```
 
 Chaque média publié possède AVIF/WebP, dimensions, poids, ratio, rôle et texte alternatif. Les métriques visibles dans une composition ne sont pas stockées comme faits métier.
+
+Le portrait `hasiniaina-portrait` est un média non décoratif avec un texte alternatif descriptif et un chargement prioritaire dans le hero.
+
+Le hero v2 ajoute `hasiniaina-portrait-cutout` (`portrait`) et `hero-glass-portal-v2` (`decorative`). Les anciens actifs restent disponibles jusqu’à validation finale afin de permettre un retour arrière.
 
 ## Invariants
 

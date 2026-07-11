@@ -23,6 +23,13 @@ Clarté avant décoration, espace généreux, hiérarchie nette et crédibilité
 --media-dark-surface: #080d1f;
 --media-light-surface: #f5f7ff;
 --media-max-reading-width: 1280px;
+--palette-periwinkle: #6274e7;
+--palette-blue-violet: #686edc;
+--palette-indigo: #6e69d0;
+--palette-purple: #7563c5;
+--palette-mauve: #7b5dba;
+--palette-plum: #8158ae;
+--palette-deep-plum: #8752a3;
 ```
 
 ## Règles
@@ -34,9 +41,16 @@ Clarté avant décoration, espace généreux, hiérarchie nette et crédibilité
 - Gradient sur CTA et accents stratégiques uniquement.
 - Verre translucide limité au header, hero et rares cartes.
 - Transitions de 150–300 ms, neutralisées sous `prefers-reduced-motion`.
+- Le gradient principal des CTA utilise uniquement les tons `#6E69D0` à `#8752A3`, suffisamment sombres pour conserver le contraste du texte blanc.
+- `#6274E7` et `#686EDC` servent aux halos, bordures et fonds doux plutôt qu’aux textes blancs de petite taille.
+- Les cartes conservent une surface blanche : la palette intervient par accents fins et non par aplats concurrençant les médias.
 - Les compositions riches en texte utilisent `object-fit: contain`, jamais de recadrage.
 - Les surfaces d’accueil sombres ou claires encadrent les identités produit sans modifier les tokens du site.
 - L’accueil limite les médias projet à quatre ; `/projets` leur donne une largeur éditoriale généreuse.
+- Le portrait réel conserve son ratio 4:5, un cadrage centré sur le visage et une découpe de carte douce cohérente avec le portail du hero.
+- Le hero desktop tient dans une composition compacte : environ 44 % texte, 27 % portrait/portail et 29 % stack.
+- Le portrait détouré domine le portail sans carte opaque ; les badges flottants restent en HTML et ne masquent pas le visage.
+- Sous 900 px, le texte reste premier, puis le portrait, puis la stack ; aucun chevauchement essentiel n’est conservé sur mobile.
 - La visionneuse conserve la légende dans le DOM, ferme avec Échap et restitue le focus.
 
 ## Responsive

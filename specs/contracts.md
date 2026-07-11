@@ -10,6 +10,8 @@
 - `ResponsiveMedia` reçoit un `MediaAsset`, `sizes`, priorité et classes facultatives.
 - Ordre `<picture>` : AVIF puis WebP ; `srcset`, `sizes`, `width` et `height` obligatoires.
 - Le média principal d’une étude de cas est prioritaire ; les suivants sont lazy-loadés.
+- Le portrait du hero est chargé en priorité, conserve son ratio 4:5 et fournit des dimensions explicites.
+- Le portail du hero utilise `alt=""` et `aria-hidden`; le portrait détouré porte le texte alternatif et reste le seul média prioritaire de cette zone.
 - `object-fit: contain` et aucune métrique n’est extraite du média vers le DOM.
 - Une légende visible précise qu’une composition est une représentation visuelle lorsque nécessaire.
 

@@ -427,6 +427,189 @@
     "surface": "light"
   },
   {
+    "id": "hasiniaina-portrait",
+    "role": "portrait",
+    "alt": "Portrait de Hasiniaina Christian LOVANIRINA, ingénieur Full-Stack Senior.",
+    "decorative": false,
+    "surface": "light",
+    "ratio": 0.800285,
+    "source": {
+      "path": "tmp/hasiniaina.png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1942804,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/hasiniaina-portrait-320.avif",
+        "width": 320,
+        "height": 400,
+        "format": "avif",
+        "bytes": 4879
+      },
+      {
+        "src": "/assets/media/hasiniaina-portrait-320.webp",
+        "width": 320,
+        "height": 400,
+        "format": "webp",
+        "bytes": 6116
+      },
+      {
+        "src": "/assets/media/hasiniaina-portrait-480.avif",
+        "width": 480,
+        "height": 600,
+        "format": "avif",
+        "bytes": 7900
+      },
+      {
+        "src": "/assets/media/hasiniaina-portrait-480.webp",
+        "width": 480,
+        "height": 600,
+        "format": "webp",
+        "bytes": 10434
+      },
+      {
+        "src": "/assets/media/hasiniaina-portrait-720.avif",
+        "width": 720,
+        "height": 900,
+        "format": "avif",
+        "bytes": 13056
+      },
+      {
+        "src": "/assets/media/hasiniaina-portrait-720.webp",
+        "width": 720,
+        "height": 900,
+        "format": "webp",
+        "bytes": 17830
+      }
+    ]
+  },
+  {
+    "id": "hasiniaina-portrait-cutout",
+    "role": "portrait",
+    "alt": "Portrait de Hasiniaina Christian LOVANIRINA, ingénieur Full-Stack Senior.",
+    "decorative": false,
+    "surface": "light",
+    "ratio": 0.800285,
+    "source": {
+      "path": "tmp/imagegen/hasiniaina-portrait-cutout-v2.png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1058386,
+      "colorSpace": "srgb",
+      "hasAlpha": true,
+      "alphaTreatment": "source alpha preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/hasiniaina-portrait-cutout-320.avif",
+        "width": 320,
+        "height": 400,
+        "format": "avif",
+        "bytes": 6168
+      },
+      {
+        "src": "/assets/media/hasiniaina-portrait-cutout-320.webp",
+        "width": 320,
+        "height": 400,
+        "format": "webp",
+        "bytes": 8150
+      },
+      {
+        "src": "/assets/media/hasiniaina-portrait-cutout-480.avif",
+        "width": 480,
+        "height": 600,
+        "format": "avif",
+        "bytes": 9797
+      },
+      {
+        "src": "/assets/media/hasiniaina-portrait-cutout-480.webp",
+        "width": 480,
+        "height": 600,
+        "format": "webp",
+        "bytes": 13414
+      },
+      {
+        "src": "/assets/media/hasiniaina-portrait-cutout-720.avif",
+        "width": 720,
+        "height": 900,
+        "format": "avif",
+        "bytes": 15544
+      },
+      {
+        "src": "/assets/media/hasiniaina-portrait-cutout-720.webp",
+        "width": 720,
+        "height": 900,
+        "format": "webp",
+        "bytes": 22636
+      }
+    ]
+  },
+  {
+    "id": "hero-glass-portal-v2",
+    "role": "decorative",
+    "alt": "",
+    "decorative": true,
+    "surface": "adaptive",
+    "ratio": 0.800285,
+    "source": {
+      "path": "tmp/imagegen/hero-glass-portal-v2.png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 860185,
+      "colorSpace": "srgb",
+      "hasAlpha": true,
+      "alphaTreatment": "source alpha preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/hero-glass-portal-v2-360.avif",
+        "width": 360,
+        "height": 450,
+        "format": "avif",
+        "bytes": 12418
+      },
+      {
+        "src": "/assets/media/hero-glass-portal-v2-360.webp",
+        "width": 360,
+        "height": 450,
+        "format": "webp",
+        "bytes": 17860
+      },
+      {
+        "src": "/assets/media/hero-glass-portal-v2-540.avif",
+        "width": 540,
+        "height": 675,
+        "format": "avif",
+        "bytes": 20127
+      },
+      {
+        "src": "/assets/media/hero-glass-portal-v2-540.webp",
+        "width": 540,
+        "height": 675,
+        "format": "webp",
+        "bytes": 31206
+      },
+      {
+        "src": "/assets/media/hero-glass-portal-v2-720.avif",
+        "width": 720,
+        "height": 900,
+        "format": "avif",
+        "bytes": 28116
+      },
+      {
+        "src": "/assets/media/hero-glass-portal-v2-720.webp",
+        "width": 720,
+        "height": 900,
+        "format": "webp",
+        "bytes": 48102
+      }
+    ]
+  },
+  {
     "id": "tz-smart-web",
     "role": "work-editorial",
     "alt": "Présentation visuelle de la plateforme web TZ Smart et de ses interfaces de pilotage.",

@@ -174,6 +174,11 @@ export type NavigationItem = {
   label: string;
 };
 
+export type HeroTechnology = {
+  id: 'django' | 'react' | 'typescript' | 'node' | 'flutter' | 'postgresql' | 'docker' | 'linux' | 'n8n' | 'github';
+  label: string;
+};
+
 export const evidenceLabels: Record<EvidenceLevel, string> = {
   'cv-confirmed': 'Réalisé sur projet',
   'derived-from-cv': 'Approche éprouvée',
@@ -334,6 +339,19 @@ export const navigation = [
   { path: '/parcours', label: 'Parcours' },
   { path: '/contact', label: 'Contact' },
 ] satisfies NavigationItem[];
+
+export const heroTechnologies: HeroTechnology[] = [
+  { id: 'django', label: 'Django' },
+  { id: 'react', label: 'React' },
+  { id: 'typescript', label: 'TypeScript' },
+  { id: 'node', label: 'Node.js' },
+  { id: 'flutter', label: 'Flutter' },
+  { id: 'postgresql', label: 'PostgreSQL' },
+  { id: 'docker', label: 'Docker' },
+  { id: 'linux', label: 'Linux' },
+  { id: 'n8n', label: 'n8n' },
+  { id: 'github', label: 'GitHub' },
+];
 
 export const seoByPath: Record<NavigationItem['path'], SeoMeta> = {
   '/': {

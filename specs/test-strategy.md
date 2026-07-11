@@ -27,6 +27,10 @@ Tester les six routes à 1440, 1280, 1024, 768, 430, 390 et 360 px avec captures
 - Vérifier visuellement les compositions sur leurs surfaces claires/sombres.
 - Ne jamais considérer les chiffres intégrés aux images comme des métriques publiables.
 - Vérifier que JN Travel reste un placeholder et que les images de référence ne sont pas publiées.
+- Vérifier le cadrage, les contours, le LCP et l’absence de déformation du portrait réel sur desktop et mobile.
+- Vérifier le contraste des CTA, filtres actifs, cartes accentuées et boutons secondaires après intégration de la palette fournie.
+- Vérifier les halos chroma-key du portrait et du portail sur fond blanc, bleu clair et violet foncé.
+- Vérifier que le hero reste compact sur desktop et sans chevauchement ni texte tronqué de 360 à 1440 px.
 
 ## Artefacts
 

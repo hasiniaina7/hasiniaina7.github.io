@@ -5,10 +5,10 @@ import { BlueprintDiagram } from '@/components/BlueprintDiagram';
 import { OperationalMap } from '@/components/OperationalMap';
 import { SectionHeading } from '@/components/SectionHeading';
 import { ResponsiveMedia } from '@/components/ResponsiveMedia';
-import { VisualPlaceholder } from '@/components/VisualPlaceholder';
 import { WorkCard } from '@/components/WorkCard';
 import { MediaLightbox } from '@/components/MediaLightbox';
 import { FinalCta } from '@/components/FinalCta';
+import { HeroTechnologyGrid } from '@/components/HeroTechnologyGrid';
 
 export function HomePage() {
   const featuredWorks = homeSelections.products.map((id) => workById[id]);
@@ -32,15 +32,12 @@ export function HomePage() {
           </div>
         </div>
         <div className="premium-hero__visual">
-          <div className="portal-placeholder" aria-hidden="true" />
-          <VisualPlaceholder kind="portrait" label="Portrait non publié — emplacement réservé" />
+          <ResponsiveMedia asset={getMediaAsset('hero-glass-portal-v2')} sizes="(max-width: 700px) 88vw, 410px" className="hero-portal-media" />
+          <ResponsiveMedia asset={getMediaAsset('hasiniaina-portrait-cutout')} sizes="(max-width: 700px) 76vw, 350px" priority className="portrait-media portrait-media--cutout" />
           <div className="availability-card"><span aria-hidden="true" /> Disponible pour collaboration remote</div>
           <div className="expertise-card"><p>Expertises</p><strong>Backend · Frontend</strong><strong>Mobile · IA appliquée</strong></div>
         </div>
-        <aside className="stack-card" aria-label="Stack principale">
-          <p className="card-label">Stack opérationnelle</p>
-          {skillGroups.slice(0, 5).map((group) => <div key={group.id}><span>{group.icon}</span><p><strong>{group.title}</strong><small>{group.technologies.slice(0, 3).join(' · ')}</small></p></div>)}
-        </aside>
+        <HeroTechnologyGrid />
       </section>
 
       <section className="content-section architecture-section">

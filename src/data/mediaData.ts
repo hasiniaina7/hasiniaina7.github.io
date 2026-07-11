@@ -10,7 +10,7 @@ export type MediaVariant = {
 
 export type MediaAsset = {
   id: string;
-  role: 'decorative' | 'work-editorial' | 'method-illustration' | 'product-ai-illustration';
+  role: 'decorative' | 'portrait' | 'work-editorial' | 'method-illustration' | 'product-ai-illustration';
   alt: string;
   decorative: boolean;
   ratio: number;

@@ -22,7 +22,7 @@ Faire évoluer les six routes du portfolio premium afin de montrer l’étendue 
 
 1. Aligner les spécifications et retirer l’invariant obsolète des quatre projets.
 2. Remplacer le modèle `Project` par un inventaire relationnel de réalisations typées.
-3. Optimiser les treize médias publiables en AVIF/WebP et étendre le manifeste.
+3. Optimiser les treize compositions publiables et le portrait réel en AVIF/WebP, puis étendre le manifeste.
 4. Ajouter cartes éditoriales, filtres accessibles, études de cas et visionneuse.
 5. Recomposer l’accueil et relier compétences, méthode, parcours et contact aux nouvelles données.
 6. Valider typecheck, lint, build, médias, contenu, accessibilité, SEO et responsive.
@@ -35,12 +35,27 @@ Faire évoluer les six routes du portfolio premium afin de montrer l’étendue 
 - Études de cas principales généreuses, texte métier en HTML avant le média.
 - Visionneuse accessible avec fermeture Échap, restitution du focus et image non recadrée.
 
+## Palette d’accent
+
+- Palette fournie : `#6274E7`, `#686EDC`, `#6E69D0`, `#7563C5`, `#7B5DBA`, `#8158AE`, `#8752A3`.
+- Les tons les plus sombres portent les CTA avec texte blanc ; les tons clairs servent aux bordures, halos et surfaces teintées.
+- Les cartes restent majoritairement blanches et reçoivent seulement une ligne d’accent, une ombre colorée ou un hover maîtrisé.
+
+## Hero cible
+
+- Recomposer le hero selon `tmp/image 1-hero.png` : texte compact à gauche, portrait dominant au centre, stack visuelle à droite.
+- Utiliser le portrait généré validé comme édition fidèle du portrait réel et le portail généré uniquement comme décoration.
+- Détourer les deux sources chroma-key, conserver leurs sources intactes et publier des variantes AVIF/WebP.
+- Remplacer les métriques fictives de la référence par des faits vérifiés : base, disponibilité et méthode.
+- Construire badges, expertises, stack et boutons en HTML/CSS ; aucun texte ne dépend des images.
+
 ## Garde-fous
 
 - Aucun fait, métrique, certificat, rôle ou projet inventé.
 - Les chiffres visibles dans les compositions restent des éléments de représentation visuelle non repris comme preuve.
 - `image 1` et `image 2` restent non publiables.
 - JN Travel utilise un placeholder tant qu’aucun média réel validé n’est fourni.
+- Le hero utilise `tmp/hasiniaina.png`, portrait réel au ratio 4:5, sans transformation d’identité.
 - Codex et Claude décrivent la méthode de développement ; n8n et OpenClaw illustrent les intégrations produit.
 - Données métier centralisées et typées ; aucun domaine ni URL dispersé dans les composants.
 
