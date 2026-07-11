@@ -244,6 +244,67 @@
     "surface": "dark"
   },
   {
+    "id": "operational-map-mobile",
+    "role": "operational-diagram",
+    "alt": "Schéma illustratif vertical montrant les flux entre Madagascar, l’Afrique et l’Europe, les paiements, les applications terrain et les contrôles IA avec revue humaine.",
+    "decorative": false,
+    "surface": "light",
+    "ratio": 0.800285,
+    "source": {
+      "path": "tmp/ChatGPT Image 11 juil. 2026, 19_15_16.png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1531046,
+      "colorSpace": "srgb",
+      "hasAlpha": false,
+      "alphaTreatment": "integrated background preserved"
+    },
+    "variants": [
+      {
+        "src": "/assets/media/operational-map-mobile-320.avif",
+        "width": 320,
+        "height": 400,
+        "format": "avif",
+        "bytes": 8597
+      },
+      {
+        "src": "/assets/media/operational-map-mobile-320.webp",
+        "width": 320,
+        "height": 400,
+        "format": "webp",
+        "bytes": 10752
+      },
+      {
+        "src": "/assets/media/operational-map-mobile-480.avif",
+        "width": 480,
+        "height": 600,
+        "format": "avif",
+        "bytes": 16392
+      },
+      {
+        "src": "/assets/media/operational-map-mobile-480.webp",
+        "width": 480,
+        "height": 600,
+        "format": "webp",
+        "bytes": 22374
+      },
+      {
+        "src": "/assets/media/operational-map-mobile-720.avif",
+        "width": 720,
+        "height": 900,
+        "format": "avif",
+        "bytes": 31837
+      },
+      {
+        "src": "/assets/media/operational-map-mobile-720.webp",
+        "width": 720,
+        "height": 900,
+        "format": "webp",
+        "bytes": 46984
+      }
+    ]
+  },
+  {
     "id": "security-reliability-shield",
     "role": "decorative",
     "alt": "",

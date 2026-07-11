@@ -16,6 +16,7 @@ const assets = [
   { id: 'architecture-system-core', source: 'architecture-system-core.png', widths: [480, 720, 960], role: 'decorative', decorative: true, alt: '', surface: 'light', directory: 'decorative' },
   { id: 'specs-driven-agent-flow', source: 'specs-driven-agent-flow.png', widths: [400, 600, 800], role: 'decorative', decorative: true, alt: '', surface: 'light', directory: 'decorative' },
   { id: 'global-operations-orb', source: 'global-operations-orb.png', widths: [360, 540, 720], cleanChecker: true, role: 'decorative', decorative: true, alt: '', surface: 'dark', directory: 'decorative' },
+  { id: 'operational-map-mobile', source: 'ChatGPT Image 11 juil. 2026, 19_15_16.png', widths: [320, 480, 720], role: 'operational-diagram', decorative: false, alt: 'Schéma illustratif vertical montrant les flux entre Madagascar, l’Afrique et l’Europe, les paiements, les applications terrain et les contrôles IA avec revue humaine.', surface: 'light', directory: 'media' },
   { id: 'security-reliability-shield', source: 'ecurity-reliability-shield.png', widths: [400, 600, 800], role: 'decorative', decorative: true, alt: '', surface: 'light', directory: 'decorative' },
   { id: 'cloud-certification-stack', source: 'cloud-certification-stack.png', widths: [400, 600, 800], role: 'decorative', decorative: true, alt: '', surface: 'light', directory: 'decorative' },
   { id: 'cta-modular-system', source: 'cta-modular-system.png', widths: [480, 720, 960], role: 'decorative', decorative: true, alt: '', surface: 'light', directory: 'decorative' },
