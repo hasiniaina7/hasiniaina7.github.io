@@ -69,4 +69,11 @@
   --media-dark-surface: #080d1f;
   --media-light-surface: #f5f7ff;
   --media-max-reading-width: 1280px;
+  --motion-instant: 120ms;
+  --motion-state: 220ms;
+  --motion-reveal: 420ms;
+  --motion-signature: 650ms;
+  --ease-out-quart: cubic-bezier(.25, 1, .5, 1);
+  --ease-out-quint: cubic-bezier(.22, 1, .36, 1);
+  --ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 }

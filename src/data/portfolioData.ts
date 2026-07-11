@@ -112,9 +112,17 @@ export type SkillEvidence = {
 export type WorkingMethod = {
   title: string;
   summary: string;
-  steps: string[];
+  steps: MethodStep[];
   agentUsageNote: string;
   qualityGates: string[];
+};
+
+export type MethodStep = {
+  id: string;
+  title: string;
+  description: string;
+  role: string;
+  accent: 'blue' | 'violet' | 'green';
 };
 
 export type OperatingPrinciple = {
@@ -879,12 +887,12 @@ export const workingMethod: WorkingMethod = {
   summary:
     'Je pilote les agents IA comme une équipe technique assistée : je définis les specs, découpe les tâches, vérifie les diffs, impose les tests, sécurise les accès, valide l’architecture et garde la responsabilité finale.',
   steps: [
-    'Spec produit et règles métier',
-    'Contrats API / modèle de données',
-    'Découpage en tâches contrôlables',
-    'Implémentation assistée par agents',
-    'Tests, lint, typecheck et revue de diff',
-    'Validation et livraison',
+    { id: 'spec', title: 'Spec produit et règles métier', description: 'Clarifier les objectifs business, formaliser les critères d’acceptation et valider la valeur opérationnelle avant tout développement.', role: 'Cadrage fonctionnel', accent: 'blue' },
+    { id: 'contracts', title: 'Contrats API / modèle de données', description: 'Modéliser les données et figer les contrats d’API pour garantir un couplage propre et documenté.', role: 'Architecture de données', accent: 'blue' },
+    { id: 'tasks', title: 'Découpage en tâches contrôlables', description: 'Traduire l’implémentation en étapes atomiques et testables pour réduire la complexité et les régressions.', role: 'Planification technique', accent: 'violet' },
+    { id: 'implementation', title: 'Implémentation assistée par agents', description: 'Exécuter le développement avec des agents IA sous supervision et contrôle humain strict.', role: 'Ingénierie assistée', accent: 'violet' },
+    { id: 'quality', title: 'Tests, lint, typecheck et revue de diff', description: 'Imposer les barrières de qualité adaptées au risque et revoir chaque modification avant intégration.', role: 'Assurance qualité', accent: 'green' },
+    { id: 'delivery', title: 'Validation et livraison', description: 'Livrer de manière contrôlée après validation complète des critères et conserver la responsabilité finale.', role: 'Contrôle humain', accent: 'green' },
   ],
   agentUsageNote: 'Claude Code et Codex principalement, Antigravity et autres outils selon les phases.',
   qualityGates: [

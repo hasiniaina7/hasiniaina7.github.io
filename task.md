@@ -50,6 +50,48 @@
 - [x] Valider les cinq vues, les sept largeurs, le clavier, WCAG AA et le mouvement réduit.
 - [x] Exécuter typecheck, lint, build, audit média et audit des termes interdits.
 
+## Phase 6 — Blueprint premium durable
+
+- [x] Remplacer la géométrie SVG artisanale par `@xyflow/react` en lecture seule.
+- [x] Centraliser les positions et dimensions dans les données typées, avec ancrages nommés stables.
+- [x] Recomposer les onglets, zones, cartes, badges et légende sans modifier le contenu métier.
+- [x] Conserver le parcours vertical accessible sous 700 px.
+- [x] Valider les cinq vues, le responsive, le clavier, le mouvement réduit, le build et le bundle.
+
 ## État
 
-Réorganisation éditoriale, médias et blueprint interactif terminés. Rapports : `artifacts/validation-2026-07-11/validation-report.md` et `artifacts/blueprint-validation/browser-audit.json`.
+Réorganisation éditoriale, médias et modernisation premium du blueprint terminés. Captures : `artifacts/blueprint-premium-2026-07-11/`. Rapports historiques : `artifacts/validation-2026-07-11/validation-report.md` et `artifacts/blueprint-validation/browser-audit.json`.
+
+## Phase 7 — Pipeline méthode connecté
+
+- [x] Centraliser les six étapes détaillées de la méthode dans les données typées.
+- [x] Remplacer la grille statique par un graphe React Flow fixe avec connecteurs visibles.
+- [x] Fournir un parcours vertical accessible sous 700 px.
+- [x] Valider responsive, mouvement réduit, typecheck, lint et build.
+
+Captures : `artifacts/method-flow-2026-07-11/`.
+
+## Phase 8 — Découpage du bundle par route
+
+- [x] Charger les six pages par imports dynamiques.
+- [x] Ajouter un fallback de navigation accessible et stable visuellement.
+- [x] Vérifier les chunks générés et l’absence de duplication majeure.
+- [x] Valider les six URLs directes, typecheck, lint et build.
+
+## Phase 9 — Motion globale premium
+
+- [x] Ajouter les tokens motion et l’orchestrateur partagé basé sur Motion.
+- [x] Couvrir transition de route, signature du hero, groupes séquentiels et interactions existantes.
+- [x] Fournir un mode mouvement réduit sans déplacement ni contenu masqué.
+- [x] Valider les six routes, les interactions, le responsive, le bundle et les gates automatiques.
+
+Captures et rapport : `artifacts/motion-premium-2026-07-11/`.
+
+## Phase 10 — Visionneuse directe
+
+- [x] Transformer l’image en déclencheur accessible et retirer le bouton « Agrandir l’image ».
+- [x] Supprimer le zoom et remplacer les contrôles par un unique bouton `X`.
+- [x] Conserver animation, Échap, légende, focus et responsive.
+- [x] Valider typecheck, lint, build et interaction navigateur.
+
+Captures : `artifacts/lightbox-direct-2026-07-11/`.

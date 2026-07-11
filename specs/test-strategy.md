@@ -6,22 +6,30 @@
 - Audit média : formats, dimensions, poids, absence d’upscale, trois variantes maximum et exclusion de `image 1`/`image 2`.
 - Audit contenu : dix réalisations, trois mobiles autonomes, sept sites représentables, quatre études principales.
 - Recherche de métriques non traçables et de confusion entre agents de développement et IA produit.
+- Inspection du manifeste de build : un chunk par route et aucun retour à un bundle applicatif monolithique supérieur à 500 kB.
+- Inspection motion : bibliothèque extraite sans faire repasser le bundle initial au-dessus de 500 kB, aucune animation de propriété de layout et aucun contenu masqué par défaut.
 
 ## Navigateur
 
 Tester les six routes à 1440, 1280, 1024, 768, 430, 390 et 360 px avec captures pleine page.
+
+Tester également chaque URL en chargement direct après le découpage, puis naviguer entre les routes sans rechargement complet.
 
 - aucun overflow horizontal, chevauchement ou texte tronqué ;
 - un H1 et métadonnées SEO présentes ;
 - aucune erreur console et aucun layout shift média évident ;
 - focus visible, parcours clavier et liens utilisables ;
 - filtres utilisables et résultats cohérents ;
-- visionneuse : ouverture, fermeture Échap, restitution du focus, légende et image entière ;
+- visionneuse : ouverture par clic sur l’image et par clavier, absence de bouton textuel et de zoom, fermeture par `X` ou Échap, restitution du focus, légende et image entière ;
 - menu mobile : ouverture, Échap, navigation puis fermeture ;
 - contact : URL `mailto:` correctement composée ;
 - mouvement réduit : animations non essentielles supprimées.
 - blueprint : cinq filtres souris/clavier, états `aria-pressed`, résumé live et ordre mobile cohérents ; chaque vue active exactement ses nœuds et connexions déclarés.
-- blueprint responsive : réseau complet à 1440/1280, zones sur deux niveaux à 1024/768, parcours vertical à 430/390/360, sans overflow ni ligne visible à travers une carte.
+- blueprint responsive : réseau complet ajusté au viewport à 1440/1280/1024/768, parcours vertical à 430/390/360, sans overflow ni arête visible à travers une carte.
+- blueprint robuste : aucun nœud déplaçable, contrôle de zoom ou panoramique ; ancrages stables après redimensionnement et chargement des polices.
+- blueprint premier rendu : les 23 arêtes de la vue globale sont présentes immédiatement, sans attendre une mesure ou une interaction navigateur.
+- méthode : six nœuds et cinq connecteurs visibles dès le premier rendu sur desktop/tablette ; même ordre et même contenu dans la liste mobile ; aucun contrôle React Flow exposé.
+- motion : transition des six routes, hero orchestré une seule fois par entrée, stagger plafonné, menu/visionneuse/filtres utilisables pendant les animations et rendu stable sous mouvement réduit.
 
 ## Médias et preuves
 

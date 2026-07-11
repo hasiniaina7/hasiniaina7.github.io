@@ -69,11 +69,35 @@ Faire évoluer les six routes du portfolio premium afin de montrer l’étendue 
 
 ## Évolution — Blueprint système interactif
 
-1. Remplacer le blueprint vertical par une carte pleine largeur construite en HTML, CSS et SVG.
+1. Remplacer le blueprint vertical par une carte pleine largeur construite en HTML et CSS, avec un graphe `@xyflow/react` non manipulable pour les connexions desktop/tablette.
 2. Centraliser quatre zones de nœuds vérifiés et cinq vues de flux typées dans `portfolioData.ts`.
 3. Relier chaque connexion par identifiants stables et chaque parcours à ses réalisations de preuve.
 4. Déplacer sous le diagramme les cartes Sécurité intégrée, Continuité terrain, Traçabilité et Observabilité.
-5. Fournir une carte connectée sur desktop/tablette et un parcours vertical sans SVG complexe sur mobile.
+5. Fournir une carte connectée à positions et ancrages déterministes sur desktop/tablette, et un parcours vertical sans graphe sur mobile.
 6. Valider clavier, `aria-pressed`, zone live, mouvement réduit, responsive et absence de technologies non démontrées.
+7. Donner au blueprint une finition premium inspirée de la référence fournie : onglets, zones teintées, cartes blanches, badges d'état et connexions nettes, sans en reprendre le contenu.
 
 La section porte le titre « Concevoir des systèmes fiables, traçables et orientés opérations ». Elle ne publie aucun raster et exclut MongoDB, Redis, S3, IoT, l’API Gateway générique, les microservices systématiques et la haute disponibilité non démontrée.
+
+## Évolution — Pipeline méthode connecté
+
+1. Remplacer les six cartes juxtaposées de `/methode` par un graphe linéaire `@xyflow/react` en lecture seule.
+2. Centraliser les étapes, rôles, descriptions et accents dans `portfolioData.ts`.
+3. Utiliser des poignées et arêtes explicites pour matérialiser la progression, avec un état visuel distinct pour le contrôle humain final.
+4. Conserver une liste verticale sémantique sous 700 px, sans dépendance au canvas pour comprendre la méthode.
+5. Valider responsive, clavier, mouvement réduit, typecheck, lint et build.
+
+## Évolution — Découpage du bundle par route
+
+1. Remplacer les imports synchrones des six pages par des imports dynamiques React.
+2. Conserver le shell, la navigation et un fallback accessible dans le bundle initial.
+3. Laisser Vite extraire les dépendances partagées sans dupliquer React Flow entre les routes qui l’utilisent.
+4. Comparer les chunks produits et valider la navigation directe sur chaque route.
+
+## Évolution — Motion globale premium
+
+1. Monter une orchestration Motion unique dans le shell afin de couvrir les six routes sans dupliquer la logique dans les pages.
+2. Conserver une signature d’entrée forte sur l’accueil, puis réserver les révélations aux groupes qui portent une hiérarchie ou une séquence réelle.
+3. Harmoniser les transitions de route, listes, filtres, graphes, menu mobile, visionneuse et champs avec des durées et courbes centralisées.
+4. Maintenir le contenu visible avant initialisation, éviter les animations de layout et neutraliser les déplacements sous `prefers-reduced-motion`.
+5. Valider fluidité, accessibilité, responsive, chargement direct, bundle et absence de régression fonctionnelle sur les six routes.

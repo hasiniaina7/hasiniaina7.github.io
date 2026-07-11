@@ -18,6 +18,8 @@ Présenter Hasiniaina Christian LOVANIRINA comme Ingénieur Full-Stack Senior ca
 - Le contact reste un composeur `mailto:` sans faux envoi.
 - L’accueil présente une carte système interactive pleine largeur, limitée aux capacités vérifiées et pilotée par cinq vues de flux.
 - Les vues Paiements, Mobile offline, IA contrôlée et Monitoring citent leurs réalisations de preuve sans transformer l’architecture en affirmation générique.
+- Sur desktop et tablette, la carte est un graphe de lecture fixe : aucun nœud déplaçable, zoom, minimap ou contrôle exploratoire n'est exposé.
+- La page méthode représente ses six étapes par un graphe React Flow linéaire en lecture seule sur desktop et tablette, puis par une liste ordonnée sous 700 px.
 
 ## Médias
 
@@ -47,3 +49,4 @@ Présenter Hasiniaina Christian LOVANIRINA comme Ingénieur Full-Stack Senior ca
 - Typecheck, lint, build et audit média réussis.
 - Le hero reprend clairement les proportions de `image 1-hero.png` sans recopier ses métriques non vérifiées.
 - Le blueprint conserve son contexte lorsque les flux sont filtrés, devient un parcours vertical sous 700 px et n’utilise aucun raster.
+- Les connexions utilisent des ancrages explicites et ne traversent aucune carte aux largeurs de validation.

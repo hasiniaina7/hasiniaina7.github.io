@@ -12,7 +12,6 @@ type MediaLightboxProps = {
 
 export function MediaLightbox({ asset, caption, priority = false, className, sizes }: MediaLightboxProps) {
   const [open, setOpen] = useState(false);
-  const [zoomed, setZoomed] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -25,27 +24,29 @@ export function MediaLightbox({ asset, caption, priority = false, className, siz
 
   const close = () => {
     setOpen(false);
-    setZoomed(false);
     requestAnimationFrame(() => triggerRef.current?.focus());
   };
 
   return (
     <figure className={`work-media work-media--${asset.surface} ${className ?? ''}`}>
-      <ResponsiveMedia asset={asset} sizes={sizes} priority={priority} />
-      <figcaption>
-        <span>{caption}</span>
-        <button ref={triggerRef} className="media-expand" type="button" onClick={() => setOpen(true)}>
-          Agrandir l’image
-        </button>
-      </figcaption>
+      <button ref={triggerRef} className="media-trigger" type="button" onClick={() => setOpen(true)} aria-label={`Ouvrir l’image en grand : ${asset.alt}`}>
+        <ResponsiveMedia asset={asset} sizes={sizes} priority={priority} />
+        <span className="media-trigger__hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5" />
+          </svg>
+        </span>
+      </button>
+      <figcaption>{caption}</figcaption>
       <dialog ref={dialogRef} className="media-dialog" onCancel={(event) => { event.preventDefault(); close(); }} onClose={() => setOpen(false)}>
         <div className="media-dialog__toolbar">
-          <button type="button" onClick={() => setZoomed((value) => !value)} aria-pressed={zoomed}>
-            {zoomed ? 'Ajuster à l’écran' : 'Zoomer'}
+          <button className="media-dialog__close" type="button" onClick={close} aria-label="Fermer la visionneuse">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
           </button>
-          <button type="button" onClick={close} aria-label="Fermer la visionneuse">Fermer</button>
         </div>
-        <div className={`media-dialog__viewport${zoomed ? ' is-zoomed' : ''}`}>
+        <div className="media-dialog__viewport">
           <ResponsiveMedia asset={asset} sizes="100vw" priority />
         </div>
         <p>{caption}</p>

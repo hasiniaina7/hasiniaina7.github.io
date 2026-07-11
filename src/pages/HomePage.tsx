@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { architectureValues, blueprintModules, homeSelections, operatingPrinciples, pageCopy, profile, skillGroups, workById, workingMethod } from '@/data/portfolioData';
 import { getMediaAsset } from '@/data/mediaData';
 import { BlueprintDiagram } from '@/components/BlueprintDiagram';
+import { MethodFlow } from '@/components/MethodFlow';
 import { OperationalMap } from '@/components/OperationalMap';
 import { SectionHeading } from '@/components/SectionHeading';
 import { ResponsiveMedia } from '@/components/ResponsiveMedia';
@@ -49,7 +50,7 @@ export function HomePage() {
 
       <section className="content-section method-showcase">
         <div><SectionHeading eyebrow="Méthode" title={workingMethod.title} summary={workingMethod.summary} /><ResponsiveMedia asset={getMediaAsset('specs-driven-agent-flow')} sizes="(max-width: 768px) 90vw, 760px" /></div>
-        <div className="method-pipeline">{workingMethod.steps.map((step, index) => <article className="pipeline-step" key={step}><span className="pipeline-step__number">{String(index + 1).padStart(2, '0')}</span><h3>{step}</h3></article>)}</div>
+        <MethodFlow steps={workingMethod.steps} />
         <Link className="text-link" to="/methode">Explorer la méthode <span aria-hidden="true">→</span></Link>
       </section>
 

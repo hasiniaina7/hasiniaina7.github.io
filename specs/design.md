@@ -51,18 +51,20 @@ Clarté avant décoration, espace généreux, hiérarchie nette et crédibilité
 - Le hero desktop tient dans une composition compacte : environ 44 % texte, 27 % portrait/portail et 29 % stack.
 - Le portrait détouré domine le portail sans carte opaque ; les badges flottants restent en HTML et ne masquent pas le visage.
 - Sous 900 px, le texte reste premier, puis le portrait, puis la stack ; aucun chevauchement essentiel n’est conservé sur mobile.
-- La visionneuse conserve la légende dans le DOM, ferme avec Échap et restitue le focus.
+- La visionneuse conserve la légende dans le DOM, s’ouvre par clic ou clavier sur l’image, ferme avec un unique `X` ou Échap et restitue le focus. Aucun contrôle de zoom n’est exposé.
 
 ## Responsive
 
 - Texte avant visuel dans le hero mobile.
-- Pipeline méthode horizontal sur desktop, vertical sur mobile.
+- Pipeline méthode horizontal sur desktop et tablette via `@xyflow/react`, avec cartes premium, connecteurs orientés, jalons numérotés et lecture verticale native sur mobile.
+- Le graphe méthode reste fixe, sans déplacement, zoom, sélection, minimap ni contrôle. Ses animations décoratives sont supprimées avec `prefers-reduced-motion`.
 - Schémas simplifiés sous 768 px, avec résumé textuel conservé.
 - Aucun overflow horizontal à partir de 360 px.
 - Les médias riches en texte passent en pleine largeur sur mobile et restent agrandissables.
-- Le blueprint occupe toute la largeur du conteneur. Ses quatre zones sont connectées par un SVG placé devant le fond des zones et derrière les cartes sur desktop, pour assurer que les lignes de liaisons restent pleinement visibles de carte à carte. Les connexions SVG sont calculées à l'aide d'une intersection géométrique avec les boîtes des cartes (avec une marge de recul/padding de 8 px) afin de garantir que les lignes et les flèches s'arrêtent net aux bordures extérieures des cartes et ne les traversent pas.
-- Sur tablette, les zones passent sur deux niveaux et les connexions sont simplifiées ; les quatre cartes de valeur forment une grille 2×2.
-- Sous 700 px, le réseau SVG disparaît au profit d’un parcours vertical ordonné ; les filtres reviennent à la ligne sans défilement horizontal.
+- Le blueprint occupe toute la largeur du conteneur. Sur desktop et tablette, `@xyflow/react` rend une carte fixe avec positions déterministes et zones teintées. Une couche SVG déclarative montée dans le même viewport rend les arêtes entre les fonds de zones et les cartes, ce qui garantit leur visibilité et leur mise à l’échelle commune. Le déplacement, la sélection, le zoom et les contrôles sont désactivés.
+- Les filtres prennent la forme d’onglets segmentés ; le contexte et les preuves restent dans un bandeau séparé. Les cartes utilisent une surface blanche, une bordure fine, une ombre contenue, un bloc icône teinté et un badge d’état.
+- Sur tablette, le graphe conserve sa composition et est ajusté au viewport sans défilement horizontal ; les quatre cartes de valeur forment une grille 2×2.
+- Sous 700 px, le graphe disparaît au profit d’un parcours vertical ordonné ; les filtres reviennent à la ligne sans défilement horizontal.
 - Les nœuds hors parcours restent visibles à opacité réduite afin de préserver le contexte.
 - Les transitions du blueprint durent 180 à 240 ms et sont neutralisées avec `prefers-reduced-motion`.
 
@@ -71,3 +73,12 @@ Clarté avant décoration, espace généreux, hiérarchie nette et crédibilité
 - Focus très visible, contraste AA, cibles tactiles d’au moins 44 px.
 - Décorations avec `alt=""` ; placeholders expliqués dans le DOM.
 - Un seul H1 par route et hiérarchie de titres cohérente.
+
+## Motion globale
+
+- Direction « premium calme » : une signature orchestrée sur le hero d’accueil, puis des transitions courtes qui clarifient hiérarchie, séquence ou changement d’état.
+- Durées communes : 120 ms pour la pression, 220 ms pour un état, 420 ms pour une révélation et 650 ms maximum pour la signature d’entrée.
+- Courbes communes : ease-out-quart, ease-out-quint et ease-out-expo ; aucun bounce ou elastic.
+- Les listes peuvent utiliser un stagger plafonné à 300 ms. Les sections entières ne reçoivent pas toutes le même fade-and-rise automatique.
+- Blur, masque et profondeur restent limités au hero et aux petites surfaces. Aucune animation de largeur, hauteur, marge ou position de layout.
+- Le contenu est visible par défaut. Sous mouvement réduit, les déplacements, staggers et tracés disparaissent ; les changements d’état restent instantanés ou utilisent un fondu très court.

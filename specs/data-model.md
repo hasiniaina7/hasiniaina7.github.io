@@ -90,4 +90,20 @@ type BlueprintView = {
 };
 ```
 
+Un registre `blueprintNodeLayout: Record<BlueprintNodeId, BlueprintNodeLayout>` centralise position et largeur de chaque carte. `blueprintFlowLayout: Record<BlueprintFlowId, BlueprintFlowLayout>` fixe les côtés source/cible et le décalage de routage de chaque connexion. Ces données décrivent uniquement la présentation du graphe fixe et ne contiennent aucun texte éditorial.
+
 Les libellés ne servent jamais de clés relationnelles. Les nœuds, flux, résumés, preuves, zones et cartes de valeur restent centralisés dans `portfolioData.ts`.
+
+## Pipeline méthode
+
+```ts
+type MethodStep = {
+  id: string;
+  title: string;
+  description: string;
+  role: string;
+  accent: 'blue' | 'violet' | 'green';
+};
+```
+
+Les six étapes et leur ordre sont centralisés dans `portfolioData.ts`. Les connexions sont dérivées de cet ordre et ne portent aucun contenu métier supplémentaire.

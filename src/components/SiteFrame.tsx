@@ -3,6 +3,7 @@ import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { profile, navigation } from '@/data/portfolioData';
 import { Seo } from './Seo';
 import { ScrollManager } from './ScrollManager';
+import { PortfolioMotion } from './PortfolioMotion';
 
 const baseUrl = 'https://hasiniaina7.github.io';
 
@@ -45,7 +46,7 @@ export function SiteFrame() {
           </div>
         </div>
       </header>
-      <main id="main-content" className="site-main"><Outlet /></main>
+      <main id="main-content" className="site-main"><PortfolioMotion><Outlet /></PortfolioMotion></main>
       <footer className="site-footer">
         <div className="site-footer__inner">
           <div className="site-footer__brand"><span className="brand__mark" aria-hidden="true">HC</span><div><p className="site-footer__kicker">{profile.fullName}</p><p>{profile.location} · {profile.availability}</p></div></div>
