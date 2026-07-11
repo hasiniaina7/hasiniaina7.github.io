@@ -96,6 +96,13 @@ Captures et rapport : `artifacts/motion-premium-2026-07-11/`.
 
 Captures : `artifacts/lightbox-direct-2026-07-11/`.
 
+## Phase 11 — Médias différés et états de chargement
+
+- [x] Réserver la priorité initiale au portrait LCP et retirer les priorités des médias sous la ligne de flottaison.
+- [x] Différer le média grand format de la visionneuse jusqu’au clic explicite.
+- [x] Ajouter les états de chargement et d’erreur accessibles aux miniatures et à la visionneuse.
+- [x] Valider les variantes choisies, le réseau, le cache, le responsive et les gates automatiques.
+
 ## Phase 11 — Liens produit et fermeture de visionneuse
 
 - [x] Remplacer le libellé générique « Voir le produit » par le domaine public réellement ciblé.

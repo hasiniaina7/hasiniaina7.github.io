@@ -50,3 +50,4 @@ Présenter Hasiniaina Christian LOVANIRINA comme Ingénieur Full-Stack Senior ca
 - Le hero reprend clairement les proportions de `image 1-hero.png` sans recopier ses métriques non vérifiées.
 - Le blueprint conserve son contexte lorsque les flux sont filtrés, devient un parcours vertical sous 700 px et n’utilise aucun raster.
 - Les connexions utilisent des ancrages explicites et ne traversent aucune carte aux largeurs de validation.
+- Au chargement initial, seul le portrait du hero est un média prioritaire. Les images éditoriales hors viewport et les grands formats de visionneuse ne sont demandés qu’à l’approche du viewport ou après une action explicite.

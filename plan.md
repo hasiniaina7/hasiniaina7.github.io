@@ -101,3 +101,11 @@ La section porte le titre « Concevoir des systèmes fiables, traçables et orie
 3. Harmoniser les transitions de route, listes, filtres, graphes, menu mobile, visionneuse et champs avec des durées et courbes centralisées.
 4. Maintenir le contenu visible avant initialisation, éviter les animations de layout et neutraliser les déplacements sous `prefers-reduced-motion`.
 5. Valider fluidité, accessibilité, responsive, chargement direct, bundle et absence de régression fonctionnelle sur les six routes.
+
+## Évolution — Chargement média à la demande
+
+1. Conserver le portrait LCP comme seul média prioritaire initial ; les médias éditoriaux et les études de cas restent différés.
+2. Laisser le navigateur choisir une seule variante AVIF/WebP via `srcset` et `sizes`, sans précharger toutes les résolutions.
+3. Monter l’image de visionneuse seulement après l’ouverture explicite et lui donner alors une priorité haute.
+4. Afficher un état de chargement réservé dans les miniatures et dans la visionneuse, avec une erreur lisible en cas d’échec.
+5. Valider le réseau au chargement initial, le clic de visionneuse, le cache de réouverture, les petits écrans et l’accessibilité.

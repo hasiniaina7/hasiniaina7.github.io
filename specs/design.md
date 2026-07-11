@@ -45,6 +45,8 @@ Clarté avant décoration, espace généreux, hiérarchie nette et crédibilité
 - `#6274E7` et `#686EDC` servent aux halos, bordures et fonds doux plutôt qu’aux textes blancs de petite taille.
 - Les cartes conservent une surface blanche : la palette intervient par accents fins et non par aplats concurrençant les médias.
 - Les compositions riches en texte utilisent `object-fit: contain`, jamais de recadrage.
+- Les surfaces média réservent leur ratio et présentent un état de chargement discret ; l’image apparaît par fondu après décodage et l’échec reste lisible.
+- La visionneuse utilise une image grand format uniquement après ouverture. Cette demande volontaire peut recevoir une priorité haute, sans préchargement global.
 - Les surfaces d’accueil sombres ou claires encadrent les identités produit sans modifier les tokens du site.
 - L’accueil limite les médias projet à quatre ; `/projets` leur donne une largeur éditoriale généreuse.
 - Le portrait réel conserve son ratio 4:5, un cadrage centré sur le visage et une découpe de carte douce cohérente avec le portail du hero.

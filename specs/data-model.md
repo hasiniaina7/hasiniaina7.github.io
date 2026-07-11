@@ -47,6 +47,8 @@ type MediaAsset = {
 };
 ```
 
+Le statut de chargement est un état d’interface transitoire du composant média, pas une donnée métier stockée dans le manifeste. Une variante grand format n’est jamais préchargée seulement pour une éventuelle ouverture de visionneuse.
+
 Chaque média publié possède AVIF/WebP, dimensions, poids, ratio, rôle et texte alternatif. Les métriques visibles dans une composition ne sont pas stockées comme faits métier.
 
 Le portrait `hasiniaina-portrait` est un média non décoratif avec un texte alternatif descriptif et un chargement prioritaire dans le hero.

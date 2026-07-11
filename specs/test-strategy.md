@@ -8,6 +8,7 @@
 - Recherche de métriques non traçables et de confusion entre agents de développement et IA produit.
 - Inspection du manifeste de build : un chunk par route et aucun retour à un bundle applicatif monolithique supérieur à 500 kB.
 - Inspection motion : bibliothèque extraite sans faire repasser le bundle initial au-dessus de 500 kB, aucune animation de propriété de layout et aucun contenu masqué par défaut.
+- Audit réseau média : au premier chargement, vérifier que seuls les médias du viewport et le portrait prioritaire sont demandés ; aucune image de visionneuse hors écran n’est téléchargée avant son ouverture.
 
 ## Navigateur
 
@@ -34,6 +35,7 @@ Tester également chaque URL en chargement direct après le découpage, puis nav
 ## Médias et preuves
 
 - Vérifier AVIF/WebP, `srcset`, `sizes`, dimensions et lazy-loading sous la ligne de flottaison.
+- Vérifier l’état de chargement et l’échec de miniature, l’état de la visionneuse, la priorité du grand format après clic et la réutilisation du cache lors d’une seconde ouverture.
 - Vérifier visuellement les compositions sur leurs surfaces claires/sombres.
 - Ne jamais considérer les chiffres intégrés aux images comme des métriques publiables.
 - Vérifier que JN Travel reste un placeholder et que les images de référence ne sont pas publiées.

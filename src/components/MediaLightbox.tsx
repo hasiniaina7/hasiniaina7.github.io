@@ -11,12 +11,16 @@ type MediaLightboxProps = {
   sizes: string;
 };
 
+type MediaLoadState = 'loading' | 'loaded' | 'error';
+
 function displayUrl(url: string) {
   return url.replace(/^https?:\/\//, '').replace(/\/$/, '');
 }
 
 export function MediaLightbox({ asset, caption, publicUrl, priority = false, className, sizes }: MediaLightboxProps) {
   const [open, setOpen] = useState(false);
+  const [previewState, setPreviewState] = useState<MediaLoadState>('loading');
+  const [dialogState, setDialogState] = useState<MediaLoadState>('loading');
   const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -32,10 +36,17 @@ export function MediaLightbox({ asset, caption, publicUrl, priority = false, cla
     requestAnimationFrame(() => triggerRef.current?.focus());
   };
 
+  const openDialog = () => {
+    // The full-resolution source is mounted only after an explicit user action.
+    setDialogState('loading');
+    setOpen(true);
+  };
+
   return (
-    <figure className={`work-media work-media--${asset.surface} ${className ?? ''}`}>
-      <button ref={triggerRef} className="media-trigger" type="button" onClick={() => setOpen(true)} aria-label={`Ouvrir l’image en grand : ${asset.alt}`}>
-        <ResponsiveMedia asset={asset} sizes={sizes} priority={priority} />
+    <figure className={`work-media work-media--${asset.surface} is-${previewState} ${className ?? ''}`}>
+      <button ref={triggerRef} className="media-trigger" type="button" onClick={openDialog} aria-label={`Ouvrir l’image en grand : ${asset.alt}`}>
+        <ResponsiveMedia asset={asset} sizes={sizes} priority={priority} onLoad={() => setPreviewState('loaded')} onError={() => setPreviewState('error')} />
+        {previewState !== 'loaded' ? <span className="media-load-indicator" aria-hidden="true"><span /></span> : null}
         <span className="media-trigger__hint" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5" />
@@ -43,6 +54,7 @@ export function MediaLightbox({ asset, caption, publicUrl, priority = false, cla
         </span>
       </button>
       <figcaption>{caption}</figcaption>
+      <p className="sr-only" aria-live="polite">{previewState === 'loading' ? 'Chargement de l’image' : previewState === 'error' ? 'L’image n’a pas pu être chargée' : ''}</p>
       <dialog
         ref={dialogRef}
         className="media-dialog"
@@ -61,11 +73,12 @@ export function MediaLightbox({ asset, caption, publicUrl, priority = false, cla
             </svg>
           </button>
         </div>
-        <div className="media-dialog__viewport" onClick={(event) => {
+        <div className={`media-dialog__viewport is-${dialogState}`} onClick={(event) => {
           // The empty viewport surrounds a contained image; it should dismiss the lightbox too.
           if (event.target === event.currentTarget) close();
         }}>
-          <ResponsiveMedia asset={asset} sizes="100vw" priority />
+          {open ? <ResponsiveMedia asset={asset} sizes="(max-width: 700px) 100vw, 1440px" priority onLoad={() => setDialogState('loaded')} onError={() => setDialogState('error')} /> : null}
+          {dialogState !== 'loaded' ? <span className="media-dialog__loading" role="status"><span aria-hidden="true" />{dialogState === 'error' ? 'Impossible de charger l’image' : 'Chargement de l’image…'}</span> : null}
         </div>
         <p>{caption}</p>
       </dialog>

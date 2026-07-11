@@ -14,6 +14,9 @@
 - Le portail du hero utilise `alt=""` et `aria-hidden`; le portrait détouré porte le texte alternatif et reste le seul média prioritaire de cette zone.
 - `object-fit: contain` et aucune métrique n’est extraite du média vers le DOM.
 - Une légende visible précise qu’une composition est une représentation visuelle lorsque nécessaire.
+- `ResponsiveMedia` expose des callbacks de chargement et d’erreur facultatifs afin que son parent puisse communiquer un état visuel et vocal.
+- Hors média prioritaire, les miniatures utilisent le chargement natif différé. La distance exacte d’anticipation appartient au navigateur et ne doit pas être remplacée par un scroll listener.
+- Le média de la visionneuse est absent du DOM tant que le dialogue est fermé ; il est rendu avec une priorité haute après un clic explicite.
 
 ## Réalisations et filtres
 

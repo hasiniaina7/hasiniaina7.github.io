@@ -1,4 +1,4 @@
-import type { ImgHTMLAttributes } from 'react';
+import type { ImgHTMLAttributes, ReactEventHandler } from 'react';
 import type { MediaAsset } from '@/data/mediaData';
 
 type ResponsiveMediaProps = {
@@ -6,9 +6,11 @@ type ResponsiveMediaProps = {
   sizes: string;
   priority?: boolean;
   className?: string;
+  onLoad?: ReactEventHandler<HTMLImageElement>;
+  onError?: ReactEventHandler<HTMLImageElement>;
 };
 
-export function ResponsiveMedia({ asset, sizes, priority = false, className }: ResponsiveMediaProps) {
+export function ResponsiveMedia({ asset, sizes, priority = false, className, onLoad, onError }: ResponsiveMediaProps) {
   const webp = asset.variants.filter((variant) => variant.format === 'webp');
   const avif = asset.variants.filter((variant) => variant.format === 'avif');
   const fallback = webp.at(-1);
@@ -31,6 +33,8 @@ export function ResponsiveMedia({ asset, sizes, priority = false, className }: R
         loading={loading}
         fetchPriority={priority ? 'high' : 'auto'}
         decoding="async"
+        onLoad={onLoad}
+        onError={onError}
       />
     </picture>
   );
