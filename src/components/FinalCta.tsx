@@ -1,20 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { getMediaAsset } from '@/data/mediaData';
+import { pathFor } from '@/data/localizedPortfolio';
+import { usePortfolioLocale } from '@/hooks/usePortfolioLocale';
 import { ResponsiveMedia } from './ResponsiveMedia';
 
 export function FinalCta() {
+  const { locale, content } = usePortfolioLocale();
+
   return (
     <section className="final-cta">
       <div>
-        <p className="section-heading__eyebrow">Construisons utile</p>
-        <h2>Prêt à construire votre prochain produit&nbsp;?</h2>
-        <p>Échangeons sur vos contraintes métier, vos risques et la meilleure manière de livrer une solution fiable.</p>
+        <p className="section-heading__eyebrow">{content.finalCta.eyebrow}</p>
+        <h2>{content.finalCta.title}</h2>
+        <p>{content.finalCta.summary}</p>
         <div className="hero-actions">
-          <Link className="button button--light" to="/contact">Démarrer un échange</Link>
-          <a className="button button--ghost" href="mailto:hasiniainachristian7@gmail.com">Envoyer un e-mail</a>
+          <Link className="button button--light" to={pathFor(locale, 'contact')}>{content.finalCta.primary}</Link>
+          <a className="button button--ghost" href={`mailto:${content.profile.email}`}>{content.finalCta.email}</a>
         </div>
       </div>
-      <ResponsiveMedia asset={getMediaAsset('cta-modular-system')} sizes="(max-width: 768px) 80vw, 420px" className="final-cta__media" />
+      <ResponsiveMedia asset={getMediaAsset('cta-modular-system')} sizes="(max-width: 768px) 80vw, 420px" className="final-cta__media" alt="" />
     </section>
   );
 }

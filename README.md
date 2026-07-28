@@ -1,6 +1,6 @@
 # Hasina Portfolio
 
-Portfolio statique oriente B2B pour presenter un profil senior full-stack centre sur des systemes fiables, l'architecture, les operations et la livraison en production.
+Portfolio bilingue orienté recrutement international pour présenter un profil AI Integration & Agentic Full-Stack Engineer centré sur l’orchestration d’agents, les systèmes fiables et la validation humaine des actions sensibles.
 
 ## Objectif
 

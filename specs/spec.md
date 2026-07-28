@@ -1,53 +1,49 @@
-# Spécification produit — Portfolio éditorial B2B
+# Product specification — Bilingual Agentic Engineering Portfolio
 
-## Promesse
+## Product promise
 
-Présenter Hasiniaina Christian LOVANIRINA comme Ingénieur Full-Stack Senior capable de cadrer, construire, sécuriser et maintenir des systèmes métier complets pour des opérations réelles.
+Present Hasiniaina Christian LOVANIRINA as an **AI Integration & Agentic Full-Stack Engineer**, at public level **Mid-level / Confirmé**, based in Madagascar, available remote worldwide, and open to relocation.
 
-## Routes
+The portfolio demonstrates the ability to orchestrate autonomous AI agent teams while keeping production and sensitive actions under explicit human approval.
 
-`/`, `/projets`, `/competences`, `/methode`, `/parcours`, `/contact`.
+## Audiences and outcomes
 
-## Exigences
+- International recruiters must understand the positioning, level, location, mobility, target roles, and evidence in under one minute.
+- Engineering leaders must understand the bounded seven-stage delivery workflow and its human approval gates.
+- Recruiters must be able to download the AI/RAG/Automation resume first, select the Full-Stack variant, or prepare a structured recruitment email.
 
-- L’accueil sélectionne TZ Smart, Fretunia, AIM et ACM/Iagasy, puis distingue SBT Travel, RMB Cargo et JN Travel dans une rangée dédiée.
-- `/projets` rend toutes les réalisations consultables via `Tous`, `Systèmes`, `Web`, `Mobile` et `IA intégrée`.
-- TZ Smart, Fretunia, AIM et ACM/Iagasy disposent d’une étude de cas principale.
-- Les trois applications mobiles sont autonomes et de même importance éditoriale que les réalisations web.
-- Les compétences citent des réalisations typées ; la méthode distingue agents de développement et IA intégrée au produit.
-- Le contact reste un composeur `mailto:` sans faux envoi.
-- L’accueil présente une carte système interactive pleine largeur, limitée aux capacités vérifiées et pilotée par cinq vues de flux.
-- Les vues Paiements, Mobile offline, IA contrôlée et Monitoring citent leurs réalisations de preuve sans transformer l’architecture en affirmation générique.
-- Sur desktop et tablette, la carte est un graphe de lecture fixe : aucun nœud déplaçable, zoom, minimap ou contrôle exploratoire n'est exposé.
-- La page méthode représente ses six étapes par un graphe React Flow linéaire en lecture seule sur desktop et tablette, puis par une liste ordonnée sous 700 px.
+## Localized routes
 
-## Médias
+- EN: `/en`, `/en/projects`, `/en/skills`, `/en/agentic-delivery`, `/en/experience`, `/en/contact`
+- FR: `/fr`, `/fr/projets`, `/fr/competences`, `/fr/orchestration-agentique`, `/fr/parcours`, `/fr/contact`
 
-- Treize compositions validées sont des médias éditoriaux ou explicatifs, optimisés et servis via manifeste.
-- Le portrait réel `hasiniaina.png` est publié dans le hero au ratio 4:5, sans génération ni modification d’identité.
-- Pour la nouvelle composition du hero, une édition identity-preserve validée du portrait peut remplacer la source initiale ; le portail généré reste purement décoratif.
-- Les métriques, slogans et données visibles dans ces compositions ne deviennent pas des preuves HTML.
-- `image 1` et `image 2` sont non publiables.
-- JN Travel conserve un placeholder neutre faute de média validé.
-- Aucun contenu essentiel ne dépend d’une image ; les descriptions et légendes restent en HTML.
+`/` redirects to `/en`. Historical routes `/projets`, `/competences`, `/methode`, `/parcours`, and `/contact` redirect to the equivalent French route; the old home route resolves to the English default.
 
-## Interdictions
+## Page requirements
 
-- Aucun fait, chiffre, rôle, résultat, certification ou fonctionnalité inventé.
-- Aucune mention publique d’un socle partagé entre SBT Travel, RMB Cargo et JN Travel.
-- Codex ou Claude ne sont jamais présentés comme fonctionnalités d’un produit.
-- Aucun retour dominant au tourisme, à la photographie ou au journalisme.
-- Les volumes AIM expriment la criticité du système, jamais une performance personnelle.
-- Le blueprint ne présente pas MongoDB, Redis, S3, IoT, une API Gateway générique, des microservices systématiques ou une haute disponibilité non démontrée.
+- Home leads with agentic orchestration, the seven-stage model, and TZ Smart, Fretunia, ACM/iagasy as equal qualitative proofs.
+- Projects preserves the complete `WorkItem` inventory and labels product AI separately from development-agent orchestration.
+- Skills prioritizes agent orchestration, AI integration, full-stack engineering, and reliability.
+- Agentic Delivery presents all seven stages, tool hierarchy, approval gates, and three case summaries.
+- Experience shows the progression from field constraints to business systems, integrated AI, and agentic orchestration.
+- Contact targets AI Integration Engineer, Agentic Full-Stack Engineer, Applied AI Engineer, and mid-level FDE opportunities.
 
-## Acceptation
+## Method requirements
 
-- Sept réalisations web et trois applications mobiles représentables dans les données.
-- Six routes cohérentes et responsive de 360 à 1440 px.
-- Filtres et visionneuse accessibles au clavier ; les liens de produits affichent leur domaine lisible et les médias de réalisations exposent la même URL dans la visionneuse.
-- SEO par route, liens réels, aucune erreur console.
-- Typecheck, lint, build et audit média réussis.
-- Le hero reprend clairement les proportions de `image 1-hero.png` sans recopier ses métriques non vérifiées.
-- Le blueprint conserve son contexte lorsque les flux sont filtrés, devient un parcours vertical sous 700 px et n’utilise aucun raster.
-- Les connexions utilisent des ancrages explicites et ne traversent aucune carte aux largeurs de validation.
-- Au chargement initial, seul le portrait du hero est un média prioritaire. Les images éditoriales hors viewport et les grands formats de visionneuse ne sont demandés qu’à l’approche du viewport ou après une action explicite.
+1. Define outcome, constraints, and acceptance criteria.
+2. Coordinator agent plans the work.
+3. Coordinator delegates to specialized sub-agents.
+4. Agents execute autonomously in bounded environments.
+5. Tests, controls, and feedback synthesis run.
+6. Coordinator performs final integration.
+7. Human approves production and sensitive actions.
+
+Claude Code is the primary coordinator. Codex is secondary. No duration, cost, multiplier, autonomy rate, client artifact, secret, customer data, or administrative detail is published.
+
+## Media and identity
+
+Retain the current palette, portrait, editorial media, blueprint, lightbox, global motion, and general six-page composition. Media text is never treated as factual HTML evidence. The optional video renders only when both a verified external URL and a real thumbnail are configured.
+
+## Acceptance
+
+All automated and browser gates in `specs/test-strategy.md` pass, all twelve routes have complete bilingual content, and every public claim respects the locked guardrails.

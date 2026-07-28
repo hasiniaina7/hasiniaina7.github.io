@@ -270,12 +270,12 @@ export const statusLabels: Record<BlueprintStatus, string> = {
 export const profile = {
   fullName: 'Hasiniaina Christian LOVANIRINA',
   initials: 'HCL',
-  role: 'Ingénieur Full-Stack Senior',
+  role: 'AI Integration & Agentic Full-Stack Engineer',
   location: 'Madagascar',
   availability: 'Remote Afrique-Europe',
   email: 'hasiniainachristian7@gmail.com',
   hero: {
-    headline: 'Ingénieur Full-Stack Senior — Backend, Frontend, Mobile & IA appliquée',
+    headline: 'AI Integration & Agentic Full-Stack Engineer',
     subheadline:
       'Je livre des applications métier complètes: backend, frontend, mobile, données, IA appliquée, sécurité, tests et production, avec une méthode specs-driven augmentée par agents IA.',
     proofPillars: [
@@ -517,11 +517,11 @@ export const heroTechnologies: HeroTechnology[] = [
 
 export const seoByPath: Record<NavigationItem['path'], SeoMeta> = {
   '/': {
-    title: 'Hasiniaina Christian LOVANIRINA - Ingénieur Full-Stack Senior',
+    title: 'Hasiniaina Christian LOVANIRINA - AI Integration & Agentic Full-Stack Engineer',
     description:
-      'Ingénieur Full-Stack Senior basé à Madagascar: backend, frontend, mobile, données, IA appliquée, sécurité, tests et production pour équipes Afrique-Europe.',
+      'AI Integration & Agentic Full-Stack Engineer basé à Madagascar, remote mondial et ouvert à la relocalisation.',
     canonicalPath: '/',
-    ogTitle: 'Hasiniaina Christian LOVANIRINA - Ingénieur Full-Stack Senior',
+    ogTitle: 'Hasiniaina Christian LOVANIRINA - AI Integration & Agentic Full-Stack Engineer',
     ogDescription: 'Backend, frontend, mobile, données, IA appliquée, sécurité, tests et production.',
   },
   '/parcours': {
@@ -546,7 +546,7 @@ export const seoByPath: Record<NavigationItem['path'], SeoMeta> = {
       'Compétences full-stack prouvées: backend Python/Node, frontend React/Next.js, mobile, data, sécurité, IA appliquée et delivery.',
     canonicalPath: '/competences',
     ogTitle: 'Compétences - Hasiniaina Christian LOVANIRINA',
-    ogDescription: 'Stack senior full-stack avec réalisations concrètes et thématiques d’échange.',
+    ogDescription: 'Orchestration d’agents, intégration IA, full-stack et fiabilité reliés à des réalisations concrètes.',
   },
   '/methode': {
     title: 'Méthode - Hasiniaina Christian LOVANIRINA',
@@ -559,7 +559,7 @@ export const seoByPath: Record<NavigationItem['path'], SeoMeta> = {
   '/contact': {
     title: 'Contact - Hasiniaina Christian LOVANIRINA',
     description:
-      'Contacter Hasiniaina Christian LOVANIRINA pour des opportunités de collaboration senior full-stack, missions produit ou échange technique.',
+      'Contacter Hasiniaina Christian LOVANIRINA pour des opportunités internationales en intégration IA et full-stack agentique.',
     canonicalPath: '/contact',
     ogTitle: 'Contact - Hasiniaina Christian LOVANIRINA',
     ogDescription: 'Contact direct via e-mail, GitHub et LinkedIn.',
@@ -575,7 +575,7 @@ export const works: WorkItem[] = [
     period: '2024-2026',
     summary: 'Plateforme complète pour fournisseur d’accès à Internet, du pilotage web aux opérations terrain.',
     operationalPurpose: 'Consolider clients, zones, incidents, visites, paiements, notifications et supervision réseau dans un même environnement.',
-    role: 'Fondateur technique et ingénieur full-stack senior : cadrage, architecture, backend, frontend, mobile, intégrations paiement/réseau et support production.',
+    role: 'Fondateur technique et ingénieur full-stack : cadrage, architecture, backend, frontend, mobile, intégrations paiement/réseau et support production.',
     capabilities: [
       'Backend Django Ninja/PostgreSQL structuré par domaines métier.',
       'Back-office React/Vite pour les opérations et le monitoring.',
@@ -1071,7 +1071,7 @@ export const pageCopy = {
     mapTitle: 'Opérations entre terrain, clients et distance',
     mapSummary: 'Je travail hors de mon pays. Madagascar est comme base, je fais des collaboration remote Afrique-Europe, et expérience sur des produits utilisés dans des contextes opérationnels réels.',
     valuesTitle: 'Ce que je peux apporter à une équipe',
-    valuesSummary: 'Un profil senior utile quand il faut transformer une contrainte métier en produit livré, testé et maintenable.',
+    valuesSummary: 'Un profil confirmé utile quand il faut transformer une contrainte métier en produit livré, testé et maintenable.',
     productsTitle: 'Produits et systèmes livrés',
     productsSummary: 'Cette sélection est resserrée entre plateforme métier, SaaS logistique, application mobile et IA directement intégrée au produit.',
     productionSitesTitle: 'Sites web en production',
@@ -1107,7 +1107,7 @@ export const pageCopy = {
   },
   contact: {
     eyebrow: 'Contact',
-    intro: 'Opportunités senior full-stack, missions produit ou collaborations techniques.',
+    intro: 'Opportunités internationales en intégration IA, full-stack agentique ou IA appliquée.',
     interventionDomains: ['plateforme métier full-stack', 'application mobile', 'SaaS opérationnel', 'intégration IA / automatisation', 'reprise et fiabilisation'],
     projectTypes: ['Plateforme métier full-stack', 'Application mobile', 'SaaS opérationnel', 'Intégration IA / automatisation', 'Reprise et fiabilisation'],
   },

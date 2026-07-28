@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://hasiniaina7.github.io/</loc></url>
-  <url><loc>https://hasiniaina7.github.io/projets</loc></url>
-  <url><loc>https://hasiniaina7.github.io/competences</loc></url>
-  <url><loc>https://hasiniaina7.github.io/methode</loc></url>
-  <url><loc>https://hasiniaina7.github.io/parcours</loc></url>
-  <url><loc>https://hasiniaina7.github.io/contact</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://hasiniaina7.github.io/en</loc><xhtml:link rel="alternate" hreflang="en" href="https://hasiniaina7.github.io/en"/><xhtml:link rel="alternate" hreflang="fr" href="https://hasiniaina7.github.io/fr"/></url>
+  <url><loc>https://hasiniaina7.github.io/fr</loc><xhtml:link rel="alternate" hreflang="en" href="https://hasiniaina7.github.io/en"/><xhtml:link rel="alternate" hreflang="fr" href="https://hasiniaina7.github.io/fr"/></url>
+  <url><loc>https://hasiniaina7.github.io/en/projects</loc><xhtml:link rel="alternate" hreflang="en" href="https://hasiniaina7.github.io/en/projects"/><xhtml:link rel="alternate" hreflang="fr" href="https://hasiniaina7.github.io/fr/projets"/></url>
+  <url><loc>https://hasiniaina7.github.io/fr/projets</loc><xhtml:link rel="alternate" hreflang="en" href="https://hasiniaina7.github.io/en/projects"/><xhtml:link rel="alternate" hreflang="fr" href="https://hasiniaina7.github.io/fr/projets"/></url>
+  <url><loc>https://hasiniaina7.github.io/en/skills</loc><xhtml:link rel="alternate" hreflang="en" href="https://hasiniaina7.github.io/en/skills"/><xhtml:link rel="alternate" hreflang="fr" href="https://hasiniaina7.github.io/fr/competences"/></url>
+  <url><loc>https://hasiniaina7.github.io/fr/competences</loc><xhtml:link rel="alternate" hreflang="en" href="https://hasiniaina7.github.io/en/skills"/><xhtml:link rel="alternate" hreflang="fr" href="https://hasiniaina7.github.io/fr/competences"/></url>
+  <url><loc>https://hasiniaina7.github.io/en/agentic-delivery</loc><xhtml:link rel="alternate" hreflang="en" href="https://hasiniaina7.github.io/en/agentic-delivery"/><xhtml:link rel="alternate" hreflang="fr" href="https://hasiniaina7.github.io/fr/orchestration-agentique"/></url>
+  <url><loc>https://hasiniaina7.github.io/fr/orchestration-agentique</loc><xhtml:link rel="alternate" hreflang="en" href="https://hasiniaina7.github.io/en/agentic-delivery"/><xhtml:link rel="alternate" hreflang="fr" href="https://hasiniaina7.github.io/fr/orchestration-agentique"/></url>
+  <url><loc>https://hasiniaina7.github.io/en/experience</loc><xhtml:link rel="alternate" hreflang="en" href="https://hasiniaina7.github.io/en/experience"/><xhtml:link rel="alternate" hreflang="fr" href="https://hasiniaina7.github.io/fr/parcours"/></url>
+  <url><loc>https://hasiniaina7.github.io/fr/parcours</loc><xhtml:link rel="alternate" hreflang="en" href="https://hasiniaina7.github.io/en/experience"/><xhtml:link rel="alternate" hreflang="fr" href="https://hasiniaina7.github.io/fr/parcours"/></url>
+  <url><loc>https://hasiniaina7.github.io/en/contact</loc><xhtml:link rel="alternate" hreflang="en" href="https://hasiniaina7.github.io/en/contact"/><xhtml:link rel="alternate" hreflang="fr" href="https://hasiniaina7.github.io/fr/contact"/></url>
+  <url><loc>https://hasiniaina7.github.io/fr/contact</loc><xhtml:link rel="alternate" hreflang="en" href="https://hasiniaina7.github.io/en/contact"/><xhtml:link rel="alternate" hreflang="fr" href="https://hasiniaina7.github.io/fr/contact"/></url>
 </urlset>

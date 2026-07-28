@@ -1,95 +1,114 @@
-import { Link } from 'react-router-dom';
-import { architectureValues, blueprintModules, homeSelections, operatingPrinciples, pageCopy, profile, skillGroups, workById, workingMethod } from '@/data/portfolioData';
-import { getMediaAsset } from '@/data/mediaData';
+import { Link } from 'react-router';
 import { BlueprintDiagram } from '@/components/BlueprintDiagram';
-import { MethodFlow } from '@/components/MethodFlow';
-import { OperationalMap } from '@/components/OperationalMap';
-import { SectionHeading } from '@/components/SectionHeading';
-import { ResponsiveMedia } from '@/components/ResponsiveMedia';
-import { WorkCard } from '@/components/WorkCard';
-import { MediaLightbox } from '@/components/MediaLightbox';
 import { FinalCta } from '@/components/FinalCta';
 import { HeroTechnologyGrid } from '@/components/HeroTechnologyGrid';
+import { MethodFlow } from '@/components/MethodFlow';
+import { ResponsiveMedia } from '@/components/ResponsiveMedia';
+import { SectionHeading } from '@/components/SectionHeading';
+import { WorkCard } from '@/components/WorkCard';
+import { getMediaAsset } from '@/data/mediaData';
+import { getLocalizedWorks, pathFor, recruiterCta } from '@/data/localizedPortfolio';
+import { usePortfolioLocale } from '@/hooks/usePortfolioLocale';
+
+const featuredWorkIds = ['tz-smart', 'fretunia', 'acm-iagasy', 'aim-beneficiaries'] as const;
 
 export function HomePage() {
-  const featuredWorks = homeSelections.products.map((id) => workById[id]);
-  const productionSites = homeSelections.productionSites.map((id) => workById[id]);
+  const { locale, content } = usePortfolioLocale();
+  const works = getLocalizedWorks(locale);
+  const featuredWorks = featuredWorkIds.map((id) => works.find((work) => work.id === id)!);
+  const method = content.agenticMethod;
+  const approvalStage = method.stages[method.stages.length - 1]!;
 
   return (
     <div className="page page--home">
-      <section className="premium-hero">
+      <section className="premium-hero agentic-hero">
         <div className="premium-hero__copy">
-          <p className="section-heading__eyebrow">{pageCopy.home.eyebrow}</p>
-          <h1 className="hero-title">{profile.hero.headline}</h1>
-          <p className="hero-summary">{profile.hero.subheadline}</p>
+          <p className="section-heading__eyebrow">{content.home.eyebrow}</p>
+          <h1 className="hero-title">{content.profile.role}</h1>
+          <p className="hero-summary hero-summary--promise">{content.profile.promise}</p>
+          <p className="hero-support">{content.home.orchestrationSummary}</p>
           <div className="hero-actions">
-            <Link className="button button--primary" to="/projets">Voir mes projets <span aria-hidden="true">→</span></Link>
-            <Link className="button button--secondary" to="/contact">Me contacter</Link>
+            <Link className="button button--primary" to={pathFor(locale, 'agenticDelivery')}>{content.home.primaryCta} <span aria-hidden="true">→</span></Link>
+            <a className="button button--secondary" href={recruiterCta.resumes.ai[locale]} download>{content.home.secondaryCta}</a>
+            <a className="text-link resume-variant-link" href={recruiterCta.resumes.fullStack[locale]} download>{content.home.fullStackCta} <span aria-hidden="true">↓</span></a>
           </div>
-          <div className="hero-facts" aria-label="Informations professionnelles">
-            <div><span>Base</span><strong>{profile.location}</strong></div>
-            <div><span>Disponibilité</span><strong>{profile.availability}</strong></div>
-            <div><span>Approche</span><strong>Specs · tests · production</strong></div>
+          <div className="hero-facts" aria-label={content.home.factsLabel}>
+            <div><span>{content.home.factLabels[0]}</span><strong>{content.profile.level}</strong></div>
+            <div><span>{content.home.factLabels[1]}</span><strong>{content.profile.based}</strong></div>
+            <div><span>{content.home.factLabels[2]}</span><strong>{content.profile.remote}</strong></div>
+            <div><span>{content.home.factLabels[3]}</span><strong>{content.profile.relocation}</strong></div>
           </div>
         </div>
         <div className="premium-hero__visual">
           <ResponsiveMedia asset={getMediaAsset('hero-glass-portal-v2')} sizes="(max-width: 700px) 88vw, 410px" className="hero-portal-media" />
-          <ResponsiveMedia asset={getMediaAsset('hasiniaina-portrait-cutout')} sizes="(max-width: 700px) 76vw, 350px" priority className="portrait-media portrait-media--cutout" />
-          <div className="availability-card"><span aria-hidden="true" /> Disponible pour collaboration remote</div>
-          <div className="expertise-card"><p>Expertises</p><strong>Backend · Frontend</strong><strong>Mobile · IA appliquée</strong></div>
+          <ResponsiveMedia asset={getMediaAsset('hasiniaina-portrait-cutout')} sizes="(max-width: 700px) 76vw, 350px" priority className="portrait-media portrait-media--cutout" alt={`${content.profile.fullName} — ${content.profile.role}`} />
+          <div className="availability-card"><span aria-hidden="true" /> {content.profile.remote}</div>
+          <div className="expertise-card"><p>{content.profile.level}</p><strong>{content.profile.role}</strong><strong>{content.home.approach}</strong></div>
         </div>
-        <HeroTechnologyGrid />
+        <HeroTechnologyGrid content={content} />
+      </section>
+
+      <section className="content-section method-showcase agentic-overview">
+        <SectionHeading eyebrow={content.home.orchestrationEyebrow} title={content.home.orchestrationTitle} summary={content.home.orchestrationSummary} />
+        <div className="agent-hierarchy" aria-label={content.method.hierarchyTitle}>
+          <article className="agent-hierarchy__primary">
+            <span>{content.method.primaryAgent}</span>
+            <strong>{method.coordinator}</strong>
+            <p>{content.method.hierarchySummary}</p>
+          </article>
+          <div className="agent-hierarchy__connector" aria-hidden="true">→</div>
+          <article>
+            <span>{content.method.secondaryTool}</span>
+            <strong>{method.secondaryTools.join(', ')}</strong>
+            <p>{content.home.developmentAgentsSummary}</p>
+          </article>
+          <div className="agent-hierarchy__connector" aria-hidden="true">→</div>
+          <article className="agent-hierarchy__human">
+            <span>{approvalStage.ownerLabel}</span>
+            <strong>{approvalStage.title}</strong>
+            <p>{approvalStage.boundedBy}</p>
+          </article>
+        </div>
+        <MethodFlow steps={method.stages} ariaLabel={content.common.methodAria} />
+        <Link className="text-link" to={pathFor(locale, 'agenticDelivery')}>{content.home.primaryCta} <span aria-hidden="true">→</span></Link>
+      </section>
+
+      <section className="content-section">
+        <SectionHeading align="split" eyebrow={content.home.proofsEyebrow} title={content.home.proofsTitle} summary={content.home.proofsSummary} />
+        <div className="agentic-case-grid">
+          {method.cases.map((agenticCase, index) => (
+            <article className={`agentic-case agentic-case--${index + 1}`} key={agenticCase.id}>
+              <div className="agentic-case__index">0{index + 1}</div>
+              <p className="card-label">{content.home.proofsEyebrow}</p>
+              <h3>{agenticCase.title}</h3>
+              <p>{agenticCase.summary}</p>
+              <ul className="plain-list">
+                {agenticCase.coordination.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+              <p className="agentic-case__boundary"><strong>{content.method.boundaryLabel}.</strong> {agenticCase.boundary}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="content-section architecture-section">
-        <BlueprintDiagram />
-        <div className="architecture-values">
-          {architectureValues.map((value, index) => <article className={`architecture-value architecture-value--${value.accent}`} key={value.id}><span>0{index + 1}</span><div><h3>{value.title}</h3><p>{value.summary}</p></div></article>)}
+        <BlueprintDiagram locale={locale} />
+      </section>
+
+      <section className="content-section">
+        <SectionHeading align="split" eyebrow={content.home.systemsEyebrow} title={content.home.systemsTitle} summary={content.home.systemsSummary} />
+        <div className="work-grid work-grid--home">
+          {featuredWorks.map((work, index) => <WorkCard key={work.id} work={work} content={content} homeLayout={index < 2 ? 'dominant' : 'secondary'} />)}
         </div>
-      </section>
-
-      <section className="content-section method-showcase">
-        <div><SectionHeading eyebrow="Méthode" title={workingMethod.title} summary={workingMethod.summary} /><ResponsiveMedia asset={getMediaAsset('specs-driven-agent-flow')} sizes="(max-width: 768px) 90vw, 760px" /></div>
-        <MethodFlow steps={workingMethod.steps} />
-        <Link className="text-link" to="/methode">Explorer la méthode <span aria-hidden="true">→</span></Link>
+        <div className="section-action"><Link className="button button--secondary" to={pathFor(locale, 'projects')}>{content.home.allProjects}</Link></div>
       </section>
 
       <section className="content-section">
-        <SectionHeading align="split" eyebrow="Capacités techniques" title="Des briques déjà rencontrées sur projets réels." summary="Synchronisation, isolation, paiements, IA contrôlée et monitoring : chaque capacité répond à une contrainte opérationnelle vécue." />
-        <div className="capability-grid">{blueprintModules.map((module, index) => <article className="capability-card" key={module.id}><span>0{index + 1}</span><h3>{module.title}</h3><p>{module.summary}</p><div className="tag-row">{module.steps.map((step) => <span className="tag" key={step}>{step}</span>)}</div></article>)}</div>
-      </section>
-
-      <section className="content-section automation-feature">
-        <MediaLightbox asset={getMediaAsset('n8n-product-automation')} caption="Illustration explicative des automatisations n8n. Les nombres éventuellement visibles appartiennent à la composition et ne sont pas publiés comme résultats." publicUrl={workById.fretunia.publicUrl} sizes="(max-width: 700px) 94vw, 620px" />
-        <SectionHeading eyebrow="IA intégrée aux produits" title={pageCopy.home.automationTitle} summary={pageCopy.home.automationSummary} />
-      </section>
-
-      <section className="content-section operations-section">
-        <div><SectionHeading eyebrow="Opérations internationales" title={pageCopy.home.mapTitle} summary={pageCopy.home.mapSummary} /><OperationalMap /></div>
-        <div className="operations-atmosphere" aria-hidden="true">
-          <span className="operations-atmosphere__orbit operations-atmosphere__orbit--one" />
-          <span className="operations-atmosphere__orbit operations-atmosphere__orbit--two" />
-          <span className="operations-atmosphere__route operations-atmosphere__route--one" />
-          <span className="operations-atmosphere__route operations-atmosphere__route--two" />
-          <span className="operations-atmosphere__signal operations-atmosphere__signal--one" />
-          <span className="operations-atmosphere__signal operations-atmosphere__signal--two" />
+        <SectionHeading align="split" eyebrow={content.home.distinctionEyebrow} title={content.home.distinctionTitle} summary={content.home.systemsSummary} />
+        <div className="ai-distinction">
+          <article className="surface-card surface-card--accent-orange"><p className="card-label">{content.home.productAiTitle}</p><h2>{content.home.productAiTitle}</h2><p>{content.home.productAiSummary}</p></article>
+          <article className="surface-card surface-card--accent-violet"><p className="card-label">{content.home.developmentAgentsTitle}</p><h2>{content.home.developmentAgentsTitle}</h2><p>{content.home.developmentAgentsSummary}</p></article>
         </div>
-      </section>
-
-      <section className="content-section">
-        <SectionHeading align="split" eyebrow="Réalisations sélectionnées" title={pageCopy.home.productsTitle} summary={pageCopy.home.productsSummary} />
-        <div className="work-grid work-grid--home">{featuredWorks.map((work, index) => <WorkCard key={work.id} work={work} homeLayout={index < 2 ? 'dominant' : 'secondary'} />)}</div>
-        <div className="section-action"><Link className="button button--secondary" to="/projets">Voir toutes les réalisations</Link></div>
-      </section>
-
-      <section className="content-section">
-        <SectionHeading align="split" eyebrow="Web full-stack" title={pageCopy.home.productionSitesTitle} summary={pageCopy.home.productionSitesSummary} />
-        <div className="production-sites">{productionSites.map((work) => <WorkCard key={work.id} work={work} />)}</div>
-      </section>
-
-      <section className="content-section principles-showcase">
-        <div><SectionHeading eyebrow="Principes" title="Fiabilité, clarté et responsabilité" summary={pageCopy.home.principlesSummary} /><div className="principles-grid">{operatingPrinciples.map((principle) => <article key={principle.id} className="principle"><h3>{principle.title}</h3><p>{principle.summary}</p></article>)}</div></div>
-        <div className="specialization-card"><ResponsiveMedia asset={getMediaAsset('security-reliability-shield')} sizes="(max-width: 768px) 90vw, 520px" /><h3>Sécurité et fiabilité</h3><p>Des spécialisations techniques issues de systèmes réellement livrés, sans intitulé de certification inventé.</p><div className="tag-row">{skillGroups.flatMap((group) => group.technologies).filter((item) => ['PostgreSQL','RBAC','RLS','Docker','Linux','WireGuard'].includes(item)).map((item) => <span className="tag" key={item}>{item}</span>)}</div></div>
       </section>
 
       <FinalCta />

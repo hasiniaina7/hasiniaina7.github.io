@@ -1,113 +1,80 @@
-# Modèle de données
+# Data model — Localized agentic portfolio
 
-## Source métier
-
-`src/data/portfolioData.ts` centralise profil, navigation, SEO, réalisations, expériences, compétences, méthode, principes, collaboration et sélections éditoriales.
-
-## Réalisations
+## Core localization
 
 ```ts
-type WorkId =
-  | 'tz-smart' | 'fretunia' | 'aim-beneficiaries' | 'acm-iagasy'
-  | 'sbt-travel' | 'rmb-cargo' | 'jn-travel'
-  | 'rmb-cargo-mobile' | 'aim-mobile' | 'tz-smart-mobile';
-
-type WorkCategory = 'system' | 'web' | 'mobile' | 'product-ai';
-
-type WorkItem = {
-  id: WorkId;
-  title: string;
-  categories: WorkCategory[];
-  relatedSystemId?: WorkId;
-  summary: string;
-  operationalPurpose: string;
-  stack: string[];
-  capabilities: string[];
-  publicUrl?: string;
-  alternatePublicUrl?: string;
-  mediaIds: string[];
-  featured: boolean;
-  caseStudy: boolean;
-};
+type Locale = 'en' | 'fr';
+type RouteId = 'home' | 'projects' | 'skills' | 'agenticDelivery' | 'experience' | 'contact';
+type Localized<T> = Record<Locale, T>;
+type RouteDefinition = { id: RouteId; slugs: Localized<string> };
 ```
 
-Une réalisation peut apparaître dans plusieurs vues sans duplication. `relatedSystemId` fournit du contexte sans créer de hiérarchie visuelle.
+Route identity is never inferred from translated labels. Dictionaries use `satisfies Record<Locale, ...>` so missing locale keys fail typecheck.
 
-## Contrat média
-
-```ts
-type MediaAsset = {
-  id: string;
-  role: 'decorative' | 'portrait' | 'work-editorial' | 'method-illustration' | 'product-ai-illustration' | 'operational-diagram';
-  alt: string;
-  decorative: boolean;
-  ratio: number;
-  surface: 'light' | 'dark' | 'adaptive';
-  variants: MediaVariant[];
-};
-```
-
-Le statut de chargement est un état d’interface transitoire du composant média, pas une donnée métier stockée dans le manifeste. Une variante grand format n’est jamais préchargée seulement pour une éventuelle ouverture de visionneuse.
-
-Chaque média publié possède AVIF/WebP, dimensions, poids, ratio, rôle et texte alternatif. Les métriques visibles dans une composition ne sont pas stockées comme faits métier.
-
-Le portrait `hasiniaina-portrait` est un média non décoratif avec un texte alternatif descriptif et un chargement prioritaire dans le hero.
-
-Le diagramme opérationnel mobile est une variante verticale non décorative du schéma desktop. Il porte le même sujet, des formats AVIF/WebP et un texte alternatif descriptif ; le navigateur choisit cette variante uniquement sous 700 px.
-
-Le hero v2 ajoute `hasiniaina-portrait-cutout` (`portrait`) et `hero-glass-portal-v2` (`decorative`). Les anciens actifs restent disponibles jusqu’à validation finale afin de permettre un retour arrière.
-
-## Invariants
-
-- Dix `WorkId`, dont trois applications mobiles autonomes.
-- Sélections d’accueil explicites, jamais dérivées de l’ordre d’un tableau.
-- URLs, stacks, relations et identifiants média centralisés. Les composants dérivent uniquement un libellé de domaine à partir de `publicUrl` ; ils ne stockent pas de lien produit local.
-- Agents de développement modélisés séparément des capacités `product-ai`.
-- `image 1` et `image 2` absents du manifeste publié.
-
-## Blueprint système
+## Agentic proof
 
 ```ts
-type BlueprintViewId = 'overview' | 'payments' | 'offline-mobile' | 'controlled-ai' | 'monitoring';
-type BlueprintZone = 'entry' | 'core' | 'integration' | 'data';
-
-type BlueprintNode = {
-  id: BlueprintNodeId;
-  zone: BlueprintZone;
-  icon: BlueprintIcon;
-  evidenceLevel: EvidenceLevel;
-  proofWorkIds: WorkId[];
-};
-
-type BlueprintFlow = {
-  id: BlueprintFlowId;
-  from: BlueprintNodeId;
-  to: BlueprintNodeId;
-};
-
-type BlueprintView = {
-  id: BlueprintViewId;
-  summary: string;
-  nodeIds: BlueprintNodeId[];
-  flowIds: BlueprintFlowId[];
-  proofWorkIds: WorkId[];
-};
-```
-
-Un registre `blueprintNodeLayout: Record<BlueprintNodeId, BlueprintNodeLayout>` centralise position et largeur de chaque carte. `blueprintFlowLayout: Record<BlueprintFlowId, BlueprintFlowLayout>` fixe les côtés source/cible et le décalage de routage de chaque connexion. Ces données décrivent uniquement la présentation du graphe fixe et ne contiennent aucun texte éditorial.
-
-Les libellés ne servent jamais de clés relationnelles. Les nœuds, flux, résumés, preuves, zones et cartes de valeur restent centralisés dans `portfolioData.ts`.
-
-## Pipeline méthode
-
-```ts
-type MethodStep = {
+type AgenticStage = {
   id: string;
   title: string;
   description: string;
-  role: string;
-  accent: 'blue' | 'violet' | 'green';
+  owner: 'human' | 'coordinator' | 'specialist-agents';
+  boundedBy: string;
+};
+
+type HumanApprovalGate = {
+  id: 'production' | 'secrets' | 'payments' | 'real-data' | 'sensitive-migrations' | 'external-actions';
+  label: string;
+  reason: string;
+};
+
+type AgenticCaseSummary = {
+  id: 'tz-smart' | 'fretunia' | 'acm-iagasy';
+  title: string;
+  summary: string;
+  coordination: string[];
+  boundary: string;
+};
+
+type AgenticMethod = {
+  title: string;
+  promise: string;
+  coordinator: 'Claude Code';
+  secondaryTools: ['Codex'];
+  stages: AgenticStage[];
+  approvalGates: HumanApprovalGate[];
+  cases: AgenticCaseSummary[];
 };
 ```
 
-Les six étapes et leur ordre sont centralisés dans `portfolioData.ts`. Les connexions sont dérivées de cet ordre et ne portent aucun contenu métier supplémentaire.
+## Recruiter actions
+
+```ts
+type RecruiterCta = {
+  primaryRoute: 'agenticDelivery';
+  targetRoles: string[];
+  resumes: {
+    ai: Localized<string>;
+    fullStack: Localized<string>;
+  };
+};
+
+type ExternalDemoVideo =
+  | { enabled: false; url?: never; thumbnail?: never }
+  | {
+      enabled: true;
+      url: string;
+      thumbnail: string;
+      spokenLanguage: 'fr';
+      subtitleLanguage: 'en';
+      safetyReviewed: true;
+    };
+```
+
+## Existing evidence
+
+`WorkItem` remains the product-delivery evidence model. Agentic case summaries reference work IDs but do not merge with product AI capabilities. Existing media IDs, evidence levels, public URLs, and publishable metric guardrails remain intact.
+
+## SEO
+
+Each route/locale pair has title, description, canonical path, Open Graph copy, and its alternate locale path. A single conservative `Person` JSON-LD object contains only verified name, role, location, public profiles, and site URL.

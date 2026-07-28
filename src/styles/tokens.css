@@ -42,8 +42,8 @@
   --color-contact-teal: #52796f;
   --gradient-action: linear-gradient(135deg, #354f52 0%, #52796f 68%, #44685f 100%);
   --gradient-contact: var(--gradient-action);
-  --font-display: Inter, Manrope, "Segoe UI", sans-serif;
-  --font-body: Inter, Manrope, "Segoe UI", sans-serif;
+  --font-display: Fraunces, Georgia, serif;
+  --font-body: "IBM Plex Sans", Aptos, "Segoe UI", sans-serif;
   --text-xs: .76rem;
   --text-sm: .88rem;
   --text-base: 1rem;

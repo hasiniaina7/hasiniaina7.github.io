@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import {
   Handle,
   Position,
@@ -34,18 +34,17 @@ import {
   blueprintFlowLayout,
   blueprintNodeLayout,
   blueprintNodes,
-  blueprintSectionCopy,
   blueprintViews,
   blueprintZoneLabels,
-  statusLabels,
   workById,
   type BlueprintIcon,
   type BlueprintNode,
   type BlueprintViewId,
   type BlueprintZone,
 } from '@/data/portfolioData';
+import { localizedBlueprintCopy, type Locale } from '@/data/localizedPortfolio';
 
-type DiagramNodeData = BlueprintNode & { active: boolean };
+type DiagramNodeData = BlueprintNode & { active: boolean; statusLabel: string };
 type ZoneNodeData = { label: string; zone: BlueprintZone };
 type ConnectorLayerData = { activeFlowIds: string[] };
 
@@ -105,7 +104,7 @@ function DiagramCard({ data }: NodeProps<Node<DiagramNodeData>>) {
       ])}
       <span className="blueprint-node__icon" aria-hidden="true"><Icon /></span>
       <div><h4>{data.label}</h4><p>{data.detail}</p></div>
-      <span className={`blueprint-node__status blueprint-node__status--${data.status}`}>{statusLabels[data.status]}</span>
+      <span className={`blueprint-node__status blueprint-node__status--${data.status}`}>{data.statusLabel}</span>
     </article>
   );
 }
@@ -170,19 +169,21 @@ function ConnectorLayer({ data }: NodeProps<Node<ConnectorLayerData>>) {
 
 const nodeTypes: NodeTypes = { blueprintCard: DiagramCard, blueprintZone: DiagramZone, connectorLayer: ConnectorLayer };
 
-export function BlueprintDiagram() {
+export function BlueprintDiagram({ locale }: { locale: Locale }) {
   const [activeViewId, setActiveViewId] = useState<BlueprintViewId>('overview');
-  const activeView = blueprintViews.find((view) => view.id === activeViewId) ?? blueprintViews[0]!;
+  const copy = localizedBlueprintCopy[locale];
+  const activeViewBase = blueprintViews.find((view) => view.id === activeViewId) ?? blueprintViews[0]!;
+  const activeView = { ...activeViewBase, ...copy.views[activeViewBase.id] };
 
-  const nodes = useMemo<Node[]>(() => {
-    const activeNodeIds = new Set(activeView.nodeIds);
+  const nodes: Node[] = (() => {
+    const activeNodeIds = new Set(activeViewBase.nodeIds);
     const zoneNodes = (Object.keys(zoneGeometry) as BlueprintZone[]).map((zone) => {
       const geometry = zoneGeometry[zone];
       return {
         id: `zone-${zone}`,
         type: 'blueprintZone',
         position: { x: geometry.x, y: geometry.y },
-        data: { label: blueprintZoneLabels[zone], zone },
+        data: { label: copy.zones[zone] ?? blueprintZoneLabels[zone], zone },
         width: geometry.width,
         height: geometry.height,
         initialWidth: geometry.width,
@@ -200,7 +201,12 @@ export function BlueprintDiagram() {
         id: node.id,
         type: 'blueprintCard',
         position: layout.position,
-        data: { ...node, active: activeNodeIds.has(node.id) },
+        data: {
+          ...node,
+          ...copy.nodes[node.id],
+          statusLabel: copy.statuses[node.status],
+          active: activeNodeIds.has(node.id),
+        },
         width: layout.width,
         height: 82,
         initialWidth: layout.width,
@@ -217,7 +223,7 @@ export function BlueprintDiagram() {
       id: 'connector-layer',
       type: 'connectorLayer',
       position: { x: 0, y: 0 },
-      data: { activeFlowIds: activeView.flowIds },
+      data: { activeFlowIds: activeViewBase.flowIds },
       width: 1128,
       height: 755,
       initialWidth: 1128,
@@ -229,29 +235,29 @@ export function BlueprintDiagram() {
       zIndex: 10,
     };
     return [...zoneNodes, connectorNode, ...cardNodes];
-  }, [activeView]);
+  })();
 
   return (
     <section className="blueprint" aria-labelledby="blueprint-title">
       <header className="blueprint__header">
-        <p className="blueprint__eyebrow">{blueprintSectionCopy.eyebrow}</p>
-        <h2 id="blueprint-title">{blueprintSectionCopy.title}</h2>
-        <p>{blueprintSectionCopy.introduction}</p>
+        <p className="blueprint__eyebrow">{copy.section.eyebrow}</p>
+        <h2 id="blueprint-title">{copy.section.title}</h2>
+        <p>{copy.section.introduction}</p>
       </header>
 
-      <div className="blueprint__filters" role="group" aria-label={blueprintSectionCopy.filtersLabel}>
+      <div className="blueprint__filters" role="group" aria-label={copy.section.filtersLabel}>
         {blueprintViews.map((view) => {
           const Icon = viewIconById[view.id];
-          return <button key={view.id} type="button" aria-pressed={view.id === activeViewId} onClick={() => setActiveViewId(view.id)}><Icon aria-hidden="true" /><span>{view.label}</span></button>;
+          return <button key={view.id} type="button" aria-pressed={view.id === activeViewId} onClick={() => setActiveViewId(view.id)}><Icon aria-hidden="true" /><span>{copy.views[view.id].label}</span></button>;
         })}
       </div>
 
       <div className="blueprint__context" aria-live="polite" aria-atomic="true">
         <p><strong>{activeView.label}.</strong> {activeView.summary}</p>
-        <p className="blueprint__proofs"><span>{blueprintSectionCopy.proofLabel}</span>{activeView.proofWorkIds.map((id) => <strong key={id}>{workById[id].title}</strong>)}</p>
+        <p className="blueprint__proofs"><span>{copy.section.proofLabel}</span>{activeView.proofWorkIds.map((id) => <strong key={id}>{workById[id].title}</strong>)}</p>
       </div>
 
-      <div className="blueprint__map" aria-label={blueprintSectionCopy.mapLabel}>
+      <div className="blueprint__map" aria-label={copy.section.mapLabel}>
         <ReactFlow
           nodes={nodes}
           edges={[]}
@@ -270,20 +276,21 @@ export function BlueprintDiagram() {
           zoomOnScroll={false}
           preventScrolling={false}
           proOptions={{ hideAttribution: true }}
-          aria-label={blueprintSectionCopy.mapLabel}
+          aria-label={copy.section.mapLabel}
         />
       </div>
 
-      <div className="blueprint__legend" aria-label="États">
-        {Object.entries(statusLabels).map(([status, label]) => <span key={status}><i className={`blueprint__legend-dot blueprint__legend-dot--${status}`} aria-hidden="true" />{label}</span>)}
+      <div className="blueprint__legend" aria-label={copy.section.statesLabel}>
+        {Object.entries(copy.statuses).map(([status, label]) => <span key={status}><i className={`blueprint__legend-dot blueprint__legend-dot--${status}`} aria-hidden="true" />{label}</span>)}
       </div>
 
-      <ol className="blueprint__mobile-path" aria-label={`${activeView.label} : parcours ordonné`}>
+      <ol className="blueprint__mobile-path" aria-label={`${activeView.label}: ${copy.section.orderedPath}`}>
         {activeView.mobileNodeIds.map((nodeId, index) => {
           const node = blueprintNodes.find((item) => item.id === nodeId);
           if (!node) return null;
           const Icon = iconById[node.icon];
-          return <li key={node.id} className={`blueprint-mobile-node blueprint-mobile-node--${node.accent}`}><span className="blueprint-mobile-node__index">{String(index + 1).padStart(2, '0')}</span><span className="blueprint-node__icon" aria-hidden="true"><Icon /></span><div><h3>{node.label}</h3><p>{node.detail}</p></div></li>;
+          const nodeCopy = copy.nodes[node.id];
+          return <li key={node.id} className={`blueprint-mobile-node blueprint-mobile-node--${node.accent}`}><span className="blueprint-mobile-node__index">{String(index + 1).padStart(2, '0')}</span><span className="blueprint-node__icon" aria-hidden="true"><Icon /></span><div><h3>{nodeCopy.label}</h3><p>{nodeCopy.detail}</p></div></li>;
         })}
       </ol>
     </section>

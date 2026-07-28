@@ -1,112 +1,78 @@
-# Plan — Portfolio éditorial des réalisations
+# Plan — AI Integration & Agentic Full-Stack Engineer
 
-## Objectif
+## Objective
 
-Faire évoluer les six routes du portfolio premium afin de montrer l’étendue réelle des systèmes, sites, applications mobiles et intégrations IA livrés, sans transformer les compositions marketing en preuves factuelles.
+Reposition the portfolio for international recruiters looking for a confirmed engineer who can orchestrate autonomous AI agent teams and deliver reliable full-stack systems.
 
-## Sources de vérité
+The public positioning is **AI Integration & Agentic Full-Stack Engineer**. English is the default locale; French is complete and equivalent. Public level is **Mid-level / Confirmé**, never Senior.
 
-- `specs/portfolio-reorganisation.md` : taxonomie et périmètre éditorial validés.
-- `src/data/portfolioData.ts` : contenus, affirmations, relations, URLs et sélections publiables.
-- `tmp/image 1.png` : direction artistique uniquement, jamais publiée.
-- `tmp/image 2.png` : état visuel initial uniquement, jamais publié.
-- Treize compositions validées comme médias de présentation ; leurs métriques intégrées ne sont jamais reprises automatiquement dans le HTML.
+## Locked product decisions
 
-## Stack et routes
+- Primary promise:
+  - EN: “I orchestrate autonomous AI agent teams to design, build, test, and ship reliable full-stack systems, while keeping production and sensitive actions under human approval.”
+  - FR: “J’orchestre des équipes d’agents IA autonomes pour concevoir, construire, tester et livrer des systèmes full-stack fiables, avec validation humaine des actions de production et sensibles.”
+- Market: international remote employment, with relocation openness.
+- Claude Code is the principal coordination agent. Codex is a secondary implementation and review tool.
+- The three qualitative agentic proofs are TZ Smart, Fretunia, and ACM/iagasy.
+- Agentic proof never includes unmeasured duration, cost, multiplier, or autonomy rate.
+- Human approval is mandatory for production, secrets, payments, real data, sensitive migrations, and external actions.
+- Product AI and development agents remain explicitly separate.
+- The existing palette, portrait, media, blueprint, lightbox, motion system, six-page structure, and typed `WorkItem` product evidence are retained.
+- No client artifact or internal administration detail is published.
+- The optional demo video is absent until both a real URL and thumbnail exist.
 
-- Vite, React 19, TypeScript, React Router et CSS natif.
-- Routes : `/`, `/projets`, `/competences`, `/methode`, `/parcours`, `/contact`.
-- Contact v1 honnête par `mailto:` et liens publics réels.
+## Route model
 
-## Séquence d’exécution
+Route IDs are independent from localized slugs.
 
-1. Aligner les spécifications et retirer l’invariant obsolète des quatre projets.
-2. Remplacer le modèle `Project` par un inventaire relationnel de réalisations typées.
-3. Optimiser les treize compositions publiables et le portrait réel en AVIF/WebP, puis étendre le manifeste.
-4. Ajouter cartes éditoriales, filtres accessibles, études de cas et visionneuse.
-5. Recomposer l’accueil et relier compétences, méthode, parcours et contact aux nouvelles données.
-6. Valider typecheck, lint, build, médias, contenu, accessibilité, SEO et responsive.
+- EN: `/en`, `/en/projects`, `/en/skills`, `/en/agentic-delivery`, `/en/experience`, `/en/contact`
+- FR: `/fr`, `/fr/projets`, `/fr/competences`, `/fr/orchestration-agentique`, `/fr/parcours`, `/fr/contact`
+- `/` redirects to `/en`.
+- Historical French routes redirect to their new French equivalents.
+- The locale switch preserves the equivalent route ID.
 
-## Direction visuelle média
+## Content architecture
 
-- Portfolio stable en navy, bleu, indigo, violet et cyan, indépendamment des identités des produits.
-- Médias 4:3 ou 16:9 affichés sans recadrage sur surface claire ou sombre selon leur composition.
-- Deux cartes dominantes et deux secondaires seulement sur l’accueil.
-- Études de cas principales généreuses, texte métier en HTML avant le média.
-- Visionneuse accessible avec fermeture Échap, clic hors image, restitution du focus, image non recadrée et lien produit conditionnel issu des données centralisées.
+1. Home: agent orchestration first, three immediate proofs, then delivered systems.
+2. Projects: retain the complete product inventory and clearly separate product AI from development orchestration.
+3. Skills: prioritize agent orchestration, AI integration, full-stack engineering, and reliability.
+4. Agentic Delivery: central seven-stage workflow demonstration, approval gates, and three qualitative cases.
+5. Experience: field operations → business systems → integrated AI → agentic orchestration.
+6. Contact: recruiter-oriented roles, company, role, location/work model, and message through `mailto:`.
 
-## Palette d’accent
+All navigation, marketing copy, SEO, routes, CV links, agentic cases, approval gates, and optional video configuration live in typed data. Components contain presentation logic only.
 
-- Palette fournie : `#6274E7`, `#686EDC`, `#6E69D0`, `#7563C5`, `#7B5DBA`, `#8158AE`, `#8752A3`.
-- Le Deep Teal `#52796F` porte les CTA remplis et le monogramme « HC » avec texte blanc ; les tons bleu-violet servent aux bordures, halos et surfaces teintées.
-- Les cartes restent majoritairement blanches et reçoivent seulement une ligne d’accent, une ombre colorée ou un hover maîtrisé.
-- Les boutons et états actifs qui utilisaient le dégradé violet emploient le dégradé Deep Teal centré sur `#52796F` ; les autres cartes et accents conservent la palette bleu-violet.
+## Resume assets
 
-## Hero cible
+Copy the existing AI/RAG/Automation and Full-Stack Product PDFs in English and French into public assets without changing source CVs. The AI resume is the primary download in the active language; the Full-Stack resume is secondary.
 
-- Recomposer le hero selon `tmp/image 1-hero.png` : texte compact à gauche, portrait dominant au centre, stack visuelle à droite.
-- Utiliser le portrait généré validé comme édition fidèle du portrait réel et le portail généré uniquement comme décoration.
-- Détourer les deux sources chroma-key, conserver leurs sources intactes et publier des variantes AVIF/WebP.
-- Remplacer les métriques fictives de la référence par des faits vérifiés : base, disponibilité et méthode.
-- Construire badges, expertises, stack et boutons en HTML/CSS ; aucun texte ne dépend des images.
+## SEO and discovery
 
-## Garde-fous
+- Set document `lang`, canonical, Open Graph, and alternate `hreflang` links per localized URL.
+- Publish all twelve localized URLs in `sitemap.xml`.
+- Add a verified, conservative `Person` JSON-LD schema.
+- Preserve SPA direct navigation through the existing GitHub Pages build/deploy workflow.
 
-- Aucun fait, métrique, certificat, rôle ou projet inventé.
-- Les chiffres visibles dans les compositions restent des éléments de représentation visuelle non repris comme preuve.
-- `image 1` et `image 2` restent non publiables.
-- JN Travel utilise un placeholder tant qu’aucun média réel validé n’est fourni.
-- Le hero utilise `tmp/hasiniaina.png`, portrait réel au ratio 4:5, sans transformation d’identité.
-- Codex et Claude décrivent la méthode de développement ; n8n et OpenClaw illustrent les intégrations produit.
-- Données métier centralisées et typées ; aucun domaine ni URL dispersé dans les composants.
+## Execution sequence
 
-## Gates qualité
+1. Align `plan.md`, `task.md`, and every file under `specs/`.
+2. Introduce the typed locale, route, agentic method, approval gate, recruiter CTA, resume, and optional video contracts.
+3. Implement route resolution, redirects, locale preservation, shared shell, metadata, and bilingual page content.
+4. Copy the four resume assets and update the sitemap.
+5. Run static validation and explicit forbidden-content audits.
+6. Validate direct and client-side navigation, locale switching, metadata, accessibility, reduced motion, links, and responsive layouts from 360 to 1440 px.
+7. Store reports and screenshots in a timestamped `artifacts/` directory.
 
-- Médias sans upscale, dimensions explicites, AVIF/WebP et trois variantes maximum.
-- Un H1 par route, focus visible, clavier complet, WCAG AA et `prefers-reduced-motion`.
-- Aucun débordement horizontal de 360 à 1440 px.
-- `npm run typecheck`, `npm run lint`, `npm run build` et `npm run media:check` réussissent.
-- Captures et audits conservés comme artefacts de validation.
+## Acceptance gates
 
-## Évolution — Blueprint système interactif
-
-1. Remplacer le blueprint vertical par une carte pleine largeur construite en HTML et CSS, avec un graphe `@xyflow/react` non manipulable pour les connexions desktop/tablette.
-2. Centraliser quatre zones de nœuds vérifiés et cinq vues de flux typées dans `portfolioData.ts`.
-3. Relier chaque connexion par identifiants stables et chaque parcours à ses réalisations de preuve.
-4. Déplacer sous le diagramme les cartes Sécurité intégrée, Continuité terrain, Traçabilité et Observabilité.
-5. Fournir une carte connectée à positions et ancrages déterministes sur desktop/tablette, et un parcours vertical sans graphe sur mobile.
-6. Valider clavier, `aria-pressed`, zone live, mouvement réduit, responsive et absence de technologies non démontrées.
-7. Donner au blueprint une finition premium inspirée de la référence fournie : onglets, zones teintées, cartes blanches, badges d'état et connexions nettes, sans en reprendre le contenu.
-
-La section porte le titre « Concevoir des systèmes fiables, traçables et orientés opérations ». Elle ne publie aucun raster et exclut MongoDB, Redis, S3, IoT, l’API Gateway générique, les microservices systématiques et la haute disponibilité non démontrée.
-
-## Évolution — Pipeline méthode connecté
-
-1. Remplacer les six cartes juxtaposées de `/methode` par un graphe linéaire `@xyflow/react` en lecture seule.
-2. Centraliser les étapes, rôles, descriptions et accents dans `portfolioData.ts`.
-3. Utiliser des poignées et arêtes explicites pour matérialiser la progression, avec un état visuel distinct pour le contrôle humain final.
-4. Conserver une liste verticale sémantique sous 700 px, sans dépendance au canvas pour comprendre la méthode.
-5. Valider responsive, clavier, mouvement réduit, typecheck, lint et build.
-
-## Évolution — Découpage du bundle par route
-
-1. Remplacer les imports synchrones des six pages par des imports dynamiques React.
-2. Conserver le shell, la navigation et un fallback accessible dans le bundle initial.
-3. Laisser Vite extraire les dépendances partagées sans dupliquer React Flow entre les routes qui l’utilisent.
-4. Comparer les chunks produits et valider la navigation directe sur chaque route.
-
-## Évolution — Motion globale premium
-
-1. Monter une orchestration Motion unique dans le shell afin de couvrir les six routes sans dupliquer la logique dans les pages.
-2. Conserver une signature d’entrée forte sur l’accueil, puis réserver les révélations aux groupes qui portent une hiérarchie ou une séquence réelle.
-3. Harmoniser les transitions de route, listes, filtres, graphes, menu mobile, visionneuse et champs avec des durées et courbes centralisées.
-4. Maintenir le contenu visible avant initialisation, éviter les animations de layout et neutraliser les déplacements sous `prefers-reduced-motion`.
-5. Valider fluidité, accessibilité, responsive, chargement direct, bundle et absence de régression fonctionnelle sur les six routes.
-
-## Évolution — Chargement média à la demande
-
-1. Conserver le portrait LCP comme seul média prioritaire initial ; les médias éditoriaux et les études de cas restent différés.
-2. Laisser le navigateur choisir une seule variante AVIF/WebP via `srcset` et `sizes`, sans précharger toutes les résolutions.
-3. Monter l’image de visionneuse seulement après l’ouverture explicite et lui donner alors une priorité haute.
-4. Afficher un état de chargement réservé dans les miniatures et dans la visionneuse, avec une erreur lisible en cas d’échec.
-5. Valider le réseau au chargement initial, le clic de visionneuse, le cache de réouverture, les petits écrans et l’accessibilité.
+- `npm run typecheck`, `npm run lint`, `npm run build`, and `npm run media:check` pass.
+- All twelve localized routes work directly and through client-side navigation.
+- Historical redirects resolve correctly.
+- EN/FR parity is complete; no missing keys or fallback marketing copy.
+- No public positioning contains “Senior”.
+- No invented agentic metric, unbounded production autonomy, or claim that programming languages are no longer needed.
+- Claude Code is primary; Codex is secondary.
+- Product AI and development agents are clearly distinguished.
+- Four resume links resolve; no video CTA renders without real URL and thumbnail.
+- Canonical, `hreflang`, `lang`, sitemap, JSON-LD, and Open Graph are verified.
+- Responsive, keyboard, focus, contrast, reduced-motion, console, link, and performance checks are documented.

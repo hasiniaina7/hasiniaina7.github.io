@@ -1,108 +1,56 @@
 import { useMemo, useState } from 'react';
-import { pageCopy, profile } from '@/data/portfolioData';
+import { usePortfolioLocale } from '@/hooks/usePortfolioLocale';
 
 type ComposerState = {
   name: string;
   email: string;
-  organization: string;
-  subject: string;
-  projectType: string;
+  company: string;
+  role: string;
+  workModel: string;
   message: string;
 };
 
-const initialState: ComposerState = {
-  name: '',
-  email: '',
-  organization: '',
-  subject: 'Demande de collaboration',
-  projectType: pageCopy.contact.projectTypes[0],
-  message: '',
-};
-
 export function ContactComposer() {
-  const [state, setState] = useState<ComposerState>(initialState);
+  const { content } = usePortfolioLocale();
+  const fields = content.contact.fields;
+  const [state, setState] = useState<ComposerState>(() => ({
+    name: '',
+    email: '',
+    company: '',
+    role: '',
+    workModel: content.contact.workModels[0] ?? '',
+    message: '',
+  }));
 
   const mailtoHref = useMemo(() => {
     const body = [
-      `Nom: ${state.name || profile.fullName}`,
-      `Email: ${state.email || profile.email}`,
-      `Organisation: ${state.organization || 'Non précisée'}`,
-      `Type de projet: ${state.projectType}`,
+      `${fields.name}: ${state.name || fields.unspecified}`,
+      `${fields.email}: ${state.email || fields.unspecified}`,
+      `${fields.company}: ${state.company || fields.unspecified}`,
+      `${fields.role}: ${state.role || fields.unspecified}`,
+      `${fields.workModel}: ${state.workModel || fields.unspecified}`,
       '',
-      state.message.trim() || 'Bonjour,',
+      state.message.trim(),
     ].join('\n');
 
-    const subject = encodeURIComponent(state.subject.trim() || 'Demande de collaboration');
-    return `mailto:${profile.email}?subject=${subject}&body=${encodeURIComponent(body)}`;
-  }, [state.email, state.message, state.name, state.organization, state.projectType, state.subject]);
+    return `mailto:${content.profile.email}?subject=${encodeURIComponent(fields.defaultSubject)}&body=${encodeURIComponent(body)}`;
+  }, [content.profile.email, fields, state]);
 
   return (
     <section className="contact-composer" aria-labelledby="contact-composer-title">
       <div className="contact-composer__intro">
-        <p className="section-heading__eyebrow">E-mail</p>
-        <h2 id="contact-composer-title" className="section-heading__title">
-          Préparer un échange clair
-        </h2>
-        <p className="section-heading__summary">
-          Renseignez le contexte utile. Le bouton ouvre votre client mail avec un message déjà structuré.
-        </p>
+        <p className="section-heading__eyebrow">{content.contact.composerEyebrow}</p>
+        <h2 id="contact-composer-title" className="section-heading__title">{content.contact.composerTitle}</h2>
+        <p className="section-heading__summary">{content.contact.composerSummary}</p>
       </div>
       <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
-        <label>
-          Nom complet
-          <input
-            type="text"
-            value={state.name}
-            onChange={(event) => setState((current) => ({ ...current, name: event.target.value }))}
-            autoComplete="name"
-          />
-        </label>
-        <label>
-          Adresse e-mail
-          <input
-            type="email"
-            value={state.email}
-            onChange={(event) => setState((current) => ({ ...current, email: event.target.value }))}
-            autoComplete="email"
-          />
-        </label>
-        <label>
-          Organisation
-          <input
-            type="text"
-            value={state.organization}
-            onChange={(event) => setState((current) => ({ ...current, organization: event.target.value }))}
-          />
-        </label>
-        <label>
-          Sujet
-          <input
-            type="text"
-            value={state.subject}
-            onChange={(event) => setState((current) => ({ ...current, subject: event.target.value }))}
-          />
-        </label>
-        <label>
-          Type de projet
-          <select
-            value={state.projectType}
-            onChange={(event) => setState((current) => ({ ...current, projectType: event.target.value }))}
-          >
-            {pageCopy.contact.projectTypes.map((projectType) => <option key={projectType}>{projectType}</option>)}
-          </select>
-        </label>
-        <label>
-          Message
-          <textarea
-            maxLength={1000}
-            rows={8}
-            value={state.message}
-            onChange={(event) => setState((current) => ({ ...current, message: event.target.value }))}
-          />
-        </label>
-        <a className="button button--primary" href={mailtoHref}>
-          Préparer l’e-mail
-        </a>
+        <label>{fields.name}<input name="name" type="text" value={state.name} onChange={(event) => setState((current) => ({ ...current, name: event.target.value }))} autoComplete="name" /></label>
+        <label>{fields.email}<input name="email" type="email" value={state.email} onChange={(event) => setState((current) => ({ ...current, email: event.target.value }))} autoComplete="email" spellCheck={false} /></label>
+        <label>{fields.company}<input name="company" type="text" value={state.company} onChange={(event) => setState((current) => ({ ...current, company: event.target.value }))} autoComplete="organization" /></label>
+        <label>{fields.role}<input name="role" type="text" value={state.role} onChange={(event) => setState((current) => ({ ...current, role: event.target.value }))} autoComplete="off" /></label>
+        <label>{fields.workModel}<select name="workModel" value={state.workModel} onChange={(event) => setState((current) => ({ ...current, workModel: event.target.value }))}>{content.contact.workModels.map((model) => <option key={model}>{model}</option>)}</select></label>
+        <label>{fields.message}<textarea name="message" maxLength={1500} rows={8} value={state.message} onChange={(event) => setState((current) => ({ ...current, message: event.target.value }))} /></label>
+        <a className="button button--primary" href={mailtoHref}>{fields.submit}</a>
       </form>
     </section>
   );

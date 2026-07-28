@@ -8,9 +8,10 @@ type ResponsiveMediaProps = {
   className?: string;
   onLoad?: ReactEventHandler<HTMLImageElement>;
   onError?: ReactEventHandler<HTMLImageElement>;
+  alt?: string;
 };
 
-export function ResponsiveMedia({ asset, sizes, priority = false, className, onLoad, onError }: ResponsiveMediaProps) {
+export function ResponsiveMedia({ asset, sizes, priority = false, className, onLoad, onError, alt }: ResponsiveMediaProps) {
   const webp = asset.variants.filter((variant) => variant.format === 'webp');
   const avif = asset.variants.filter((variant) => variant.format === 'avif');
   const fallback = webp.at(-1);
@@ -29,7 +30,7 @@ export function ResponsiveMedia({ asset, sizes, priority = false, className, onL
         sizes={sizes}
         width={fallback.width}
         height={fallback.height}
-        alt={asset.alt}
+        alt={alt ?? asset.alt}
         loading={loading}
         fetchPriority={priority ? 'high' : 'auto'}
         decoding="async"

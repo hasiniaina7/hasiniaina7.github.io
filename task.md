@@ -1,126 +1,54 @@
-# Tâches — Réorganisation éditoriale des réalisations
+# Tasks — Agentic international repositioning
 
-## Phase 1 — Spécifications
+## Phase 1 — Specifications
 
-- [x] Intégrer `specs/portfolio-reorganisation.md` comme nouvelle source de vérité.
-- [x] Retirer la limite de quatre projets et documenter la taxonomie système/web/mobile/IA.
-- [x] Définir le contrat des médias éditoriaux, des filtres et de la visionneuse.
+- [x] Align the positioning, locales, route IDs, and historical redirects.
+- [x] Define the seven-stage Agentic Delivery workflow and mandatory human approval gates.
+- [x] Define the three qualitative agentic cases without autonomy metrics.
+- [x] Define bilingual content, SEO, resume, contact, and optional video contracts.
+- [x] Align product, design, data model, contracts, and test strategy.
 
-## Phase 2 — Données et médias
+## Phase 2 — Typed data and routing
 
-- [x] Migrer les quatre anciennes entrées vers le modèle `WorkItem`.
-- [x] Ajouter SBT Travel, RMB Cargo, JN Travel et les trois applications mobiles.
-- [x] Séparer IA produit et agents de développement.
-- [x] Générer les variantes AVIF/WebP des treize médias publiables sans upscale.
-- [x] Conserver `image 1` et `image 2` hors publication.
-- [x] Optimiser et intégrer le portrait réel `hasiniaina.png` dans le hero.
+- [x] Add `Locale`, route IDs, localized slugs, equivalent-route helpers, and parity-safe dictionaries.
+- [x] Add `AgenticMethod`, `AgenticStage`, `AgenticCaseSummary`, `HumanApprovalGate`, `RecruiterCta`, and `ExternalDemoVideo`.
+- [x] Add bilingual marketing, navigation, SEO, resume, project, skills, experience, and contact data.
+- [x] Redirect `/` to `/en` and historical French routes to localized equivalents.
+- [x] Preserve the equivalent page in the locale switch.
 
-## Phase 3 — Implémentation
+## Phase 3 — UI implementation
 
-- [x] Créer la carte générique de réalisation et les filtres accessibles.
-- [x] Créer la visionneuse accessible avec restitution du focus.
-- [x] Recomposer l’accueil avec quatre médias sélectionnés et la rangée des sites.
-- [x] Refaire `/projets` en inventaire filtrable et études de cas principales.
-- [x] Relier `/competences`, `/methode`, `/parcours` et `/contact` aux nouvelles données.
-- [x] Ajouter Codex/Claude à la méthode et n8n/OpenClaw aux contenus IA produit.
-- [x] Détourer et optimiser le portrait bras croisés et le portail généré.
-- [x] Recomposer le hero selon la référence `image 1-hero.png`.
-- [x] Remplacer la liste textuelle de stack par une grille visuelle accessible.
+- [x] Recompose Home around agent orchestration and the three immediate proofs.
+- [x] Localize Projects and distinguish product AI from development orchestration.
+- [x] Reprioritize Skills around orchestration, AI integration, full-stack, and reliability.
+- [x] Turn Method into the central Agentic Delivery demonstration.
+- [x] Recompose Experience as field → business systems → integrated AI → agentic orchestration.
+- [x] Reorient Contact to recruitment opportunities through `mailto:`.
+- [x] Preserve palette, portrait, editorial media, blueprint, lightbox, motion, and general structure.
+- [x] Keep the optional video absent until real URL and thumbnail exist.
 
-## Phase 4 — Validation
+## Phase 4 — Resume and SEO assets
 
-- [x] Exécuter typecheck, lint, build et audit média.
-- [x] Tester les six routes aux largeurs 1440, 1280, 1024, 768, 430, 390 et 360 px.
-- [x] Auditer visionneuse, filtres, menu mobile, clavier, focus, titres et mouvement réduit.
-- [x] Auditer console, liens, SEO, poids média, layout shift et métriques non traçables.
-- [x] Corriger tous les échecs avant clôture.
-- [x] Valider visuellement le portrait sur desktop et mobile.
-- [x] Intégrer la palette fournie aux CTA, états actifs et accents de cartes.
-- [x] Vérifier visuellement la nouvelle palette et ses contrastes sur desktop/mobile.
-- [x] Valider le nouveau hero à 1440, 1024, 768, 430, 390 et 360 px.
+- [x] Copy the EN/FR AI and Full-Stack PDFs without changing source CV files.
+- [x] Make AI/RAG/Automation the primary resume per locale.
+- [x] Add canonical, `hreflang`, `lang`, Open Graph, conservative Person JSON-LD, and twelve-route sitemap.
 
-## Phase 5 — Blueprint système interactif
+## Phase 5 — Automated validation
 
-- [x] Remplacer les connexions textuelles par des identifiants de nœuds stables.
-- [x] Ajouter les zones, icônes, niveaux de preuve et réalisations associées aux nœuds.
-- [x] Définir les vues Vue globale, Paiements, Mobile offline, IA contrôlée et Monitoring.
-- [x] Construire les filtres accessibles, le résumé live et les connexions SVG responsive.
-- [x] Fournir un parcours vertical ordonné sans SVG complexe sur mobile.
-- [x] Placer les quatre cartes de valeur vérifiées sous le diagramme.
-- [x] Valider les cinq vues, les sept largeurs, le clavier, WCAG AA et le mouvement réduit.
-- [x] Exécuter typecheck, lint, build, audit média et audit des termes interdits.
+- [x] Run typecheck, lint, build, and media audit.
+- [x] Audit EN/FR dictionary parity and missing fallbacks.
+- [x] Audit all twelve routes and historical redirects.
+- [x] Audit forbidden positioning, metrics, tool hierarchy, product/development AI confusion, and unsafe autonomy.
+- [x] Verify all four resume assets and the absence of the video CTA.
 
-## Phase 6 — Blueprint premium durable
+## Phase 6 — Browser validation
 
-- [x] Remplacer la géométrie SVG artisanale par `@xyflow/react` en lecture seule.
-- [x] Centraliser les positions et dimensions dans les données typées, avec ancrages nommés stables.
-- [x] Recomposer les onglets, zones, cartes, badges et légende sans modifier le contenu métier.
-- [x] Conserver le parcours vertical accessible sous 700 px.
-- [x] Valider les cinq vues, le responsive, le clavier, le mouvement réduit, le build et le bundle.
+- [x] Validate direct and client-side navigation for all twelve URLs.
+- [x] Validate locale preservation, document language, canonical, `hreflang`, JSON-LD, and social metadata.
+- [x] Validate 360, 390, 430, 768, 1024, 1280, and 1440 px.
+- [x] Validate keyboard, focus, contrast, reduced motion, links, console, and basic performance.
+- [x] Store screenshots and reports in a timestamped artifacts directory.
 
-## État
+## Status
 
-Réorganisation éditoriale, médias et modernisation premium du blueprint terminés. Captures : `artifacts/blueprint-premium-2026-07-11/`. Rapports historiques : `artifacts/validation-2026-07-11/validation-report.md` et `artifacts/blueprint-validation/browser-audit.json`.
-
-## Phase 7 — Pipeline méthode connecté
-
-- [x] Centraliser les six étapes détaillées de la méthode dans les données typées.
-- [x] Remplacer la grille statique par un graphe React Flow fixe avec connecteurs visibles.
-- [x] Fournir un parcours vertical accessible sous 700 px.
-- [x] Valider responsive, mouvement réduit, typecheck, lint et build.
-
-Captures : `artifacts/method-flow-2026-07-11/`.
-
-## Phase 8 — Découpage du bundle par route
-
-- [x] Charger les six pages par imports dynamiques.
-- [x] Ajouter un fallback de navigation accessible et stable visuellement.
-- [x] Vérifier les chunks générés et l’absence de duplication majeure.
-- [x] Valider les six URLs directes, typecheck, lint et build.
-
-## Phase 9 — Motion globale premium
-
-- [x] Ajouter les tokens motion et l’orchestrateur partagé basé sur Motion.
-- [x] Couvrir transition de route, signature du hero, groupes séquentiels et interactions existantes.
-- [x] Fournir un mode mouvement réduit sans déplacement ni contenu masqué.
-- [x] Valider les six routes, les interactions, le responsive, le bundle et les gates automatiques.
-
-Captures et rapport : `artifacts/motion-premium-2026-07-11/`.
-
-## Phase 10 — Visionneuse directe
-
-- [x] Transformer l’image en déclencheur accessible et retirer le bouton « Agrandir l’image ».
-- [x] Supprimer le zoom et remplacer les contrôles par un unique bouton `X`.
-- [x] Conserver animation, Échap, légende, focus et responsive.
-- [x] Valider typecheck, lint, build et interaction navigateur.
-
-Captures : `artifacts/lightbox-direct-2026-07-11/`.
-
-## Phase 11 — Médias différés et états de chargement
-
-- [x] Réserver la priorité initiale au portrait LCP et retirer les priorités des médias sous la ligne de flottaison.
-- [x] Différer le média grand format de la visionneuse jusqu’au clic explicite.
-- [x] Ajouter les états de chargement et d’erreur accessibles aux miniatures et à la visionneuse.
-- [x] Valider les variantes choisies, le réseau, le cache, le responsive et les gates automatiques.
-
-## Phase 11 — Liens produit et fermeture de visionneuse
-
-- [x] Remplacer le libellé générique « Voir le produit » par le domaine public réellement ciblé.
-- [x] Exposer l’URL publique dans chaque visionneuse de média rattachée à une réalisation, y compris les médias secondaires.
-- [x] Fermer la visionneuse par clic sur le backdrop et l’espace vide autour de l’image, sur tactile comme sur pointeur.
-- [x] Valider typecheck, lint, build et interactions navigateur desktop/mobile.
-
-## Phase 12 — Accent Deep Teal des actions
-
-- [x] Isoler un token Deep Teal `#52796F` et son dégradé pour les actions remplies, états actifs et le monogramme « HC ».
-- [x] Conserver le gradient bleu-violet pour les cartes et accents qui ne sont pas des actions.
-- [x] Valider le contraste, le rendu responsive et le build.
-
-Captures : `artifacts/contact-teal-2026-07-11/`.
-
-## Phase 13 — Portrait miniature de marque
-
-- [x] Remplacer les monogrammes « HC » du header et du footer par la variante portrait 320 px déjà publiée.
-- [x] Valider le recadrage, la performance et le rendu responsive.
-
-Captures : `artifacts/contact-teal-2026-07-11/portrait-mark-mobile.png` et `artifacts/contact-teal-2026-07-11/portrait-mark-desktop.png`.
+Implementation and validation complete. Evidence: `artifacts/agentic-bilingual-20260728-194720/`.

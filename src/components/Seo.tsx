@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { seoByPath } from '@/data/portfolioData';
+import { pathFor, type Locale } from '@/data/localizedPortfolio';
+import { usePortfolioLocale } from '@/hooks/usePortfolioLocale';
 
 type SeoProps = {
   baseUrl: string;
@@ -22,19 +22,24 @@ function setMetaTag(selector: string, value: string) {
 }
 
 export function Seo({ baseUrl }: SeoProps) {
-  const location = useLocation();
+  const { locale, routeId, content } = usePortfolioLocale();
 
   useEffect(() => {
-    const path = (location.pathname === '/' ? '/' : location.pathname) as keyof typeof seoByPath;
-    const meta = seoByPath[path] ?? seoByPath['/'];
-    const canonicalHref = new URL(meta.canonicalPath, baseUrl).toString();
+    const meta = content.seo[routeId];
+    const canonicalHref = new URL(pathFor(locale, routeId), baseUrl).toString();
 
     document.title = meta.title;
-    document.documentElement.lang = 'fr';
+    document.documentElement.lang = locale;
     setMetaTag('meta[name="description"]', meta.description);
     setMetaTag('meta[property="og:title"]', meta.ogTitle);
     setMetaTag('meta[property="og:description"]', meta.ogDescription);
     setMetaTag('meta[property="og:image"]', `${baseUrl}/og-image.svg`);
+    setMetaTag('meta[property="og:url"]', canonicalHref);
+    setMetaTag('meta[property="og:type"]', 'website');
+    setMetaTag('meta[property="og:locale"]', locale === 'en' ? 'en_US' : 'fr_FR');
+    setMetaTag('meta[name="twitter:card"]', 'summary_large_image');
+    setMetaTag('meta[name="twitter:title"]', meta.ogTitle);
+    setMetaTag('meta[name="twitter:description"]', meta.ogDescription);
     setMetaTag('meta[name="theme-color"]', '#f7f9ff');
 
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -44,7 +49,39 @@ export function Seo({ baseUrl }: SeoProps) {
       document.head.appendChild(canonical);
     }
     canonical.href = canonicalHref;
-  }, [baseUrl, location.pathname]);
+
+    (['en', 'fr'] as Locale[]).forEach((alternateLocale) => {
+      let alternate = document.querySelector<HTMLLinkElement>(`link[rel="alternate"][hreflang="${alternateLocale}"]`);
+      if (!alternate) {
+        alternate = document.createElement('link');
+        alternate.rel = 'alternate';
+        alternate.hreflang = alternateLocale;
+        document.head.appendChild(alternate);
+      }
+      alternate.href = new URL(pathFor(alternateLocale, routeId), baseUrl).toString();
+    });
+
+    let structuredData = document.querySelector<HTMLScriptElement>('script[data-portfolio-person]');
+    if (!structuredData) {
+      structuredData = document.createElement('script');
+      structuredData.type = 'application/ld+json';
+      structuredData.dataset.portfolioPerson = 'true';
+      document.head.appendChild(structuredData);
+    }
+    structuredData.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: content.profile.fullName,
+      jobTitle: content.profile.role,
+      email: `mailto:${content.profile.email}`,
+      url: `${baseUrl}/`,
+      homeLocation: { '@type': 'Country', name: 'Madagascar' },
+      sameAs: [
+        'https://github.com/hasiniaina7',
+        'https://www.linkedin.com/in/hasiniaina-christian/',
+      ],
+    });
+  }, [baseUrl, content, locale, routeId]);
 
   return null;
 }
